@@ -1,0 +1,24 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 27017
+  options:
+    w: 1
+    pool_size: 1
+    slave_ok: false
+    ssl: false
+
+development:
+  <<: *defaults
+  database: mongoman_development
+
+test:
+  <<: *defaults
+  database: mongoman_test
+  w: 0
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  database: mongoman
+  username: <%= ENV['MONGO_USERNAME'] %>
+  password: <%= ENV['MONGO_PASSWORD'] %>
