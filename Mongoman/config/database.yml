@@ -1,0 +1,18 @@
+development:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: your_db
+  username: root
+  password: your_pass
+  socket: /tmp/mysql.sock
