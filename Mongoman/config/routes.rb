@@ -1,6 +1,10 @@
 require'genghis'
 Mongoman::Application.routes.draw do
+
+
+  root :to => 'databases#index'
   resources :databases
+  
 
   mount Genghis::Server.new, :at=>'/genghis'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,7 +12,7 @@ Mongoman::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  get '/admin' => 'databases#index'
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
