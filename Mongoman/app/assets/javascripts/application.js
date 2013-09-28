@@ -13,4 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require handlebars
+//= require ember.latest
+//= require ember-data.latest
+//= require_self
+//= require_tree ./controllers
+//= require_tree ./routes
+//= require_tree ./templates
+//= require_tree ./models
+//= require_tree ./helpers
+
+
+
+Mongoman = Ember.Application.create({
+	LOG_TRANSITIONS: true
+});
