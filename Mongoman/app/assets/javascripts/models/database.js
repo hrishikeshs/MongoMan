@@ -1,3 +1,34 @@
-Mongoman.Database = Ember.Object.extend({
-	content: null
+Mongoman.Database = Em.ArrayProxy.extend({
+	content: null.
+
+
+	find: function() {
+
+			$.ajax({
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			})
+
+
+
+
+	}
+  
+  
+
 });
