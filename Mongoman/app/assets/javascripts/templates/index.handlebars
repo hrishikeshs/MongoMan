@@ -1,5 +1,12 @@
-{{render header}}
+{{partial 'application/header'}}
 
-<div role="main">
-  {{outlet}}
+<div class="main-body" style="display:block;margin-top:50px;">
+
+	<div><button>Start Mongo Console</button></div>	
+	<div><pre>                                           </pre></div>
+	{{controller.content}}
+	
+</div>
+
+
 </div>
