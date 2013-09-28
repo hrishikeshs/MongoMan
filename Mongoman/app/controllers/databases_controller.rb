@@ -4,9 +4,6 @@ class DatabasesController < ApplicationController
   # GET /databases
   # GET /databases.json
   def index
-    puts MongoConfig.connection.methods
-    puts "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    puts 
     @databases = MongoConfig.connection.database_names
   end
 
