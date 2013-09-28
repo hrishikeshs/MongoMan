@@ -1,14 +1,3 @@
-GIT
-  remote: git://github.com/mongomapper/mongomapper.git
-  revision: 9b87dee507802a8cb96f2d316802c9fd241448c8
-  tag: v0.13.0.beta2
-  specs:
-    mongo_mapper (0.13.0.beta2)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0)
-      mongo (~> 1.8)
-      plucky (~> 0.6.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -21,6 +10,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -39,6 +30,10 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     backports (3.3.4)
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source
     bson (1.9.0)
     bson_ext (1.9.0)
       bson (~> 1.9.0)
@@ -50,6 +45,18 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    ember-data-source (0.14)
+      ember-source
+    ember-rails (0.13.0)
+      active_model_serializers
+      barber (>= 0.4.1)
+      ember-data-source
+      ember-source
+      execjs (>= 1.2)
+      handlebars-source
+      railties (>= 3.1)
+    ember-source (1.0.0)
+      handlebars-source (= 1.0.12)
     erubis (2.7.0)
     execjs (2.0.1)
     genghisapp (2.3.8)
@@ -59,6 +66,9 @@ GEM
       sinatra-contrib (>= 1.3.1, < 1.5.0)
       sinatra-mustache (>= 0.0.4, < 0.2.0)
       vegas (~> 0.1.8)
+    haml (4.0.3)
+      tilt
+    handlebars-source (1.0.12)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -77,8 +87,6 @@ GEM
       bson (~> 1.9.0)
     multi_json (1.8.0)
     mustache (0.99.4)
-    plucky (0.6.6)
-      mongo (~> 1.5)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -155,10 +163,12 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   coffee-rails (~> 4.0.0)
+  ember-rails
   genghisapp
+  haml
   jbuilder (~> 1.2)
   jquery-rails
-  mongo_mapper!
+  mongo
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
