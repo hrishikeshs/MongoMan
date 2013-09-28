@@ -1,4 +1,4 @@
-Mongoman.IndexController = Ember.ObjectController.extend({
-	content: null
+Mongoman.IndexController = Ember.ArrayController.extend({
+	content: Em.A([])
 	
-})
+});
