@@ -1,0 +1,21 @@
+.database-table {
+
+	width: 90%;
+	background-color: #EEEEEE;
+	margin-top: 5px;
+	border-radius: 3px;
+	border: 12px;
+	border-collapse:separate;
+
+}
+
+.database-table-row {
+	text-align: justify;
+	padding-bottom: 2em;
+}
+
+
+
+.table-links {
+	color: #0E7B9C !important;
+}
