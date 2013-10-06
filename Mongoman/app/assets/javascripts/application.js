@@ -15,16 +15,18 @@
 //= require turbolinks
 //= require handlebars
 //= require ember.latest
-//= require ember-data.latest
 //= require_self
 //= require_tree ./controllers
 //= require_tree ./routes
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./helpers
+//= require_tree ./views
 
 
 
 Mongoman = Ember.Application.create({
-	LOG_TRANSITIONS: true
+	LOG_TRANSITIONS: true,
+	LOG_VIEW_LOOKUPS: true,
+	LOG_ACTIVE_GENERATION: true
 });
