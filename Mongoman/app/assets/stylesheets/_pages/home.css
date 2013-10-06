@@ -1,0 +1,62 @@
+#mongoman-body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.fluid-container{
+	background-color: #EEEEEE;
+	margin-left: -10px;
+	margin-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top:0px;
+	margin-bottom: 3px;
+	width:120%;	
+}
+#app-name {
+	font-size: 2.2em;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 2px;
+	margin-bottom: 0px;
+	font-style: helvetica,'anadale-mono', sans-serif;
+	color:#454646;
+	display: inline-block;
+}
+.header-elem {
+	display: inline;
+	margin-right: 0px;
+}
+#searchbox {
+	display: inline-block;
+	width: 450px;
+	margin-left: 20px;
+	margin-top: 0px;
+	height: 23px;	
+	margin-bottom: 3px;
+	margin-top: 0px;
+	margin-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+}
+#search-btn{
+	display: inline;
+	margin-left:-15px;
+	margin-right: 0px;
+	margin-bottom: 4px;
+	margin-top: 0px;
+	height: 27px;
+	width: 120px, auto;
+	font-weight: 0.9em;
+}
+.header-btn{
+	border:  none;
+	background-color: #EEEEEE;
+	font-size: 1em;
+	font-weight: 0.9em;
+}
+.main-body{
+	margin-left: 60px;
+	margin-right: 70px;
+}
+
