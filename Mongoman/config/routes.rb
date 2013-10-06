@@ -2,7 +2,7 @@ require'genghis'
 Mongoman::Application.routes.draw do
 
 
-  root :to => 'databases#index'
+  root :to => 'databases', :action => 'index'
   resources :databases
   
 
