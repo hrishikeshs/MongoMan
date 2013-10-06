@@ -1,8 +1,8 @@
 <!--[if lt IE 9]>
-= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+<!-- = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" -->
 <![endif]-->
 <!--[if gte IE 9]><!-->
-= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
+<!-- = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" -->
 <!--<![endif]-->
 
 = javascript_include_tag "//d2wy8f7a9ursnm.cloudfront.net/bugsnag-1.0.6.min.js", 'data-apikey' => "57a8d3aae50d38daa72cc9a42a237c1d"
@@ -10,6 +10,6 @@
 :javascript
   Bugsnag.releaseStage = "#{Rails.env}";
 
-= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"
+<!--= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js" -->
 
 = yield :javascripts

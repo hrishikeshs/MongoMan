@@ -1,74 +1,24 @@
 class DatabasesController < ApplicationController
-  before_action :set_database, only: [:show, :edit, :update, :destroy]
 
-  # GET /databases
-  # GET /databases.json
-  def index
-    @databases = MongoConfig.connection.database_names
-  end
-
-  # GET /databases/1
-  # GET /databases/1.json
-  def show
-  end
-
-  # GET /databases/new
-  def new
-    @database = Database.new
-  end
-
-  # GET /databases/1/edit
-  def edit
-  end
-
-  # POST /databases
-  # POST /databases.json
-  def create
-    @database = Database.new(database_params)
-
+  def index   
+    @data = db_info
     respond_to do |format|
-      if @database.save
-        format.html { redirect_to @database, notice: 'Database was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @database }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @database.errors, status: :unprocessable_entity }
-      end
+      format.html
+      format.json {render json: @data }
     end
   end
 
-  # PATCH/PUT /databases/1
-  # PATCH/PUT /databases/1.json
-  def update
-    respond_to do |format|
-      if @database.update(database_params)
-        format.html { redirect_to @database, notice: 'Database was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @database.errors, status: :unprocessable_entity }
-      end
-    end
+
+
+  def db_info
+    connection = MongoConfig.connection
+    dbs = connection.database_info
+    db_names = dbs.keys
+    @data = db_names.map do |e| {
+              name: e,
+              size: dbs[e] * 9.3e-10,      #convert size in bytes to gigabytes
+              indexes: connection[e]['system.indexes'].find().count
+            }end
+    @data
   end
-
-  # DELETE /databases/1
-  # DELETE /databases/1.json
-  def destroy
-    @database.destroy
-    respond_to do |format|
-      format.html { redirect_to databases_url }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_database
-      @database = Database.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def database_params
-      params[:database]
-    end
 end
