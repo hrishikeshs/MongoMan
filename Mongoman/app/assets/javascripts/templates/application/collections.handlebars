@@ -1,0 +1,15 @@
+<div>
+  <div>Listing collections of database: {{database_name}}</div>
+	<table class="mainpage-table">
+					<tr class="mainpage-table-row"><th>Collection Name</th>
+							<th>Size</th>
+							<th>Indexes</th>
+					</tr>
+					{{#each stats}}
+					<tr class="mainpage-table-row"><td><a href = '#/documents/{{unbound this.name}}' class="table-links">{{sanitize this.stats.ns}}</a>
+							<td>{{this.stats.size}}</td>
+							<td>{{this.stats.nindexes}}</td>
+					</tr>
+					{{/each}}
+				</table>
+</div>

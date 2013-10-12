@@ -1,11 +1,11 @@
 <div >
-	<table class="database-table">
-					<tr class="database-table-row"><th>Database Name</th>
+	<table class="mainpage-table">
+					<tr class="mainpage-table-row"><th>Database Name</th>
 							<th>Size</th>
 							<th>Indexes</th>
 					</tr>
 					{{#each content.content}}
-					<tr class="database-table-row"><td><a href = '#/database/{{unbound this.name}}' class="table-links">{{this.name}}</a>
+					<tr class="mainpage-table-row"><td><a href = '#/collections/{{unbound this.name}}' class="table-links">{{this.name}}</a>
 							<td>{{this.size}}</td>
 							<td>{{this.indexes}}</td>
 					</tr>
