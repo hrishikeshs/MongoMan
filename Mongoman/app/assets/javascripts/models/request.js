@@ -5,9 +5,9 @@ Mongoman.Request = Ember.Object.extend({
 
 Mongoman.Request.reopenClass({
 
-	find: function() {
+	find: function(api,index_symbol) {
 		var model= Em.A([]);
-	  var url =  "/databases";            
+	  var url = api ;            
     $.ajax({
       url: url,
       dataType: 'json',
@@ -17,7 +17,7 @@ Mongoman.Request.reopenClass({
       async: true,
       cache: false,
       success: function(data, status, xhr) {
-        model.set('content',data['databases']);
+        model.set('content',data[index_symbol]);
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(xhr,textStatus);
