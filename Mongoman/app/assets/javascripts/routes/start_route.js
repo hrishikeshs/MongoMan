@@ -5,7 +5,7 @@ Mongoman.StartRoute = Ember.Route.extend({
 	},
 
 	model: function() {
-	  return Mongoman.Request.find();
+	  return Mongoman.Request.find("/databases",'databases');
 	},
 
 	setupController: function(controller,model) {
