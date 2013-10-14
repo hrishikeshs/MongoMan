@@ -6,6 +6,8 @@ Mongoman::Application.routes.draw do
   resources :databases
 
   resources :collections
+
+  resources :documents
   
 
   mount Genghis::Server.new, :at=>'/genghis'
