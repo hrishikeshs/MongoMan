@@ -1,16 +1,5 @@
 class CollectionsController < ApplicationController
 
-
-	def index
-		@data =	{"name" => "mongo", "type" => "db" }
-		respond_to do |format|
-      		format.json {render json: @data }
-		end
-	end
-
-
-
-
 	def show
 		database_name = params[:id]
 		database =	@connection.db(database_name)
