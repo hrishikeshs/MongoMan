@@ -27,5 +27,10 @@ a:hover {
 	color: #4183c4;
 	text-decoration: none;
 }
+
+ul, li{
+    list-style:none;
+    list-style-type:none;
+}
 @import "_pages/home";
 @import "_pages/database"
