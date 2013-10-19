@@ -1,4 +1,5 @@
-Ember.Handlebars.registerBoundHelper('sanitize', function (text) {
-  text = text.split('.')[1]
+Ember.Handlebars.registerBoundHelper('sanitize', function (context,text) {
+  splits = text.split('.');
+  text = splits[splits.length -1];
   return new Handlebars.SafeString(text);
 });
