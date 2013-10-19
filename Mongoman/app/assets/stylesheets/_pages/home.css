@@ -2,6 +2,11 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+
+.footer {
+	margin-top: 200px;
+	margin-bottom: 100px;
+}
 .fluid-container{
 	background-color: #EEEEEE;
 	margin-left: -10px;
