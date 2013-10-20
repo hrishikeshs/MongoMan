@@ -1,21 +1,35 @@
 .mainpage-table {
-
 	width: 90%;
 	background-color: #EEEEEE;
 	margin-top: 5px;
 	border-radius: 3px;
-	border: 12px;
 	border-collapse:separate;
 
 }
 
 .mainpage-table-row {
 	text-align: justify;
-	padding-bottom: 2em;
 }
-
-
 
 .table-links {
 	color: #0E7B9C !important;
 }
+
+.list-heading{
+  width: 90%;
+  background-color: #e6f1f6;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: "Open Sans", arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #63666a;
+  line-height: 1.375;
+  text-decoration: none;
+  text-indent: 3px; 
+}
+
+
+
