@@ -1,7 +1,7 @@
 Mongoman.StartRoute = Ember.Route.extend({
 	init: function() {
-		this._super();	
-		window.history.pushState("", "", window.location+'#/');
+		this._super();
+		window.history.pushState("", "",'/#/');
 	},
 
 	model: function() {

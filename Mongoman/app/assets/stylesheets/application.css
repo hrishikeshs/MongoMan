@@ -16,7 +16,7 @@ a:link {
 	text-decoration: none;
 }
 a:active {
-	color: green;
+	color: #4183c4;
 	text-decoration: none;
 }
 a:visited {
@@ -24,7 +24,7 @@ a:visited {
 	text-decoration: none;
 }
 a:hover {
-	color: gray;
+	color: #4183c4;
 	text-decoration: none;
 }
 @import "_pages/home";

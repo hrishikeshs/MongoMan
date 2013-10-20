@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
 		database_name = params[:database]
 		database =	@connection.db(database_name)
 		collection = database[collection_name]
-		@data = {}
+    @data = {}
 		@data[:documents] = collection.find()
 		respond_to do |format|
 	      format.json {render json: @data }
