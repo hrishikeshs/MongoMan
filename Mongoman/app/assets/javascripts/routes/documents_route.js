@@ -5,6 +5,7 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 		var database_name= collection_name.split('.')[0];
 		var collection = collection_name.split('.')[1];
 		var api= "/documents/" + collection + '/?'+"database=" + database_name;
+    this.controllerFor('documents').set('collection_name',collection);
 		return Mongoman.Request.find(api,"documents");
 	},
 
