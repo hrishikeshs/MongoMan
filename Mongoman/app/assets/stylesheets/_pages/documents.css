@@ -1,0 +1,72 @@
+.document {
+	overflow: auto;	
+	width: 90%;
+	border-radius: 3px;
+	margin-top: 10px;
+	background-color: #f9f9f9;
+	font: -webkit-control;
+	font-size: 14px; 
+	line-height: 24px;
+	text-align: justify;
+	float: left;
+}
+
+.document:hover {
+	background-color: #f5f5f5;
+}
+
+
+.edit-button {
+
+	background-color: #f5f5f5;
+  -moz-border-radius: 3px;
+  margin-right: 10px;
+  margin-top: 5px;
+  font: Helvetica,Arial;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0470588);
+  float: right !important; 
+  text-align: center;
+  font-size: 12px;
+  width: 70px;
+  border: none;
+  -webkit-border-radius: 3px;
+  padding: 7px;
+
+}
+
+.delete-btn {
+
+	background-color:#f5f5f5;
+	margin-right: 20px;
+	margin-top: 5px;
+  -moz-border-radius: 3px;
+  font: Helvetica,Arial;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0470588);
+  float: right !important; 
+  text-align: center;
+  font-size: 12px;
+  width: 70px;
+  border: none;
+  -webkit-border-radius: 3px;
+  padding: 7px;
+}
+
+.edit-button:hover {
+	color: black;
+	border: 1px solid #60b044;
+	border-radius: 2px;
+	background: -webkit-gradient(linear, left top, left bottom, 
+  	color-stop(0%,rgba(143,200,0,1)),
+  	 color-stop(73%,rgba(96,176,68,1)));
+
+}
+
+.delete-btn:hover {
+	color:black;
+	border-radius: 2px;
+	border: 1px solid #60b044;
+	background: -webkit-gradient(linear, left top, left bottom, 
+  	color-stop(8%,rgba(255,48,25,1)),
+  	 color-stop(96%,rgba(207,4,4,1)));
+
+}
