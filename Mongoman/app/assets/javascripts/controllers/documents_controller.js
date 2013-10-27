@@ -3,11 +3,17 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 	fields: null,
 	data: null,
 	collection_name: null,
+	database_name: null,
 
-	update: function() {		
-		if (this.get('content.content')) {
-			var o = this.get('content.content')[0];
-			console.log(this.get('content'));
-		}
-	}.observes('content.content')
+
+	editDocument: function() {
+		console.log("Called");
+		alert("You are gonna edit this?");
+	},
+
+	deleteDocument: function() {
+		alert("Are you sure?");
+		console.log("Called Delete");
+	}
+
 })
