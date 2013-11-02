@@ -7,11 +7,12 @@ margin: 1em 0px;
 
 
 .mainpage-table {
-	width: 90%;
+	width: 87%;
 	background-color: #fafafa;
 	margin-top: 5px;
 	border-radius: 3px;
 	border-collapse:separate;
+  margin-left: 38px;
 
 }
 
@@ -25,7 +26,7 @@ margin: 1em 0px;
 }
 
 .list-heading{
-  width: 90%;
+  width: 87%;
   background-color: #e6f1f6;
   border-radius: 3px;
   margin-top: 10px;
@@ -39,6 +40,8 @@ margin: 1em 0px;
   text-decoration: none;
   text-indent: 3px; 
   font-weight: 3em;
+  margin-left: 38px;
+
 }
 
 .plaintext, .listing {

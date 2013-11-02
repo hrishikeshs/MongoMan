@@ -14,7 +14,7 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 	},
 
 	renderTemplate: function() {
-		this.render('documents-nav',{outlet: "main",into:"application"});
+		this.render('documents',{outlet: "main",into:"application"});
 	}
 
 
