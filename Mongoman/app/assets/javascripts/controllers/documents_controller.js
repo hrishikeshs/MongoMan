@@ -19,8 +19,4 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 		}
 	}
 
-
-
-	
-
 });

@@ -18,11 +18,14 @@
 	background-color: #f3f3f3;
 	line-height: 24px;
 	text-align: justify;
-	float: left;
+	float: left; 
+  margin-left: 0px;
+  padding-left: 28px; 
+  padding-top: 20px;  
 }
 
 .document:hover {
-	background-color: #f5f5f5;
+	background-color: #f3f3f3;
 }
 
 
