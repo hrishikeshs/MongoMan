@@ -1,0 +1,18 @@
+<div>
+
+  <div class="list-heading">Database: {{database_name}}, collection: {{collection_name}} </div>
+	{{#each controller.content.content}}
+		<div class="document">
+			<button class="delete-btn" {{action 'deleteDocument'}}>Delete</button>
+			<button class="edit-button" {{action 'editDocument'}}>Edit</button>
+			{{parseJSON this}}
+		</div>
+
+	{{/each}}
+
+
+<div class="footer">
+</div>
+					
+</div>
+
