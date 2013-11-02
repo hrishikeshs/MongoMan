@@ -15,7 +15,12 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 
 	renderTemplate: function() {
 		this.render('documents',{outlet: "main",into:"application"});
+	},
+
+	deactivate:function() {
+		this.controllerFor('documents').set('content',null);
 	}
+
 
 
 
