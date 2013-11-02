@@ -1,14 +1,24 @@
+pre, xmp, plaintext, listing {
+display: block;
+font-family: helvetica, sans-serif;
+white-space: pre;
+margin: 1em 0px;
+}
+
+
 .mainpage-table {
-	width: 90%;
-	background-color: #EEEEEE;
+	width: 87%;
+	background-color: #fafafa;
 	margin-top: 5px;
 	border-radius: 3px;
 	border-collapse:separate;
+  margin-left: 38px;
 
 }
 
 .mainpage-table-row {
 	text-align: justify;
+  background-color: #fafafa;
 }
 
 .table-links {
@@ -16,7 +26,7 @@
 }
 
 .list-heading{
-  width: 90%;
+  width: 87%;
   background-color: #e6f1f6;
   border-radius: 3px;
   margin-top: 10px;
@@ -29,7 +39,12 @@
   line-height: 1.375;
   text-decoration: none;
   text-indent: 3px; 
+  font-weight: 3em;
+  margin-left: 38px;
+
 }
 
+.plaintext, .listing {
+  font-family: helvetica;
 
-
+}
