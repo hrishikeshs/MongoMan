@@ -1,4 +1,4 @@
-MongoMan
+MongoMan (MongoManager)
 
 A GUI for MongoDb
 
