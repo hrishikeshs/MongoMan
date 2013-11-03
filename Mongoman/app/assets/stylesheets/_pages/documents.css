@@ -73,3 +73,19 @@
   	 color-stop(96%,rgba(207,4,4,1)));
 
 }
+
+/*Styles for pagination to display correctly*/
+.pagination ul>li{display:inline;}
+.pagination ul>li>a,.pagination ul>li>span{float:left;padding:0 14px;line-height:38px;text-decoration:none;background-color:#ffffff;border:1px solid #dddddd;border-left-width:0;}
+.pagination ul>li>a:hover,.pagination ul>.active>a,.pagination ul>.active>span{background-color:#4183c4; color:white;}
+.pagination ul>.active>a,.pagination ul>.active>span{color:#999999;cursor:default;}
+.pagination ul>.disabled>span,.pagination ul>.disabled>a,.pagination ul>.disabled>a:hover{color:white;background-color:#d14836;cursor:default;}
+.pagination ul>li:first-child>a,.pagination ul>li:first-child>span{border-left-width:1px;-webkit-border-radius:3px 0 0 3px;-moz-border-radius:3px 0 0 3px;border-radius:3px 0 0 3px; color:grey; background-color: white;}
+.pagination ul>li:first-child>a,.pagination ul>li:first-child>a:hover{background-color: #eee;color:black;}
+.pagination ul>li:first-child>a,.pagination ul>li:first-child>a:active{background-color: white;color:black;}
+.pagination ul>li:last-child>a,.pagination ul>li:last-child>span{-webkit-border-radius:0 3px 3px 0;-moz-border-radius:0 3px 3px 0;border-radius:0 3px 3px 0;color:grey; background-color: white;}
+.pagination ul>li:last-child>a,.pagination ul>li:last-child>a:hover{background-color:#eee;color:black;}
+.pagination ul>li:last-child>a,.pagination ul>li:last-child>a:active{background-color:white;color:black;}
+
+.pagination-centered{text-align:center;}
+.pagination-right{text-align:right;}

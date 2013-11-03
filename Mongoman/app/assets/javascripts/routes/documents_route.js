@@ -11,6 +11,7 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 
 	setupController: function(controller,model) {
 		controller.set('content',model);
+
 	},
 
 	renderTemplate: function() {
@@ -19,6 +20,8 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 
 	deactivate:function() {
 		this.controllerFor('documents').set('content',null);
+		this.controllerFor('documents').set('totalContents',null);
+
 	}
 
 
