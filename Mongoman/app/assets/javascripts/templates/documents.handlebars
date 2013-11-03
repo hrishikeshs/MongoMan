@@ -1,7 +1,11 @@
 <div >
 	<div class="main-body" style="display:block;margin-top:50px;">
 	<div><button>Start Mongo Console</button></div>	
-  <div class="list-heading">Database: {{database_name}} , Collection: {{collection_name}}</div>
+  <div class="list-heading">Database:  <a href="#/collections/{{unbound database_name}}">{{database_name}}</a> , Collection: {{collection_name}}</div>
+  <div id="content">
   {{view Mongoman.DocumentsDisplayView}}
+	</div>
+  <div style="clear:both;"></div>
+  	{{view Mongoman.PaginationView paginationBinding="controller.pagination"}}
 <div class="footer">
 </div>
