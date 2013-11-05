@@ -17,7 +17,6 @@
 //= require ember.latest
 //= require bootpag
 //= require_self
-
 //= require_tree ./controllers
 //= require_tree ./routes
 //= require_tree ./templates

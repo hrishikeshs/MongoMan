@@ -8,11 +8,10 @@ Mongoman.PaginationView = Ember.View.extend({
   didInsertElement: function() {
 
   		var controller = this.get('controller');
-
   		if (controller.get('content.content')) {
   			var total_pages = Math.ceil(controller.get('totalContent').length/15); 
   				$('#page-selection').bootpag({
-		      	    total: total_pages,
+		      	    total: total_pages || 0,
 		      	    page: 1,
 		      	    maxVisible: 8,
 		      	}).on("page", function(event, num){
