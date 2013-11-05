@@ -46,9 +46,14 @@ margin: 1em 0px;
 
 .plaintext, .listing {
   font-family: helvetica;
-
 }
 
-.bootpag {
-  
+#about {
+  font: Arial, helvetica;
+  font-size: 19 px;
+  font-weight: 0.8em;
+  margin-left: 130px;
+  margin-top: 50px;
+  line-height: 34px;
+  max-width: 850px;
 }

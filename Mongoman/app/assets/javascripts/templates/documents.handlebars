@@ -3,7 +3,7 @@
 	<div><button>Start Mongo Console</button></div>	
   <div class="list-heading">Database:  <a href="#/collections/{{unbound database_name}}">{{database_name}}</a> , Collection: {{collection_name}}</div>
   <div id="content">
-  {{view Mongoman.DocumentsDisplayView}}
+  		{{view Mongoman.DocumentsDisplayView}}
 	</div>
   <div style="clear:both;"></div>
   	{{view Mongoman.PaginationView paginationBinding="controller.pagination"}}
