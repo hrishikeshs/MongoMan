@@ -25,7 +25,6 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 		},
 
 		deleteDocument: function(p) {
-			
 			alert("Are you sure?");
 			this.get('visibleContent').removeObject(p);
 			if (this.get('totalContent').length ) {
