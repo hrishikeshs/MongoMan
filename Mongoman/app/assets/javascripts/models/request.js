@@ -27,3 +27,29 @@ Mongoman.Request.reopenClass({
 	}
 
 });
+
+Mongoman.PostRequest = Ember.Object.extend({
+
+});
+
+Mongoman.PostRequest.reopenClass({
+  
+  delete: function(api,type) {
+    var url = api ;            
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      contentType: 'application/json; charset=utf-8',
+      type: 'post',
+      data: {},
+      async: true,
+      cache: false,
+      success: function(data, status, xhr) {
+        model.set('content',data[index_symbol]);
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log(xhr,textStatus);
+      }
+    });
+  }
+});

@@ -27,7 +27,6 @@ margin: 1em 0px;
 
 .list-heading{
   width: 87%;
-  background-color: #e6f1f6;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 0px;
@@ -41,8 +40,29 @@ margin: 1em 0px;
   text-indent: 3px; 
   font-weight: 3em;
   margin-left: 38px;
+  background: rgba(212,228,239,1);
+  background: -moz-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
+  background: -webkit-gradient(left top, left bottom, color-stop(11%, rgba(212,228,239,1)), color-stop(69%, rgba(227,239,245,1)), color-stop(81%, rgba(230,241,246,1)), color-stop(90%, rgba(230,241,246,1)));
+  background: -webkit-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
+  background: -o-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
+  background: -ms-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
+  background: linear-gradient(to bottom, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#e6f1f6', GradientType=0 );
 
 }
+
+.arrow-right { 
+    border-color:  rgba(212,228,239,1) blue rgba(223, 235, 243, 1) gray;
+    border-style: solid;
+    border-width: 6px 0px 6px 6px;
+    height: 0px;
+    width: 0px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
 
 .plaintext, .listing {
   font-family: helvetica;

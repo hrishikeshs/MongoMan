@@ -33,4 +33,5 @@ ul, li{
     list-style-type:none;
 }
 @import "_pages/home";
-@import "_pages/database"
+@import "_pages/database";
+@import "_pages/jquery-ui.css";
