@@ -20,7 +20,6 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
 	actions: {  
   	editDocument: function(p) {
-			console.log("calledEdit");
 			console.log(p);
 		},
 
@@ -30,6 +29,12 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 			if (this.get('totalContent').length ) {
 				this.get('visibleContent').pushObject(this.get('totalContent').shiftObject());
 			}
+			var url = '/documents/' + p._id.$oid;
+			console.log(this.get('database_name'));
+			console.log(this.get('collection_name'));
+			Mongoman.PostRequest.purge(url,[this.get('database_name'),this.get('collection_name')]);
+
+
 		},
 
 		pageChanged: function(new_page) {

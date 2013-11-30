@@ -1,0 +1,38 @@
+/* ============================================================================== */
+/* = jQUERY FLASH PLUGIN CSS                                                    = */
+/* ============================================================================== */
+#flash{
+	cursor:pointer;
+	z-index:5500;
+	background-color:#86BDF3;
+	height: 20px;
+	color: black;
+	margin-left: inherit;
+	font-size: 18px;
+	padding-bottom: 5px;	
+	font-family: helvetica, sans-serif;
+	text-align:center;
+	border-radius: 3px;
+	width: 870px;
+	background: rgba(212,228,239,1);
+	background: -moz-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(195,221,240,1) 1%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(212,228,239,1)), color-stop(0%, rgba(212,228,239,1)), color-stop(0%, rgba(212,228,239,1)), color-stop(1%, rgba(195,221,240,1)));
+	background: -webkit-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(195,221,240,1) 1%);
+	background: -o-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(195,221,240,1) 1%);
+	background: -ms-linear-gradient(top, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(195,221,240,1) 1%);
+	background: linear-gradient(to bottom, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 0%, rgba(195,221,240,1) 1%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#c3ddf0', GradientType=0 );
+
+	
+	
+}
+#flash div.flash_close{
+	position:relative;
+	float: right;
+	height:28px;
+	width:28px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background:url('close.png')
+	top left no-repeat;cursor:pointer;z-index:181;
+}
