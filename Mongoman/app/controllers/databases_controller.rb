@@ -15,7 +15,8 @@ class DatabasesController < ApplicationController
     db_names = dbs.keys
     @data = db_names.map do |e| {
               name: e,
-              size: dbs[e] * 9.3e-10,      #convert size in bytes to gigabytes
+              size: (dbs[e] * 9.3e-10).round(2),      #convert size in bytes to gigabytes
+              collection_count: @connection[e].collection_names.length,
               indexes: @connection[e]['system.indexes'].find().count
             }end
     @data

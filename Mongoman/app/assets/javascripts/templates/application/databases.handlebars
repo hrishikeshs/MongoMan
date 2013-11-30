@@ -1,12 +1,15 @@
 <div >
   <div class="list-heading"><a href="#/">Localhost</a></div>
 	<table class="mainpage-table">
-					<tr class="mainpage-table-row"><th>Database Name</th>
-							<th>Size</th>
+					<tr class="mainpage-table-row">
+							<th>Database Name</th>
+							<th>#Collections</th>
+							<th>Size (in GB)</th>
 							<th>Indexes</th>
 					</tr>
 					{{#each content.content}}
 					<tr class="mainpage-table-row"><td><a href = '#/collections/{{unbound this.name}}' class="table-links">{{this.name}}</a>
+							<td>{{this.collection_count}}</td>
 							<td>{{this.size}}</td>
 							<td>{{this.indexes}}</td>
 					</tr>

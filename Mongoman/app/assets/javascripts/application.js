@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require jquery.flash.js
 //= require turbolinks
 //= require handlebars
 //= require ember.latest

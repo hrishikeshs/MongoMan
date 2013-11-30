@@ -34,21 +34,25 @@ Mongoman.PostRequest = Ember.Object.extend({
 
 Mongoman.PostRequest.reopenClass({
   
-  delete: function(api,type) {
-    var url = api ;            
+  purge: function(api,params) {
+
+    var root = api + '?database_name=' + params[0] + '&collection_name=' + params[1];
+
     $.ajax({
-      url: url,
+      url: root,
       dataType: 'json',
       contentType: 'application/json; charset=utf-8',
-      type: 'post',
+      type: 'delete',
       data: {},
       async: true,
       cache: false,
       success: function(data, status, xhr) {
-        model.set('content',data[index_symbol]);
+        $('#notice-div').innerHTML = data.notice;
+        $('#notice-div').flash();
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(xhr,textStatus);
+        return null;
       }
     });
   }

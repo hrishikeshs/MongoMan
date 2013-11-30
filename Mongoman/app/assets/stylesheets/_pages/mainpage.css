@@ -5,6 +5,13 @@ white-space: pre;
 margin: 1em 0px;
 }
 
+.notice-div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 87%;
+  margin-left: 38px;
+  padding-bottom: 20px;
+}
 
 .mainpage-table {
 	width: 87%;
@@ -27,6 +34,7 @@ margin: 1em 0px;
 
 .list-heading{
   width: 87%;
+  margin-top: 20px;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 0px;
