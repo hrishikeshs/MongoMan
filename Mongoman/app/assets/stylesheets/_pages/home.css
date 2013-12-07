@@ -8,13 +8,18 @@
 	margin-bottom: 150px;
 }
 .fluid-container{
-	background-color: #EEEEEE;
+	rgba(246,246,246,1)), color-stop(100%, rgba(243,243,243,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,243,243,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,243,243,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,243,243,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(243,243,243,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3', GradientType=0 );
 	margin-left: -10px;
 	margin-right: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	margin-top:0px;
-	margin-bottom: 3px;
+	margin-bottom: 85px;
 	width:120%;	
 }
 #app-name {
@@ -56,7 +61,7 @@
 }
 .header-btn{
 	border:  none;
-	background-color: #EEEEEE;
+	background-color: inherit;
 	font-size: 1em;
 	font-weight: 0.9em;
 }

@@ -27,7 +27,7 @@
   
   $(function() {
 
-    var flashDiv = '<div id="flash" style="display:none;"> \
+    var flashDiv = '<div id="flash" style="display:none;position:absolute;top:86px;width: 987px;margin-right: 90px;"> \
                       <div class="flash_close"></div> \
                       <div class="flash_inner"></div> \
                     </div>';
@@ -43,7 +43,7 @@
           .css({opacity: 0})
           .bottom()
           .animate({
-            top: (($(window).height()-flash.height()))-50+'px',
+            top: (($(window).height()-flash.height()))-500+'px',
             opacity: 0.8
           });
         
@@ -58,7 +58,7 @@
   
     $.fn.extend({
       bottom: function() {
-        var offLeft = Math.floor((($(window).width()-this.width())/2)-20),
+        var offLeft = 107,
             offTop = Math.floor($(window).height()+50);
         this.css({
           top: ((offTop != null && offTop > 0) ? offTop : '0')+ 'px',

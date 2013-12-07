@@ -26,6 +26,7 @@ margin: 1em 0px;
 .mainpage-table-row {
 	text-align: justify;
   background-color: #fafafa;
+  border-bottom: 2px solid blue !important;
 }
 
 .table-links {
@@ -34,7 +35,7 @@ margin: 1em 0px;
 
 .list-heading{
   width: 87%;
-  margin-top: 20px;
+  margin-top: 60px;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 0px;
@@ -69,8 +70,6 @@ margin: 1em 0px;
     margin-left: 10px;
     margin-right: 10px;
 }
-
-
 
 .plaintext, .listing {
   font-family: helvetica;
