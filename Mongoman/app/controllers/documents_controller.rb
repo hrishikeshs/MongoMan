@@ -24,7 +24,7 @@ class DocumentsController < ApplicationController
 		db = @connection.db(database_name)
 		collection = db[collection_name]
 		collection.remove('_id' => id)
-		notice= "Document with id" + id + " successfully deleted"
+		notice= "Document with id " + id + " successfully deleted"
 		respond_to do |format|
 	      format.json {render json: {:notice => notice}}
 	    end

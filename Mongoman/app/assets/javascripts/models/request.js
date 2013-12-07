@@ -37,7 +37,6 @@ Mongoman.PostRequest.reopenClass({
   purge: function(api,params) {
 
     var root = api + '?database_name=' + params[0] + '&collection_name=' + params[1];
-
     $.ajax({
       url: root,
       dataType: 'json',
@@ -47,8 +46,7 @@ Mongoman.PostRequest.reopenClass({
       async: true,
       cache: false,
       success: function(data, status, xhr) {
-        $('#notice-div').innerHTML = data.notice;
-        $('#notice-div').flash();
+        $.flash(data.notice);
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(xhr,textStatus);
