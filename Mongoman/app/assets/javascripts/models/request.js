@@ -2,7 +2,6 @@ Mongoman.Request = Ember.Object.extend({
 
 });
 
-
 Mongoman.Request.reopenClass({
 
 	find: function(api,index_symbol) {
@@ -34,13 +33,13 @@ Mongoman.PostRequest = Ember.Object.extend({
 
 Mongoman.PostRequest.reopenClass({
   
-  purge: function(api,params) {
-    var root = api + '?database_name=' + params[0] + '&collection_name=' + params[1];
+  post: function(api , params, type) {
+    var api = api + jQuery.param(params);
     $.ajax({
-      url: root,
+      url: api,
       dataType: 'json',
       contentType: 'application/json; charset=utf-8',
-      type: 'delete',
+      type: type,
       data: {},
       async: true,
       cache: false,
@@ -49,8 +48,10 @@ Mongoman.PostRequest.reopenClass({
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(xhr,textStatus);
+        $.flash("Invalid operation");
         return null;
       }
     });
+    return null;
   }
 });

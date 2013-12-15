@@ -1,5 +1,10 @@
 <div class="main-body" style="display:block;margin-top:50px;">
-  <div class="list-heading"><a href="#/">Databases</a></div>
+  <div class="list-heading">
+  	<a href="#/">Databases</a>
+  	<button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
+  </div>
+  <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
+  	{{input valueBinding="content.newDbName" size="30"}}</div>
 	<table class="mainpage-table">
 					<tr class="mainpage-table-row">
 							<th>Database Name</th>
