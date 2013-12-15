@@ -27,7 +27,7 @@
   
   $(function() {
 
-    var flashDiv = '<div id="flash" style="display:none;position:absolute;top:86px;width:77%;margin-right: 90px;overflow:scroll;"> \
+    var flashDiv = '<div id="flash" style="display:none;position:absolute;top:86px;width:77%;margin-left: 100px;overflow:scroll;"> \
                       <div class="flash_close"></div> \
                       <div class="flash_inner"></div> \
                     </div>';
@@ -37,20 +37,12 @@
       flash: function(content, options) {
         var flash = $('#flash');
         flash.find('.flash_inner').html(content);
-        flash
-          .show()
-          .css({opacity: 0})
-          .bottom()
-          .animate({
-            top: (($(window).height()-flash.height()))-500+'px',
-            opacity: 0.8
-          });
-        
+        flash.fadeIn(700).show({
+          easing: "linear",
+          queue: true,
+        });
         $(document).click(function(){
-          flash.animate({
-            top: ($(window).height()+50)+'px',
-            opacity: 0
-          });
+          flash.fadeOut(700);
         });
       }
     });
