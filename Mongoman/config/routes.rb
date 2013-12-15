@@ -3,6 +3,7 @@ Mongoman::Application.routes.draw do
 
 
   root :to => 'databases', :action => 'index'
+  
   resources :databases
 
   resources :collections

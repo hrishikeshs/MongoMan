@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  *
- *= require jquery.ui.all
+ *= require jquery.ui.dialog.css
 */
 a:link {
 	color: black;
@@ -36,5 +36,5 @@ ul, li{
 }
 @import "_pages/home";
 @import "_pages/database";
-@import "_pages/jquery-ui.css";
 @import "_pages/jquery.flash.css";
+@import "_pages/buttons.css";

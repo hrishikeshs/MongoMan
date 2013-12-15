@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.ui.all
-//= require jquery_ujs
-//= require jquery.flash.js
+//= require jquery.ui.dialog
+//= require jquery.flash
 //= require turbolinks
 //= require handlebars
 //= require ember.latest

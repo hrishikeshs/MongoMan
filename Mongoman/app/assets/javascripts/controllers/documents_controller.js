@@ -23,7 +23,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 		},
 
 		deleteDocument: function(p) {
-			var self = this;
+			var self = this
 			$("#placeholder-confirm" ).dialog({
 		  	resizable: false,
 		  	height:250,
@@ -31,31 +31,27 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 		  	modal: true,
 		  	buttons: {
 		      Delete: function() {
-			      self.get('visibleContent').removeObject(p);
+			      self.get('visibleContent').removeObject(p)
 						if (self.get('totalContent').length ) {
-							self.get('visibleContent').pushObject(self.get('totalContent').shiftObject());
+							self.get('visibleContent').pushObject(self.get('totalContent').shiftObject())
 						}
-						var url = '/documents/' + ( p._id.$oid ? p._id.$oid : JSON.stringify(p._id)) ;
-						Mongoman.PostRequest.purge(url,[self.get('database_name'),self.get('collection_name')]);
-						$( this ).dialog( "close" ); 
+						var url = '/documents/' + ( p._id.$oid ? p._id.$oid : JSON.stringify(p._id)) + '?'
+						Mongoman.PostRequest.post(url , {database_name : self.get('database_name'), collection_name: self.get('collection_name')}, 'delete')
+						$(this).dialog("close")
 			    },
 		    	Cancel: function() {
-		     
+		     		$(this).dialog("close") 
 		      }
 			  }
 			});
 		},
 
 		pageChanged: function(new_page) {
-			var totalContent = this.get('totalContent');
-			var paginated_content_index = (new_page-1)*15;
-			this.set('visibleContent',totalContent.slice(paginated_content_index,paginated_content_index+15));
+			var totalContent = this.get('totalContent')
+			var paginated_content_index = (new_page-1)*15
+			this.set('visibleContent',totalContent.slice(paginated_content_index,paginated_content_index+15))
 		}
 
 	}
-
-
-
-	
 
 });

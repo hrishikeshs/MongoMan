@@ -4,5 +4,35 @@ Mongoman.StartController = Ember.ArrayController.extend({
 
 	update: function() {
 		this.set('content',this.get('content'));
-	}.observes('content.content')
+	}.observes('content.content'),
+
+  actions: {
+    addDatabase: function() {
+      var self = this;
+      $("#newdb-create" ).dialog({
+        resizable: false,
+        height:250,
+        width: 450,
+        modal: true,
+        buttons: {
+          Create: function() {
+            var newDbName = self.get('content.newDbName')
+            var url = '/databases?'
+            Mongoman.PostRequest.post(url, {dbname: newDbName}, 'POST')
+            $(this).dialog("close") 
+            self.set('content', Mongoman.Request.find("/databases",'databases'));
+            
+          },
+          Cancel: function() {
+            $(this).dialog("close") 
+          }
+        }
+      });
+    }
+  }
+
+
+
+
+
 })

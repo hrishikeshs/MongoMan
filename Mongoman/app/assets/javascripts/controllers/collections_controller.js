@@ -9,5 +9,13 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
 			this.set('database_name',database_name);
 			this.set('stats',this.get('content.content'));
 		}
-	}.observes('content.content')
+	}.observes('content.content'),
+
+	actions: {
+		dropDatabase : function() {
+			var url = '/databases/' + this.get('database_name')
+			Mongoman.PostRequest.post(url , {} , 'DELETE')
+			this.transitionTo('start');
+		}
+	}
 })

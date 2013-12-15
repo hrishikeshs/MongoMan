@@ -21,7 +21,7 @@
 // 
 // If you need help, found a bug, or would like to contribute, head on over to
 // http://codaset.com/codaset/jquery-flash
-// 
+// Heavily modifed by Hrish2006. Not reuable unless you are able to!
 
 (function($){ 
   

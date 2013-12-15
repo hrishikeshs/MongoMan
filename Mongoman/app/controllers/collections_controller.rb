@@ -3,7 +3,7 @@ class CollectionsController < ApplicationController
 	def show
 		database_name = params[:id]
 		database =	@connection.db(database_name)
-		@collections = database.collection_names.map  do |e| {
+		@collections = database.collection_names.sort().map  do |e| {
 			stats: database[e].stats()
 		}
 		end	
