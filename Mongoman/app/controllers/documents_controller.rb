@@ -20,15 +20,23 @@ class DocumentsController < ApplicationController
 	def destroy
 		database_name = params[:database_name]
 		collection_name = params[:collection_name]
-		id= 'BSON::ObjectId(' + "'" + params[:id] + "')"
+=begin
+Some documents have ids which are not just BSON::ObjectIds. Crazy I know. right?
+Hence this circus
+=end		
+		begin
+			document_id = BSON::ObjectId(params[:id]) 
+		rescue
+			document_id = JSON.parse(params[:id])
+		end
 		db = @connection.db(database_name)
 		collection = db[collection_name]
-		collection.remove('_id' => id)
-		notice= "Document with id " + id + " successfully deleted"
+		deleting_document = collection.find_one("_id" => document_id)
+		collection.remove("_id" => document_id)
+		notice= "Document with id  " + params[:id] + " successfully deleted."
 		respond_to do |format|
-	      format.json {render json: {:notice => notice}}
+	      format.json {render json: {:notice => notice, :removed_document => deleting_document}}
 	    end
-
 	end
 
 

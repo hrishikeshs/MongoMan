@@ -1,30 +1,20 @@
 Mongoman.DocumentsRoute = Ember.Route.extend({
 
 	model: function(params) {
-		var collection = params.collection;
-		var database_name= params.database;
-		var api= "/documents/" + collection + '/?'+"database=" + database_name;
-    this.controllerFor('documents').set('collection_name',collection);
-    this.controllerFor('documents').set('database_name',database_name);
-		return Mongoman.Request.find(api,"documents");
-	},
-
-	setupController: function(controller,model) {
-		controller.set('content',model);
-
+		var collection = params.collection
+		var database_name= params.database
+		var api= "/documents/" + collection + '/?'+"database=" + database_name
+    this.controllerFor('documents').set('collection_name',collection)
+    this.controllerFor('documents').set('database_name',database_name)
+		return Mongoman.Request.find(api,"documents")
 	},
 
 	renderTemplate: function() {
-		this.render('documents',{outlet: "main",into:"application"});
+		this.render('documents',{outlet: "main" , into:"application"})
 	},
 
-	deactivate:function() {
-		this.controllerFor('documents').set('content',null);
-		this.controllerFor('documents').set('totalContents',null);
-
+	setupController: function(controller,model) {
+		controller.set('content',model)
 	}
-
-
-
 
 });

@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *
+ *= require jquery.ui.all
 */
 a:link {
 	color: black;

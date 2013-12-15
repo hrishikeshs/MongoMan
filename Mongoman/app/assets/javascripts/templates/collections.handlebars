@@ -1,14 +1,14 @@
+<div class="main-body" style="display:block;margin-top:50px;">
 <div>
   <div class="list-heading"><a href="#/">Databases</a><div class="arrow-right"></div><a href="#/collections/{{unbound database_name}}">{{database_name}}</a></div>
 	<table class="mainpage-table">
 					<tr class="mainpage-table-row"><th>Collection Name</th>
-							<th>#Documents</th>
+							<th>Documents</th>
 							<th>Avg Document Size</th>
 							<th>Size</th>
 							<th>Indexes</th>
 					</tr>
 					{{#each stats}}
-
 					<tr class="mainpage-table-row"><td><a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined this.stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
 							<td>{{this.stats.count}}</td>
 							<td>{{truncate this.stats.avgObjSize}}  bytes</td>
@@ -17,6 +17,7 @@
 					</tr>
 					{{/each}}
 				</table>
+	</div>
 </div>
 <div class="footer">
 </div>
