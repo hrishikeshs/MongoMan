@@ -23,15 +23,27 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 		},
 
 		deleteDocument: function(p) {
-			var confirmation = confirm("Are you sure?");
-			if (confirmation) {
-				this.get('visibleContent').removeObject(p);
-				if (this.get('totalContent').length ) {
-					this.get('visibleContent').pushObject(this.get('totalContent').shiftObject());
-				}
-				var url = '/documents/' + p._id.$oid;
-				Mongoman.PostRequest.purge(url,[this.get('database_name'),this.get('collection_name')]);
-			}
+			var self = this;
+			$("#placeholder-confirm" ).dialog({
+		  	resizable: false,
+		  	height:250,
+		  	width: 450,
+		  	modal: true,
+		  	buttons: {
+		      Delete: function() {
+			      self.get('visibleContent').removeObject(p);
+						if (self.get('totalContent').length ) {
+							self.get('visibleContent').pushObject(self.get('totalContent').shiftObject());
+						}
+						var url = '/documents/' + ( p._id.$oid ? p._id.$oid : JSON.stringify(p._id)) ;
+						Mongoman.PostRequest.purge(url,[self.get('database_name'),self.get('collection_name')]);
+						$( this ).dialog( "close" ); 
+			    },
+		    	Cancel: function() {
+		     
+		      }
+			  }
+			});
 		},
 
 		pageChanged: function(new_page) {

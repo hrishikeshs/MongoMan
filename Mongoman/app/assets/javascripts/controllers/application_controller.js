@@ -7,7 +7,6 @@ Mongoman.ApplicationController = Ember.Controller.extend({
 
 	routeChanged: function() {
   	var loc = window.location.href;
-  	console.log(loc);
   }
 	
 });

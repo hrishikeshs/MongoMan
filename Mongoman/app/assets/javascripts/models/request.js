@@ -35,7 +35,6 @@ Mongoman.PostRequest = Ember.Object.extend({
 Mongoman.PostRequest.reopenClass({
   
   purge: function(api,params) {
-
     var root = api + '?database_name=' + params[0] + '&collection_name=' + params[1];
     $.ajax({
       url: root,

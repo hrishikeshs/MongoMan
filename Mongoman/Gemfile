@@ -49,3 +49,5 @@ gem 'mongo'
 gem 'genghisapp'
 
 gem 'bson_ext'
+
+gem 'jquery-ui-rails'
