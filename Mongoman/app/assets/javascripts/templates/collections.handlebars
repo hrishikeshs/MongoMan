@@ -2,9 +2,12 @@
 <div>
   <div class="list-heading">
   	<a href="#/">Databases</a>
+  	<button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
   	<div class="arrow-right"></div>
   	<a href="#/collections/{{unbound database_name}}">{{database_name}}</a>
 	</div>
+	<div style="display:none;" id="newcollection-create">Enter the Collection name:<br /><br />
+  	{{input valueBinding="content.newCollection" size="30"}}</div>
 	<table class="mainpage-table">
 					<tr class="mainpage-table-row"><th>Collection Name</th>
 							<th>Documents</th>
@@ -22,6 +25,7 @@
 					{{/each}}
 	</table>
 <button class="drop-button" {{action 'dropDatabase'}}>Drop Database</button>
+<div id="placeholder-confirm-drop-db" style="display:none;"> Honestly ? </div>
 </div>
 <div class="footer">
 </div>

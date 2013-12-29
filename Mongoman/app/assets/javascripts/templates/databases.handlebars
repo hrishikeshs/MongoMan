@@ -5,6 +5,7 @@
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
   	{{input valueBinding="content.newDbName" size="30"}}</div>
+  {{#if content.isLoaded}}
 	<table class="mainpage-table">
 					<tr class="mainpage-table-row">
 							<th>Database Name</th>
@@ -20,6 +21,10 @@
 					</tr>
 					{{/each}}
 	</table>
+{{else}}
+  <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
+  <p style="margin-left:460px;">Loading ... </p>
+{{/if}}
 </div>
 <div class="footer">
 </div>
