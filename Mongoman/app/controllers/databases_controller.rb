@@ -33,7 +33,6 @@ class DatabasesController < ApplicationController
   end
 
 
-
   def destroy
     database = params[:id]
     @connection.drop_database(database)

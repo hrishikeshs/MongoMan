@@ -4,6 +4,9 @@ Mongoman.StartController = Ember.ArrayController.extend({
 
 	update: function() {
 		this.set('content',this.get('content'));
+    if (this.get('content')) {
+      this.set('content.isLoaded', true);
+    }
 	}.observes('content.content'),
 
   actions: {
@@ -20,8 +23,8 @@ Mongoman.StartController = Ember.ArrayController.extend({
             var url = '/databases?'
             Mongoman.PostRequest.post(url, {dbname: newDbName}, 'POST')
             $(this).dialog("close") 
-            self.set('content', Mongoman.Request.find("/databases",'databases'));
-            
+            self.set('content.isLoaded', false);
+            self.set('content', Mongoman.Request.find("/databases",'databases'))            
           },
           Cancel: function() {
             $(this).dialog("close") 
