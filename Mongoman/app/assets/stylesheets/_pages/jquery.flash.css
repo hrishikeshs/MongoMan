@@ -5,10 +5,11 @@
 	cursor:pointer;
 	z-index:5500;
 	background-color:#86BDF3;
-	height: 20px;
+	height: 40px;
 	color: black;
 	font-size: 18px;
 	text-align: center;
+	vertical-align: center;
 	padding-top: 6px;
 	padding-bottom: 8px;
 	font-family: helvetica, sans-serif;
