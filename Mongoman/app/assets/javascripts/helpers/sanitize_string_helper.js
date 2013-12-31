@@ -1,5 +1,6 @@
 Ember.Handlebars.registerBoundHelper('sanitize', function (context,text) {
-  splits = text.split('.');
-  text = splits[splits.length -1];
-  return new Handlebars.SafeString(text);
+  splits = text.split('.')
+  splits.shift()
+  text = splits.join('.')
+  return text;
 });

@@ -23,6 +23,20 @@ class CollectionsController < ApplicationController
       end
   end
 
+  def destroy
+    database_name = params[:database_name]
+    collection_name = params[:id]
+    notice = "Collection " + collection_name + " dropped from db " + database_name
+    database =  @connection.db(database_name)
+    database[collection_name].drop()
+    notice = "Collection " + collection_name + " dropped from db " + database_name
+    respond_to do |format|
+         format.json {render json: {:notice => notice }}
+      end
+  end
+
+
+
 
 
 end

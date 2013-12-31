@@ -27,7 +27,7 @@
   
   $(function() {
 
-    var flashDiv = '<div id="flash" style="display:none;position:absolute;top:86px;width:77%;margin-left: 100px;overflow:scroll;"> \
+    var flashDiv = '<div id="flash" style="display:none;position:absolute;top:70px;width:77%;margin-left: 100px;overflow:scroll;"> \
                       <div class="flash_close"></div> \
                       <div class="flash_inner"></div> \
                     </div>';

@@ -1,13 +1,26 @@
-<div >
+<div>
 	<div class="main-body" style="display:block;margin-top:50px;">
-	<div class="list-heading"><a href="#/">Databases  </a> <div class="arrow-right"></div><a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
-  <div id="content">
-  		{{view Mongoman.DocumentsDisplayView}}
-	</div>
-  <div style="clear:both;"></div>
-  	{{view Mongoman.PaginationView paginationBinding="controller.pagination"}}
+	<div class="list-heading"><a href="#/">Databases </a>
+  <button class="new-button" {{action 'addDocument'}}>+ New Document</button>  
+  <div class="arrow-right"></div>
+  <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
+  {{#if controller.content.isLoaded}}
+    <div id="content">
+      {{view Mongoman.DocumentsDisplayView}}
+	   </div>
+    <button class="drop-button" {{action 'dropCollection'}}>Drop Collection</button>
+    <div id="placeholder-confirm-drop-collection" style="display:none;"> Honestly ? </div>
+    <div style="clear:both;"></div>
+    	{{view Mongoman.PaginationView paginationBinding="controller.pagination"}}
+  {{else}}
+    <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
+    <p style="margin-left:460px;">Just a sec ... </p>
+  {{/if}}
   <div id="placeholder-confirm" style="display:none;">
     Are you sure you want to delete this document?
+  </div>
+  <div id="dialog-form" style="display:none;">Add a new document to this collection:
+    <div> {{textarea valueBinding="controller.newDocument" rows="10" cols="49"}}</div>
   </div>
 <div class="footer">
 </div>
