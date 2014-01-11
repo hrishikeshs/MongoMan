@@ -78,10 +78,14 @@ margin: 1em 0px;
 
 #about {
   font: Arial, helvetica;
-  font-size: 19 px;
+  font-size: 16px;
   font-weight: 0.8em;
   margin-left: 130px;
   margin-top: 50px;
   line-height: 34px;
-  max-width: 850px;
+  max-width: 900px;
+  font-family: helvetica;
+  text-align: justify;  
+  color: #444;
+
 }

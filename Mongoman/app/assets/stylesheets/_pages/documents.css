@@ -74,6 +74,21 @@
 
 }
 
+.collapsible {
+  margin-left:30px;
+}
+
+.showhide {
+  display:inline;
+}
+
+.showhide:focus ~.collapsible{ 
+  max-height: 20px;
+}
+
+
+
+
 /*Styles for pagination to display correctly*/
 .pagination ul>li{display:inline;}
 .pagination ul>li>a,.pagination ul>li>span{float:left;padding:0 14px;line-height:38px;text-decoration:none;background-color:#ffffff;border:1px solid #dddddd;border-left-width:0;}
