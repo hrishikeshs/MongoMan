@@ -16,7 +16,7 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
       default:
         if (Array.isArray(json)) {
           json = json.map(prettyPrint);
-          return  '[<div class="collapsible">'  + json.join(",\n") + '</div>]';
+          return  '[<div class="collapsible">'  + json.join(",<br />") + '</div>]';
         }
         else {
         //none of the above so it is the object
@@ -25,12 +25,12 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
             var htmlArray = []
             for(var i = 0, len = keys.length; i < len; i++) {
                 var k = keys[i];
-                var html = '<br /><div class="showhide"><b>' + k + '</b>' + ':  '  + '<span style="overflow-wrap:break-word;overflow-x:visible;">'+ prettyPrint(json[k]) + '</span></div>';
+                var html = '<br /><div class="showhide"><b>' + k + '</b>' + ':  '  + '<span style="overflow:auto;">' + prettyPrint(json[k]) + '</span></div>';
                 htmlArray.push(html);
             }
             return '{' + '<div class="collapsible">' + htmlArray.join() + '<br />' + '</div>}';
         }
-        return null;
+        return 'null';
       }
     }
   }

@@ -1,3 +1,6 @@
+.document-list {
+  margin-top: -20px;
+}
 .document {
 	overflow: auto;	
 	width: 87.5%;
@@ -75,18 +78,26 @@
 }
 
 .collapsible {
-  margin-left:30px;
+  margin-left: 30px;
 }
 
 .showhide {
-  display:inline;
+  display: inline;
 }
 
 .showhide:focus ~.collapsible{ 
   max-height: 20px;
 }
 
+.inner-navbar-text {
+  color: grey;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 
+}
 
 
 /*Styles for pagination to display correctly*/

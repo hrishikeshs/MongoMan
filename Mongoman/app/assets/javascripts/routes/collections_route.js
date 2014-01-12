@@ -13,6 +13,11 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
 
 	renderTemplate: function() {
 		this.render('collections', {outlet: "main" , into:"application"});
+	},
+
+	deactivate:function() {
+		var controller = this.controllerFor('collections');
+		controller.set('content', null);
 	}
 
 });

@@ -9,6 +9,8 @@ class DocumentsController < ApplicationController
 		@data[:documents] = collection.find().sort({:_id => -1}).limit(600).map  do |e|
 				e = self.BsonFieldsToString(e)
 			end
+		
+		@data[:count] = collection.find().count()
 		respond_to do |format|
 	      format.json {render json: @data }
 	      format.all {render json: @data }

@@ -5,10 +5,14 @@
   <div class="arrow-right"></div>
   <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
   {{#if controller.content.isLoaded}}
+    <div class="inner-navbar-text">Showing {{controller.visibleStartIndex}} - {{controller.visibleEndIndex}} of {{controller.count}} documents</div>
     <div id="content">
-      {{view Mongoman.DocumentsDisplayView}}
+      {{view Mongoman.DocumentsDisplayView class="document-list"}}
 	   </div>
-    <button class="drop-button" {{action 'dropCollection'}}>Drop Collection</button>
+    <div class="inner-navbar-text">Showing {{controller.visibleStartIndex}} - {{controller.visibleEndIndex}} of {{controller.count}} documents</div>
+    <div class="drop-button-wrapper">
+      <button class="drop-button" {{action 'dropCollection'}}>Drop Collection</button>
+    </div>
     <div id="placeholder-confirm-drop-collection" style="display:none;"> Honestly ? </div>
     <div style="clear:both;"></div>
     	{{view Mongoman.PaginationView paginationBinding="controller.pagination"}}
