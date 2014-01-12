@@ -5,6 +5,7 @@ class DatabasesController < ApplicationController
     respond_to do |format|
       format.html
       format.json {render json: @data }
+      format.all {render json: @data }
     end
   end
 

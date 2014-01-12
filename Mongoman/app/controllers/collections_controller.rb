@@ -9,6 +9,7 @@ class CollectionsController < ApplicationController
 		end	
 		respond_to do |format|
       		format.json {render json: @collections }
+          format.all {render json: @data }
 		end
 	end
 

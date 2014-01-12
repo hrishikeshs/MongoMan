@@ -17,6 +17,7 @@ Mongoman.Request.reopenClass({
       cache: false,
       success: function(data, status, xhr) {
         model.set('content',data[index_symbol]);
+        model.set('content.count', data['count']);
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(xhr,textStatus);

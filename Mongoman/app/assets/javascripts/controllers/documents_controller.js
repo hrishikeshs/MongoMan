@@ -7,16 +7,23 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 	page: null,
 	visibleContent: null,
 	totalContent: null,
+  visibleStartIndex: null,
+  visibleEndIndex: null,
+  count: Ember.computed.alias('content.content.count'),
 
 
 	initVisibleContent: function() {
 		if (this.get('content.content')) {
-			var content = this.get('content.content');
-			this.set('visibleContent',content.slice(0,15));
-			this.set('totalContent',content.slice(15));
+			var content = this.get('content.content')
+			this.set('visibleContent',content.slice(0,15))
+      this.set('visibleStartIndex', 1)
+      this.set('visibleEndIndex', this.get('visibleContent').length)
+			this.set('totalContent',content.slice(15))
       this.set('content.isLoaded', true)
 		}
 	}.observes('content.content'),
+
+
 
 	isValidDocument: function(payload) {
 		var result = ""
@@ -76,6 +83,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 						var url = '/documents/' + ((typeof p._id === "string") ? p._id.match(/[0-9a-f]{24}/)[0] : -1 ) + '?'
 						Mongoman.PostRequest.post(url , {document_index: JSON.stringify(p._id), database_name : self.get('database_name'), collection_name: self.get('collection_name')}, 'delete')
 						$(this).dialog("close")
+            self.set('count', self.get('count')  - 1)
 			    },
 		    	Cancel: function() {
 		     		$(this).dialog("close") 
@@ -109,6 +117,8 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 			var totalContent = this.get('totalContent')
 			var paginated_content_index = (new_page-1) * 15
 			this.set('visibleContent',totalContent.slice(paginated_content_index,paginated_content_index+15))
+      this.set('visibleStartIndex',paginated_content_index + 1 )
+      this.set('visibleEndIndex', paginated_content_index + this.get('visibleContent').length + 1)
       window.scroll(0,0);
 		}
 
