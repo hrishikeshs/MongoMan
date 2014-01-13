@@ -76,10 +76,6 @@ Hence this circus
 		db = @connection.db(database_name)
 		collection = db[collection_name]
 		deleting_document = collection.find_one("_id" => document_id)
-		puts deleting_document
-		puts document_id
-		puts "_id" => document_id
-		puts "=============================="
 		if deleting_document 
 			collection.remove("_id" => document_id)
 			notice= "Document with id  " + params[:id] + " successfully deleted."
@@ -89,6 +85,33 @@ Hence this circus
 		respond_to do |format|
 	    	 format.json {render json: {:notice => notice, :removed_document => deleting_document}}
 	    end
+	end
+
+	def update
+		json_string = JSON.generate([params[:updated_doc]])
+		json_string.sub! 'ObjectId("' , '('
+		json_string.sub! '")', ')'
+
+		puts json_string
+		json_document = JSON.parse(json_string)
+		database_name = params[:database_name]
+		collection_name = params[:collection_name]
+		db = @connection.db(database_name)
+		collection = db[collection_name]
+
+		puts JSON.parse(json_document[0]) 
+		puts "=================="
+		puts Hash[*json_document]
+		collection.find(Hash[*json_document]).map do |e|
+			puts e 
+		end
+		puts "========================="
+
+		@data = {"notice" => "IN the update method"}
+		respond_to do |format|
+	      format.json {render json: @data }
+	      format.all {render json: @data }
+	   end
 	end
 
 

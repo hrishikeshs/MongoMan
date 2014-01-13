@@ -8,6 +8,7 @@
 	</div>
 	<div style="display:none;" id="newcollection-create">Enter the Collection name:<br /><br />
   	{{input valueBinding="content.newCollection" size="30"}}</div>
+  {{#if this.isLoaded}}
 	<table class="mainpage-table">
 					<tr class="mainpage-table-row"><th>Collection Name</th>
 							<th>Documents</th>
@@ -24,6 +25,10 @@
 					</tr>
 					{{/each}}
 	</table>
+  {{else}}
+    <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
+    <p style="margin-left:460px;">Just a sec ... </p>
+  {{/if}}
 <button class="drop-button" {{action 'dropDatabase'}}>Drop Database</button>
 <div id="placeholder-confirm-drop-db" style="display:none;"> Honestly ? </div>
 </div>

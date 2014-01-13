@@ -1,6 +1,7 @@
 .document-list {
   margin-top: -20px;
 }
+
 .document {
 	overflow: auto;	
 	width: 87.5%;
@@ -12,17 +13,24 @@
 	line-height: 20px;
 	text-align: justify;
 	float: left; 
+  margin-top: 38px;
   margin-left: 0px;
-  padding-left: 28px; 
-  padding-top: 20px;  
 }
 
-.document:hover {
+.document:hover{
 	background-color: #f3f3f3;
 }
 
+.document:focus {
+  outline:none;
+  background-color: white !important;
+  border-style: none;
+  border: none;
+}
 
-.edit-button {
+
+
+.edit-save-button {
 
 	background-color: #f9f9f9;
   -moz-border-radius: 3px;
@@ -57,7 +65,7 @@
   padding: 7px;
 }
 
-.edit-button:hover {
+.edit-save-button:hover {
 	color: black;
 	border: 1px solid #60b044;
 	border-radius: 2px;
