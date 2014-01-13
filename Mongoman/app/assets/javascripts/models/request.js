@@ -34,14 +34,14 @@ Mongoman.PostRequest = Ember.Object.extend({
 
 Mongoman.PostRequest.reopenClass({
   
-  post: function(api , params, type) {
+  post: function(api , params, type, data) {
     var api = api + jQuery.param(params);
     $.ajax({
       url: api,
       dataType: 'json',
       contentType: 'application/json; charset=utf-8',
       type: type,
-      data: {},
+      data: data,
       async: true,
       cache: false,
       success: function(data, status, xhr) {

@@ -50,7 +50,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
         "Add Document" : function() {
         	var json = self.isValidDocument(self.newDocument);
         	if (json && (self.newDocument !== "")) {
-        		var url = '/documents?' + jQuery.param({newdoc : self.newDocument}) + "&"
+        		var url = '/documents/?' + jQuery.param({newdoc : self.newDocument}) + "&"
         		Mongoman.PostRequest.post(url , {database_name : self.get('database_name'), collection_name: self.get('collection_name')}, 'POST')
         		$( this ).dialog( "close" )
         	} 
@@ -91,7 +91,6 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 			  }
 			});
 		},
-
 
     dropCollection: function() {
       var self = this;
