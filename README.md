@@ -8,7 +8,7 @@ MongoMan provides a graphical front end to your mongoDB installation. You can vi
 Configuration:
 =============
 
-1. clone the repository by running : git clone 'https://github.com/Hrish2006/MongoMan/'.
+1. clone the repository by running : git clone https://github.com/Hrish2006/MongoMan/.
 2. cd to the directory MongoMan/MongoMan.
 3. bundle install
 4. rails s -p 8000 #Start the application on its own port.
@@ -36,4 +36,5 @@ and enhancements, please raise github issues and mark them using the appropriate
 License
 ========
 MongoMan is licensed under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
+
 
