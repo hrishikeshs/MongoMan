@@ -10,3 +10,6 @@ db = connection.db()
 
 
 MongoConfig.connection = connection
+
+#disable parsing by rails because we don't have an adapter specification since we are using the native mongo driver 
+Mongoman::Application.config.middleware.delete "ActionDispatch::ParamsParser"

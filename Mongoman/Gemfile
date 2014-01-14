@@ -46,6 +46,8 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'mongo'
 
+gem 'pry'
+
 gem 'genghisapp'
 
 gem 'bson_ext'
