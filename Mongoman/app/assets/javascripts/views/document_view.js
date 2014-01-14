@@ -24,7 +24,7 @@ Mongoman.DocumentView = Ember.View.extend({
             updated_document = updated_document.replace(matches[i],'"' + temp + '":')
           }
           //@Todo remove this parsing code by modifying the parse_json_helper
-          updated_document = updated_document.replace(/[\s+\n+]/g,'')
+          updated_document = updated_document.replace(/[\n+]/g,'')
           updated_document = updated_document.replace(/\'/g,'"')
           updated_document = updated_document.replace(/\("/g,'(')
           updated_document = updated_document.replace(/"\)/g,')')
