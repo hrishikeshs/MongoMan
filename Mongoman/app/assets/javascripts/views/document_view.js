@@ -3,7 +3,7 @@ Mongoman.DocumentView = Ember.View.extend({
   classNameBindings: ['isEditing:editing'],
   tagName: 'div',
 
-  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' view.content}}>Delete</button><button class='edit-save-button' {{action 'editOrSaveDocument' view.content target='view'}}>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
+  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' view.content}}>Delete</button><button class='edit-save-button' {{action 'editOrSaveDocument' view.content target='view'}} title='syntax is key:[space]value'>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
   
  actions: {
     editOrSaveDocument: function(p) {
@@ -18,14 +18,23 @@ Mongoman.DocumentView = Ember.View.extend({
       }
       else {
           var updated_document = this.$('.document-content')[0].innerText.trim()
-          var keys = updated_document.match(/[a-zA-Z0-9_$%^&\*\(\)#@!;.,'"~`]+:/g)
-          for (var i = 0, j = keys.length; i < j; i++) {
-            var temp= keys[i].split(':')[0]
-            updated_document = updated_document.replace(temp, '"' + temp + '"')
+          var matches = updated_document.match(/(.+): /g)
+          for (var i = 0, j = matches.length; i < j; i++) {
+            var temp = matches[i].split(':')[0]
+            updated_document = updated_document.replace(matches[i],'"' + temp + '":')
           }
-          updated_document = updated_document.replace(/\s(\n+)/g,'')
-          var url = '/documents/id?' + jQuery.param({updated_doc : updated_document}) + "&"
-          Mongoman.PostRequest.post(url , {database_name : this.get('controller.database_name'), collection_name: this.get('controller.collection_name')}, 'PUT')
+          //@Todo remove this parsing code by modifying the parse_json_helper
+          updated_document = updated_document.replace(/[\s+\n+]/g,'')
+          updated_document = updated_document.replace(/\'/g,'"')
+          updated_document = updated_document.replace(/\("/g,'(')
+          updated_document = updated_document.replace(/"\)/g,')')
+          var url = '/documents/id?'
+          Mongoman.PostRequest.post(url , {database_name : this.get('controller.database_name'), collection_name: this.get('controller.collection_name')}, 'PUT', updated_document)
+          this.$('.document-content')[0].contentEditable = false
+          this.$('.document')['context'].style['background-color'] = '#f9f9f9'
+          this.$('.document')['context'].style['border'] = 'none'
+          this.$('.edit-save-button')[0].innerHTML = 'Edit'
+
       }
 
     }

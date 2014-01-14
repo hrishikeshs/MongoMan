@@ -1,7 +1,6 @@
 development:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID
+  host: 'localhost'
+  port: '27017'
 
 test:
   adapter: sqlite3

@@ -88,31 +88,34 @@ Hence this circus
 	end
 
 	def update
-		json_string = JSON.generate([params[:updated_doc]])
-		json_string.sub! 'ObjectId("' , '('
-		json_string.sub! '")', ')'
-
-		puts json_string
-		json_document = JSON.parse(json_string)
 		database_name = params[:database_name]
 		collection_name = params[:collection_name]
 		db = @connection.db(database_name)
 		collection = db[collection_name]
-
-		puts JSON.parse(json_document[0]) 
-		puts "=================="
-		puts Hash[*json_document]
-		collection.find(Hash[*json_document]).map do |e|
-			puts e 
+		document = request.body().to_a[0]
+		document =  JSON document
+		document.each do |key,value|
+			if value.is_a? String and value.match 'ObjectId'
+				object_id = value.match /[0-9a-fA-F]{24}/
+				document[key] = BSON::ObjectId(object_id.to_s)
+			end
 		end
-		puts "========================="
+		begin
+			collection.update({"_id" => document["_id"]}, document)
+			puts collection.find("_id" => document["_id"]).to_a
+			puts db.command({:getLastError => 1})['err']
+			notice= "Document with id  " + document['_id'].to_s + " successfully updated."
+		rescue
+			notice = db.command({:getLastError => 1})['err']
+		end
 
-		@data = {"notice" => "IN the update method"}
+		@data = {"notice" => notice}
 		respond_to do |format|
 	      format.json {render json: @data }
 	      format.all {render json: @data }
-	   end
+	  end
 	end
+	
 
 
 end
