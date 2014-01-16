@@ -28,10 +28,8 @@ your bug description:
 4. A screenshot of the bug (if convenient)
 
 Contributing
-============
-Please submit pull requests against master and I will merge them after a code review. For feature requests
-and enhancements, please raise github issues and mark them using the appropriate labels.
-
+=============
+Pull Requests welcome!
 
 License
 ========

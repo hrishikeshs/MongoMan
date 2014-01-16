@@ -1,4 +1,4 @@
-pre, xmp, plaintext, listing {
+pre, xmp, plaintext, listing div{
 display: block;
 font-family: helvetica, sans-serif;
 white-space: pre;
