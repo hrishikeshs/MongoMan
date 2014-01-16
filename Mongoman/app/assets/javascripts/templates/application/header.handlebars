@@ -1,12 +1,20 @@
 <header role="banner">
     <div class="fluid-container">
-      <nav role='navigation'>
-      <ul id="app-name" class="header-elem"><a href="#/">MongoMan</a></ul>
-      <ul class="header-elem">{{view Ember.TextField placeholder="Search on Google" id='searchbox' }}</ul>
-      <ul id="search-btn" class="header-elem"><button type="search-btn"  id="search-btn">Search</button></ul>
-      <ul id="help-btn" class="header-elem"><button type="help-btn" class="header-btn"><a href ="http://docs.mongodb.org/manual/administration/">Help</a></button></ul>
-      <ul id="about-btn" class="header-elem"><button class="header-btn"><a href="#/about">About</a></button></ul>
-      <ul id="contribute" class="header-elem"><button class="header-btn"><a href="https://github.com/Hrish2006/MongoMan">Contribute</a></button></ul>
-      </nav>
+      <div class="header-link-app-name">
+        <a href="#/">MongoMan</a>
+      </div>
+      <div class="header-links-container">
+        <ul>
+          <li class="header-link">
+          <a href ="http://docs.mongodb.org/manual/administration/">Help</a>
+          </li>
+          <li class="header-link">
+            <a href="#/about">About</a>
+          </li>
+          <li class="header-link">
+            <a href="https://github.com/Hrish2006/MongoMan">Contribute</a>
+          </li>
+        </ul>
+      </div>
     </div>
 </header>

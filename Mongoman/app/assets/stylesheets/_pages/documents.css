@@ -1,5 +1,5 @@
 .document-list {
-  margin-top: -20px;
+  margin-top: -40px;
 }
 
 .document {
@@ -9,6 +9,7 @@
 	margin-top: 10px;
 	background-color: #f9f9f9;
 	font: -webkit-control;
+  font-family: helvetica;
 	font-size: 14px; 
 	line-height: 20px;
 	text-align: justify;
