@@ -15,7 +15,7 @@ Configuration:
 
 navigate to http://localhost:8000 to start using the application.
 
-Features currently included in the pre-release include the standard CRUD actions.
+Features currently included in the pre-release include the standard CR & D actions.
 
 Bugs
 ==========
