@@ -3,7 +3,7 @@ Mongoman.DocumentView = Ember.View.extend({
   classNameBindings: ['isEditing:editing'],
   tagName: 'div',
 
-  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' view.content}}>Delete</button><button class='edit-save-button' {{action 'editOrSaveDocument' view.content target='view'}} title='syntax is key:[space]value'>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
+  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' view.content}}>Delete</button><button class='edit-save-button' title='syntax is key:[space]value'>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
   
  actions: {
     editOrSaveDocument: function(p) {
