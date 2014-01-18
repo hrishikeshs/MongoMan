@@ -25,7 +25,7 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
             var htmlArray = []
             for(var i = 0, len = keys.length; i < len; i++) {
                 var k = keys[i];
-                var html = "<br /><div class='showhide'><b>" + k + '</b>' + ':  '  + "<span style='overflow:auto;'>" + prettyPrint(json[k]) + "</span></div>";
+                var html = "<br /><div class='showhide'><strong>" + k + '</strong>' + ':  '  + "<span style='overflow:auto;'>" + prettyPrint(json[k]) + "</span></div>";
                 htmlArray.push(html);
             }
             return '{' + "<div class='collapsible'>" + htmlArray.join() + '<br />' + '</div>}';
