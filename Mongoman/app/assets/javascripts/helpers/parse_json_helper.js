@@ -6,7 +6,7 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
 
     switch(type) {
       
-      case 'string' : return  "'" + json + "'" 
+      case 'string' : return '"' + json + '"'
       case 'number' : 
       case 'undefined' : 
       case 'boolean' : 
