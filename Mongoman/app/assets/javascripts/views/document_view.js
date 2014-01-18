@@ -4,7 +4,7 @@ Mongoman.DocumentView = Ember.View.extend({
   tagName: 'div',
   editing: false,
   
-  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' target='view'}}>Delete</button><button class='edit-save-button' {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value'>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
+  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' target='view'}}>Delete</button><button class='edit-save-button' {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value-in-double-quotes'>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
 
   actions: {
     editOrSaveDocument: function() {
@@ -42,6 +42,7 @@ Mongoman.DocumentView = Ember.View.extend({
             }
             var url = '/documents/' + ((typeof p._id === "string") ? p._id.match(/[0-9a-f]{24}/)[0] : -1 ) + '?'
             Mongoman.PostRequest.post(url , {document_index: JSON.stringify(p._id), database_name : self.get('controller.database_name'), collection_name: self.get('controller.collection_name')}, 'delete')
+            window.scroll(0,0);
             $(this).dialog("close")
             self.set('count', self.get('count')  - 1)
           },
