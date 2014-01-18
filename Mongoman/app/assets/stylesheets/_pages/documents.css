@@ -4,7 +4,7 @@
 
 .document {
 	overflow: auto;	
-	width: 87.5%;
+	width: 90%;
 	border-radius: 3px;
 	margin-top: 10px;
 	background-color: #f9f9f9;
@@ -21,11 +21,14 @@
 	background-color: #f3f3f3;
 }
 
-.document:focus {
-  outline:none;
-  background-color: white !important;
-  border-style: none;
-  border: none;
+.js-editing-document {
+  outline: none;
+  background-color: white;
+  border: '2px solid rgba(65,131,196,0.4)';
+}
+
+.js-editing-document:hover {
+  background-color: white;
 }
 
 
