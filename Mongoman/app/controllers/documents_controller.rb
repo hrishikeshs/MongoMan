@@ -3,10 +3,17 @@ class DocumentsController < ApplicationController
 	def show
 		collection_name = params[:collection]
 		database_name = params[:database]
+		start_index = params[:from].to_i || 0
 		database =	@connection.db(database_name)
 		collection = database[collection_name]
     @data = {}
-		@data[:documents] = collection.find().sort({:_id => -1}).limit(600).map  do |e|
+    if start_index == 0
+    	@data[:documents] = collection.find().sort({:_id => -1}).limit(15)
+    else
+    	@data[:documents] = collection.find().sort({:_id => -1}).skip(start_index).limit(15)
+    end
+
+		@data[:documents] = @data[:documents].map  do |e|
 				e = self.BsonFieldsToString(e)
 			end
 		

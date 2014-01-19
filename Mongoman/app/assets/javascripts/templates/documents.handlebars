@@ -4,7 +4,7 @@
   <button class="new-button" {{action 'addDocument'}}>+ New Document</button>  
   <div class="arrow-right"></div>
   <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
-  {{#if controller.content.isLoaded}}
+  {{#if controller.isLoaded}}
     <div class="inner-navbar-text">Showing {{controller.visibleStartIndex}} - {{controller.visibleEndIndex}} of {{controller.count}} documents</div>
     <div id="content">
       {{view Mongoman.DocumentsDisplayView class="document-list"}}
@@ -15,11 +15,11 @@
     </div>
     <div id="placeholder-confirm-drop-collection" style="display:none;"> Honestly ? </div>
     <div style="clear:both;"></div>
-    	{{view Mongoman.PaginationView paginationBinding="controller.pagination"}}
   {{else}}
     <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
     <p style="margin-left:460px;">Just a sec ... </p>
   {{/if}}
+  {{view Mongoman.PaginationView}}
   <div id="placeholder-confirm" style="display:none;">
     Are you sure you want to delete this document?
   </div>
