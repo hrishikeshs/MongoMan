@@ -4,24 +4,13 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 	data: null,
 	collection_name: null,
 	database_name: null,
-	page: null,
+	totalPages: null,
 	visibleContent: null,
 	totalContent: null,
   visibleStartIndex: null,
   visibleEndIndex: null,
-  count: Ember.computed.alias('content.content.count'),
-
-
-	initVisibleContent: function() {
-		if (this.get('content.content')) {
-			var content = this.get('content.content')
-			this.set('visibleContent',content.slice(0,15))
-      this.set('visibleStartIndex', 1)
-      this.set('visibleEndIndex', this.get('visibleContent').length)
-			this.set('totalContent',content.slice(15))
-      this.set('content.isLoaded', true)
-		}
-	}.observes('content.content'),
+  eagerLoaded: false,
+  count: Ember.computed.alias('documentCount'),
 
 
   jsonifyText: function(str) {
@@ -49,7 +38,18 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 	},	
 
 
+
 	actions: {  
+
+
+    initVisibleContent: function() {
+      if (this.get('content')) {
+        this.set('visibleStartIndex', 1)
+        this.set('visibleEndIndex', this.get('content.length'))
+        this.set('isLoaded', true)
+      }
+    },  
+
 
   	addDocument: function() {
   		var self = this
@@ -100,14 +100,32 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     },
 
 		pageChanged: function(new_page) {
-			var totalContent = this.get('totalContent')
-			var paginated_content_index = (new_page-1) * 15
-			this.set('visibleContent',totalContent.slice(paginated_content_index,paginated_content_index+15))
-      this.set('visibleStartIndex',paginated_content_index + 1 )
-      this.set('visibleEndIndex', paginated_content_index + this.get('visibleContent').length + 1)
-      window.scroll(0,0);
-		}
+      var self = this;
+			var paginated_content_index = (new_page - 1 ) * 15
+      this.set('visibleStartIndex', paginated_content_index + 1)
+      var difference = this.get('count') - this.get('visibleStartIndex')
+      if (difference > 15) {
+        this.set('visibleEndIndex', paginated_content_index + 15)
+      }
+      else {
+        this.set('visibleEndIndex', this.get('count'))
+      }
 
+      var api = "/documents/" + this.get('collection_name') + '/?'+ "database=" + encodeURIComponent(this.get('database_name')) + "&collection=" + this.get('collection_name') + "&from=" + paginated_content_index
+
+      var getMoreContent = Mongoman.Request.find(api)
+      this.set('isLoaded', false)
+      this.set('content', [])
+      getMoreContent().
+        then(function success(response){
+            self.set('content', response.documents)
+            self.set('isLoaded', true)
+        },
+        function failure(error) {
+          
+        }
+      );
+    }
 	}
 
 });

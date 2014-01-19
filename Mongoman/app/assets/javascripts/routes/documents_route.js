@@ -4,9 +4,10 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 		var collection = params.collection
 		var database_name= params.database
 		var api= "/documents/" + collection + '/?'+"database=" + encodeURIComponent(database_name) + "&collection=" + collection
-    this.controllerFor('documents').set('collection_name',collection)
-    this.controllerFor('documents').set('database_name', database_name)
-		return Mongoman.Request.find(api,"documents")
+		var controller = this.controllerFor('documents')
+    controller.set('collection_name',collection)
+    controller.set('database_name', database_name)
+		return Mongoman.Request.find(api)
 	},
 
 	renderTemplate: function() {
@@ -14,8 +15,24 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 	},
 
 	setupController: function(controller,model) {
+
 		controller.set('content', null)
-		controller.set('content',model)
+		model().then(
+			function success(response) {
+				controller.set('content', response.documents)
+				controller.set('documentCount', response.count)
+				controller.send('initVisibleContent', true)
+			},
+			function failure(errorThrown) {
+				controller.set('content', [])
+				console.log("errorThrown: " )
+				console.log(errorThrown)
+			});
+	},
+
+	deactivate: function() {
+		this.controllerFor('documents').set('content', [])
+		this.controllerFor('documents').set('documentCount', 0)
 	}
 
 });

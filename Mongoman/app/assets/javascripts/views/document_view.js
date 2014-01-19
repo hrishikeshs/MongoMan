@@ -35,16 +35,13 @@ Mongoman.DocumentView = Ember.View.extend({
         modal: true,
         buttons: {
           Delete: function() {
-            self.get('controller.visibleContent').removeObject(p)
-            if (self.get('controller.totalContent').length ) {
-              self.get('controller.visibleContent').pushObject(self.get('controller.totalContent').shiftObject())
-              window.scroll(0,0);
-            }
+            self.get('controller.content').removeObject(p)
             var url = '/documents/' + ((typeof p._id === "string") ? p._id.match(/[0-9a-f]{24}/)[0] : -1 ) + '?'
             Mongoman.PostRequest.post(url , {document_index: JSON.stringify(p._id), database_name : self.get('controller.database_name'), collection_name: self.get('controller.collection_name')}, 'delete')
             window.scroll(0,0);
             $(this).dialog("close")
-            self.set('count', self.get('count')  - 1)
+            self.set('controller.count', self.get('controller.count')  - 1)
+            self.set('controller.visibleEndIndex', self.get('controller.visibleEndIndex') - 1)
           },
           Cancel: function() {
             $(this).dialog("close") 
