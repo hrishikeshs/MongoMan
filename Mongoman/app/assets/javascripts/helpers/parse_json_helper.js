@@ -5,11 +5,11 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
     var type = typeof json;
 
     switch(type) {
-      
-      case 'string' : return '"' + json + '"'
-      case 'number' : 
-      case 'undefined' : 
-      case 'boolean' : 
+
+      case 'string' : return '"' + Handlebars.Utils.escapeExpression(json) + '"'
+      case 'number' :
+      case 'undefined' :
+      case 'boolean' :
             return json;
       break;
 

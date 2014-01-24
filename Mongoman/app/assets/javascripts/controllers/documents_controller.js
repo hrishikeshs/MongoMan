@@ -1,4 +1,4 @@
-Mongoman.DocumentsController = Ember.ArrayController.extend({ 
+Mongoman.DocumentsController = Ember.ArrayController.extend({
 	isVisible: true,
 	fields: null,
 	data: null,
@@ -25,7 +25,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     }
     return str
   },
-  
+
 	isValidDocument: function(payload) {
 		var result = ""
 		try {
@@ -35,11 +35,11 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 		catch(e) {
 			return false;
 		}
-	},	
+	},
 
 
 
-	actions: {  
+	actions: {
 
 
     initVisibleContent: function() {
@@ -48,7 +48,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
         this.set('visibleEndIndex', this.get('content.length'))
         this.set('isLoaded', true)
       }
-    },  
+    },
 
 
   	addDocument: function() {
@@ -65,7 +65,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
         		var url = '/documents/?'
         		Mongoman.PostRequest.post(url , {database_name : self.get('database_name'), collection_name: self.get('collection_name')}, 'POST', self.jsonifyText(self.newDocument.trim()))
         		$( this ).dialog( "close" )
-        	} 
+        	}
         	else {
         		$.flash("Your JSON is invalid!! Please enter valid JSON.")
         	}
@@ -78,7 +78,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
 		},
 
-		
+
     dropCollection: function() {
       var self = this;
       $("#placeholder-confirm-drop-collection" ).dialog({
@@ -93,10 +93,10 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
             $(this).dialog("close")
           },
           Cancel: function() {
-            $(this).dialog("close") 
+            $(this).dialog("close")
           }
         }
-      }); 
+      });
     },
 
 		pageChanged: function(new_page) {
@@ -114,18 +114,13 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       var api = "/documents/" + this.get('collection_name') + '/?'+ "database=" + encodeURIComponent(this.get('database_name')) + "&collection=" + this.get('collection_name') + "&from=" + paginated_content_index
 
       var getMoreContent = Mongoman.Request.find(api)
-      this.set('isLoaded', false)
-      this.set('content', [])
-      getMoreContent().
-        then(function success(response){
-            self.set('content', response.documents)
-            self.set('isLoaded', true)
-        },
-        function failure(error) {
-          
-        }
-      );
+      getMoreContent.then(function loadedMoreContent(response) {
+        self.set('content', response.documents)
+      },
+      function failedToLoadContent(error) {
+        self.set('content', error);
+      })
     }
-	}
+  }
 
 });

@@ -4,13 +4,11 @@ Mongoman.Request = Ember.Object.extend({
 
 Mongoman.Request.reopenClass({
 
-  find: function(url) {
-    var api = url;
-    return function() {
-      var promise = new Ember.RSVP.Promise(function(resolve, reject) {
+  find: function makePromise(url) {
+    var promise = new Ember.RSVP.Promise(function(resolve, reject) {
         Ember.$.ajax({
           dataType: "json",
-          url: api,
+          url: url,
           data: {},
           contentType: 'application/json; charset=utf-8',
           type: 'GET',
@@ -22,9 +20,9 @@ Mongoman.Request.reopenClass({
           }
         });
       });
-    return promise;
-   }
+    return promise
   }
+
 });
 
 
@@ -33,7 +31,7 @@ Mongoman.PostRequest = Ember.Object.extend({
 });
 
 Mongoman.PostRequest.reopenClass({
-  
+
   post: function(api , params, type, data) {
     var api = api + jQuery.param(params);
     $.ajax({
