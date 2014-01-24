@@ -15,19 +15,9 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 	},
 
 	setupController: function(controller,model) {
-
-		controller.set('content', null)
-		model().then(
-			function success(response) {
-				controller.set('content', response.documents)
-				controller.set('documentCount', response.count)
-				controller.send('initVisibleContent', true)
-			},
-			function failure(errorThrown) {
-				controller.set('content', [])
-				console.log("errorThrown: " )
-				console.log(errorThrown)
-			});
+		controller.set('content', model.documents)
+		controller.set('documentCount', model.count)
+		controller.send('initVisibleContent', true)
 	},
 
 	deactivate: function() {
