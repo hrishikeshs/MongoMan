@@ -6,25 +6,52 @@ class DocumentsController < ApplicationController
 		start_index = params[:from].to_i || 0
 		database =	@connection.db(database_name)
 		collection = database[collection_name]
-    @data = {}
+    data = {}
     if start_index == 0
-    	@data[:documents] = collection.find().sort({:_id => -1}).limit(15)
+    	data[:documents] = collection.find().sort({:_id => -1}).limit(15)
     else
-    	@data[:documents] = collection.find().sort({:_id => -1}).skip(start_index).limit(15)
+    	data[:documents] = collection.find().sort({:_id => -1}).skip(start_index).limit(15)
     end
 
-		@data[:documents] = @data[:documents].map  do |e|
+		data[:documents] = data[:documents].map  do |e|
 				e = self.BsonFieldsToString(e)
 			end
 
-		@data[:count] = collection.find().count()
+		data[:count] = collection.find().count()
 		respond_to do |format|
-	      format.json {render json: @data }
-	      format.all {render json: @data }
+	      format.json {render json: data }
+	      format.all {render json: data }
 	    end
 	end
 
-	def query
+	def search
+    database_name = params[:database]
+    collection_name = params[:collection]
+    db = @connection.db(database_name)
+    collection = db[collection_name]
+    searchphrase =  params[:id]
+    parsed_list = searchphrase.split(':')
+    field = parsed_list[0].strip!
+    value = parsed_list.slice(1)
+    value = Regexp.new(value.lstrip!)
+    query = {}
+    field.gsub! /\*/, "."
+    query[field] = value
+    count = collection.find(query).count()
+    data = {}
+    puts query
+    puts "======================"
+    data[:documents] = collection.find(query).limit(300).map do |e|
+      e = self.BsonFieldsToString(e)
+    end
+
+    data[:count]  = count
+    data[:notice] = count > 300 ? "Your regular expression matches over 300 documents. Consider refining it." : nil
+
+    respond_to do |format|
+        format.json {render json: data }
+        format.all {render json: data }
+    end
 	end
 
 	def BsonFieldsToString(x)
