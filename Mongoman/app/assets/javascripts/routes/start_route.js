@@ -1,7 +1,7 @@
 Mongoman.StartRoute = Ember.Route.extend({
 	init: function() {
-		this._super();
-		window.history.pushState("", "",'/#/');
+	    this._super();
+	    window.history.pushState("", "",'/#/');
 	},
 
 	model: function() {
@@ -9,12 +9,14 @@ Mongoman.StartRoute = Ember.Route.extend({
 	},
 
 	renderTemplate: function() {
-		this.render('databases');
+	    this.render('databases');
 	},
 
 	setupController: function(controller,model) {
-		controller.set('content', model.databases)
-		controller.set('content.count', model.count)
+	    controller.set('content', model.databases)
+	    controller.set('content.count', model.count)
+	    controller.set('content.isLoaded',false)
+	    controller.set('content.isLoaded',true)
 	}
 
 });

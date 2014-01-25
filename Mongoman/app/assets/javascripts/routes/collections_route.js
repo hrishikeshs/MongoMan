@@ -9,7 +9,9 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
 
 	setupController: function(controller,model) {
 		controller.set('content', model.collections)
+		controller.set('content.isLoaded',false)
 		controller.set('content.count', model.count)
+		controller.set('content.isLoaded',true)
 	},
 
 	renderTemplate: function() {
@@ -21,4 +23,4 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
 		controller.set('content', null);
 	}
 
-});
+    })

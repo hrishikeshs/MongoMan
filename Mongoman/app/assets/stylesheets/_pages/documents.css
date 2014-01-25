@@ -3,17 +3,17 @@
 }
 
 .document {
-	overflow: auto;	
+	overflow: auto;
 	width: 90%;
 	border-radius: 3px;
 	margin-top: 10px;
 	background-color: #f9f9f9;
 	font: -webkit-control;
   font-family: helvetica;
-	font-size: 14px; 
+	font-size: 14px;
 	line-height: 20px;
 	text-align: justify;
-	float: left; 
+	float: left;
   margin-top: 38px;
   margin-left: 0px;
 }
@@ -23,15 +23,13 @@
 }
 
 .js-editing-document {
-  outline: none;
   background-color: white;
-  border: '2px solid rgba(65,131,196,0.4)';
+  border: 2px solid rgba(65,131,196,0.4);
 }
 
 .js-editing-document:hover {
   background-color: white;
 }
-
 
 
 .edit-save-button {
@@ -42,7 +40,7 @@
   margin-top: 5px;
   font: Helvetica,Arial;
   -webkit-box-shadow: rgba(0, 0, 0, 0.0470588);
-  float: right !important; 
+  float: right !important;
   text-align: center;
   font-size: 12px;
   width: 70px;
@@ -60,7 +58,7 @@
   -moz-border-radius: 3px;
   font: Helvetica,Arial;
   -webkit-box-shadow: rgba(0, 0, 0, 0.0470588);
-  float: right !important; 
+  float: right !important;
   text-align: center;
   font-size: 12px;
   width: 70px;
@@ -73,7 +71,7 @@
 	color: black;
 	border: 1px solid #60b044;
 	border-radius: 2px;
-	background: -webkit-gradient(linear, left top, left bottom, 
+	background: -webkit-gradient(linear, left top, left bottom,
   	color-stop(0%,rgba(143,200,0,1)),
   	 color-stop(73%,rgba(96,176,68,1)));
 
@@ -83,7 +81,7 @@
 	color:black;
 	border-radius: 2px;
 	border: 1px solid #60b044;
-	background: -webkit-gradient(linear, left top, left bottom, 
+	background: -webkit-gradient(linear, left top, left bottom,
   	color-stop(8%,rgba(255,48,25,1)),
   	 color-stop(96%,rgba(207,4,4,1)));
 
@@ -97,7 +95,7 @@
   display: inline;
 }
 
-.showhide:focus ~.collapsible{ 
+.showhide:focus ~.collapsible{
   max-height: 20px;
 }
 
