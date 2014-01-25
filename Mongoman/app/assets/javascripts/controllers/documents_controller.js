@@ -9,7 +9,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 	totalContent: null,
   visibleStartIndex: null,
   visibleEndIndex: null,
-  eagerLoaded: false,
+  searchCount : null,
   count: Ember.computed.alias('documentCount'),
 
 
@@ -40,6 +40,24 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
 
 	actions: {
+
+
+    search: function() {
+      var searchPhrase = encodeURIComponent(this.get('searchtext').replace(/\./g,"*"))
+      var api = "/documents/search/" + searchPhrase +'?'+ "database=" + encodeURIComponent(this.get('database_name')) + "&collection=" + encodeURIComponent(this.get('collection_name'))
+      var getSearchresult = Mongoman.Request.find(api)
+      getSearchresult.then(function loadedSearchContent(response) {
+        this.set('content', response.documents)
+        this.set('searchCount', response.documents.count)
+        response.notice ? $.flash(response.notice) : "" ;
+      }.bind(this),
+      function failedToLoadContent(error) {
+        self.set('content', error);
+      }.bind(this))
+
+      this.set('searching', searchPhrase.length > 0)
+
+    },
 
 
     initVisibleContent: function() {
@@ -100,26 +118,19 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     },
 
 		pageChanged: function(new_page) {
-      var self = this;
 			var paginated_content_index = (new_page - 1 ) * 15
       this.set('visibleStartIndex', paginated_content_index + 1)
       var difference = this.get('count') - this.get('visibleStartIndex')
-      if (difference > 15) {
-        this.set('visibleEndIndex', paginated_content_index + 15)
-      }
-      else {
-        this.set('visibleEndIndex', this.get('count'))
-      }
-
+      var visibleEndIndex = (difference > 15) ? (paginated_content_index + 15) : (this.get('count'))
       var api = "/documents/" + this.get('collection_name') + '/?'+ "database=" + encodeURIComponent(this.get('database_name')) + "&collection=" + this.get('collection_name') + "&from=" + paginated_content_index
 
       var getMoreContent = Mongoman.Request.find(api)
       getMoreContent.then(function loadedMoreContent(response) {
-        self.set('content', response.documents)
-      },
+        this.set('content', response.documents)
+      }.bind(this),
       function failedToLoadContent(error) {
-        self.set('content', error);
-      })
+        this.set('content', error);
+      }.bind(this))
     }
   }
 

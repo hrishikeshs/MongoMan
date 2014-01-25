@@ -5,11 +5,21 @@
   <div class="arrow-right"></div>
   <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
   {{#if controller.isLoaded}}
-    <div class="inner-navbar-text">Showing {{controller.visibleStartIndex}} - {{controller.visibleEndIndex}} of {{controller.count}} documents</div>
+    <ul>
+      <li class="inline-search-box">
+        <form {{action search on="submit"}} class="inline-form-search-box" title="syntax is: field:value, separate nested fields by a dot.">
+          {{input valueBinding="searchtext" class="documents-search-box" placeholder="Type to search..." }}
+        </form>
+      </li>
+      {{#unless searching}}
+      <li class="position-text-indicator">
+        Showing {{controller.visibleStartIndex}} - {{controller.visibleEndIndex}} of {{controller.count}} documents
+      </li>
+      {{/unless}}
+    </ul>
     <div id="content">
       {{view Mongoman.DocumentsDisplayView class="document-list"}}
 	   </div>
-    <div class="inner-navbar-text">Showing {{controller.visibleStartIndex}} - {{controller.visibleEndIndex}} of {{controller.count}} documents</div>
     <div class="drop-button-wrapper">
       <button class="drop-button" {{action 'dropCollection'}}>Drop Collection</button>
     </div>
@@ -19,7 +29,9 @@
     <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
     <p style="margin-left:460px;">Just a sec ... </p>
   {{/if}}
-  {{view Mongoman.PaginationView}}
+  {{#unless searching}}
+    {{view Mongoman.PaginationView}}
+  {{/unless}}
   <div id="placeholder-confirm" style="display:none;">
     Are you sure you want to delete this document?
   </div>

@@ -17,13 +17,13 @@ Mongoman.PaginationView = Ember.View.extend({
 	      }).
         on("page", function(event, num){
 	      	controller.send('pageChanged',num)
-    	  }); 
-			} 
+    	  });
+			}
     else {
      	Ember.run.next(this, function() {
         this.didInsertElement()
-  	 });  		
+  	 });
+	 }
 	}
-	}  
 
 });

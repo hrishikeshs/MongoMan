@@ -99,16 +99,36 @@
   max-height: 20px;
 }
 
-.inner-navbar-text {
+.position-text-indicator {
   color: grey;
-  display: inline-block;
-  margin-top: 10px;
-  margin-left: 40px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-
+  min-width: 20%;
+  display: inline;
+  margin-right: 5px;
+  overflow: hidden;
 }
 
+.inline-search-box{
+  display: inline;
+}
+
+.inline-form-search-box{
+  display: inline;
+}
+
+.documents-search-box {
+  min-height: 20px;
+  min-width: 25%;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 0 #fff;
+}
+
+.documents-search-box:focus {
+  overflow: hidden;
+  z-index: 40;
+  position: relative;
+  min-width: 35%;
+}
 
 /*Styles for pagination to display correctly*/
 .pagination ul>li{display:inline;}

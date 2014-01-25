@@ -3,13 +3,15 @@ Mongoman::Application.routes.draw do
 
 
   root :to => 'databases', :action => 'index'
-  
+
   resources :databases
 
   resources :collections
 
   resources :documents
-  
+
+  get '/documents/search/:id', :to => 'documents#search'
+
 
   mount Genghis::Server.new, :at=>'/genghis'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -17,7 +19,7 @@ Mongoman::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
- 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -52,7 +54,7 @@ Mongoman::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
