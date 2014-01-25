@@ -31,18 +31,24 @@ class DocumentsController < ApplicationController
     collection = db[collection_name]
     searchphrase =  params[:id]
     parsed_list = searchphrase.split(':')
-    field = parsed_list[0].strip!
-    value = parsed_list.slice(1)
-    value = Regexp.new(value.lstrip!)
-    query = {}
-    field.gsub! /\*/, "."
-    query[field] = value
-    count = collection.find(query).count()
     data = {}
-    puts query
-    puts "======================"
-    data[:documents] = collection.find(query).limit(300).map do |e|
-      e = self.BsonFieldsToString(e)
+    if parsed_list.length < 2
+      id = BSON::ObjectId(searchphrase)
+      data[:documents] = collection.find("_id" => id).map do |e|
+        e = self.BsonFieldsToString(e)
+      end
+      count = 1
+    else
+      field = parsed_list[0].strip!
+      value = parsed_list.slice(1)
+      value = Regexp.new(value.lstrip!)
+      query = {}
+      field.gsub! /\*/, "."
+      query[field] = value
+      count = collection.find(query).count()
+      data[:documents] = collection.find(query).limit(300).map do |e|
+        e = self.BsonFieldsToString(e)
+      end
     end
 
     data[:count]  = count
