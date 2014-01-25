@@ -3,15 +3,14 @@ Mongoman.DocumentView = Ember.View.extend({
   classNameBindings: ['editing:js-editing-document'],
   tagName: 'div',
   editing: false,
-  
-  template: Ember.Handlebars.compile("<button class='delete-btn'{{action 'deleteDocument' target='view'}}>Delete</button><button class='edit-save-button' {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value-in-double-quotes'>Edit</button><div contenteditable='false' class='document-content'>{{parseJSONString view.content}}</div>"),
+  templateName: 'document',
 
   actions: {
     editOrSaveDocument: function() {
 
       if (this.get('editing') === false) {
-        this.set('editing', true)   
-        this.$('.edit-save-button')[0].innerHTML = 'Save'     
+        this.set('editing', true)
+        this.$('.edit-save-button')[0].innerHTML = 'Save'
         this.$('.document-content')[0].contentEditable = true
       }
       else {
@@ -44,7 +43,7 @@ Mongoman.DocumentView = Ember.View.extend({
             self.set('controller.visibleEndIndex', self.get('controller.visibleEndIndex') - 1)
           },
           Cancel: function() {
-            $(this).dialog("close") 
+            $(this).dialog("close")
           }
         }
       });
@@ -54,4 +53,4 @@ Mongoman.DocumentView = Ember.View.extend({
 
 
  });
-    
+

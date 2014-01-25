@@ -1,7 +1,7 @@
 <div>
 	<div class="main-body">
 	<div class="list-heading"><a href="#/">Databases </a>
-  <button class="new-button" {{action 'addDocument'}}>+ New Document</button>  
+  <button class="new-button" {{action 'addDocument'}}>+ New Document</button>
   <div class="arrow-right"></div>
   <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
   {{#if controller.isLoaded}}

@@ -2,7 +2,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
 	stats: null,
 	isVisible: true,
 	database_name:null,
-  collection_name: null,
+	collection_name: null,
 
 
 	update: function() {		
@@ -62,3 +62,4 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
 
 	}
 })
+   

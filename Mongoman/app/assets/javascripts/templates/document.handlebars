@@ -1,0 +1,8 @@
+<button class='delete-btn'{{action 'deleteDocument' target='view'}}>
+  Delete
+</button>
+<button class='edit-save-button' {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value-in-double-quotes'>
+Edit</button>
+<div contenteditable='false' class='document-content'>
+  {{parseJSONString view.content}}
+</div>
