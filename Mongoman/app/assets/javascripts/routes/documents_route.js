@@ -21,8 +21,11 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 	},
 
 	deactivate: function() {
-		this.controllerFor('documents').set('content', [])
-		this.controllerFor('documents').set('documentCount', 0)
+    var controller = this.controllerFor('documents')
+		controller.set('content', [])
+		controller.set('documentCount', 0)
+    controller.set('searching', false)
+
 	}
 
 });
