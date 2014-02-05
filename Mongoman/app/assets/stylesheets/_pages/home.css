@@ -10,6 +10,7 @@
 .fluid-container{
 	min-width: 1000px;
 	width: 102%;
+  font-family: helvetica;
 	max-height: 50px;
 	height: 50px;
 	overflow: hidden;
@@ -55,8 +56,11 @@
 }
 
 .main-body{
-	margin-left: 60px;
-	margin-right: 70px;
-	margin-top: 80px;
+  width: 87%;
+  display: list-item;
+  list-style-type: none;
+  margin-left: 7.5%;
+  margin-top:  80px;
+  margin-top:  80px;
 }
 

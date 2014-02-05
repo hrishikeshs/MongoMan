@@ -4,7 +4,7 @@ Mongoman.Request = Ember.Object.extend({
 
 Mongoman.Request.reopenClass({
 
-  find: function makePromise(url) {
+  find: function getData(url) {
     var promise = new Ember.RSVP.Promise(function(resolve, reject) {
         Ember.$.ajax({
           dataType: "json",
