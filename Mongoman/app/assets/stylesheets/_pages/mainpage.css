@@ -3,6 +3,7 @@ display: block;
 font-family: helvetica, sans-serif;
 white-space: pre;
 margin: 1em 0px;
+font-family: helvetica;
 }
 
 .notice-div {
@@ -16,6 +17,7 @@ margin: 1em 0px;
 .mainpage-table {
 	width: 87%;
 	background-color: #fafafa;
+  border-collapse: collapse !important;
 	margin-top: 5px;
 	border-radius: 3px;
 	border-collapse:separate;
@@ -26,11 +28,16 @@ margin: 1em 0px;
 .mainpage-table-row {
 	text-align: justify;
   background-color: #fafafa;
-  border-bottom: 2px solid blue !important;
+  font-family: helvetica;
 }
 
 .table-links {
-	color: #0E7B9C !important;
+	color: #4183c4 !important;
+}
+
+td, th {
+  padding: 7px 3px;
+  border-top: 1px solid #eee;
 }
 
 .list-heading{
@@ -46,7 +53,7 @@ margin: 1em 0px;
   color: black;
   line-height: 1.375;
   text-decoration: none;
-  text-indent: 3px; 
+  text-indent: 3px;
   font-weight: 3em;
   margin-left: 38px;
   height: 30px;
@@ -61,7 +68,7 @@ margin: 1em 0px;
 
 }
 
-.arrow-right { 
+.arrow-right {
     border-color:  rgba(212,228,239,1) blue rgba(223, 235, 243, 1) gray;
     border-style: solid;
     border-width: 6px 0px 6px 6px;
@@ -86,7 +93,7 @@ margin: 1em 0px;
   line-height: 34px;
   max-width: 900px;
   font-family: helvetica;
-  text-align: justify;  
+  text-align: justify;
   color: #444;
 
 }

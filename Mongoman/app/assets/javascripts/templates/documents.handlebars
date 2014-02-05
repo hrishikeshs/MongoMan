@@ -4,7 +4,7 @@
   <button class="new-button" {{action 'addDocument'}}>+ New Document</button>
   <div class="arrow-right"></div>
   <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
-  {{#if controller.isLoaded}}
+  {{#if isLoaded}}
     <ul>
       <li class="inline-search-box">
         <form {{action search on="submit"}} class="inline-form-search-box" title="syntax is: field:value, separate nested fields by a dot. For ObjectIds, just copy paste the id and hit return.">

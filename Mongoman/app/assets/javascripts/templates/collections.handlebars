@@ -4,24 +4,27 @@
   	<a href="#/">Databases</a>
   	<button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
   	<div class="arrow-right"></div>
-  	<a href="#/collections/{{unbound collection_name}}">{{database_name}}</a>
+  	{{#linkTo 'collections' database.name}}{{database_name}}{{/linkTo}}
 	</div>
 	<div style="display:none;" id="newcollection-create">Enter the Collection name:<br /><br />
   	{{input valueBinding="content.newCollection" size="30"}}</div>
-  {{#if content.isLoaded}}
+  {{#if isLoaded}}
 	<table class="mainpage-table">
-					<tr class="mainpage-table-row"><th>Collection Name</th>
+					<tr class="mainpage-table-row">
+              <th>Collection Name</th>
 							<th>Documents</th>
 							<th>Avg Document Size</th>
 							<th>Size</th>
 							<th>Indexes</th>
 					</tr>
 					{{#each stats}}
-					<tr class="mainpage-table-row"><td><a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined this.stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
-							<td>{{this.stats.count}}</td>
-							<td>{{truncate this.stats.avgObjSize}}  bytes</td>
-							<td>{{this.stats.size}}</td>
-							<td>{{this.stats.nindexes}}</td>
+					<tr class="mainpage-table-row">
+            <td>
+              <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
+							<td>{{stats.count}}</td>
+							<td>{{truncate stats.avgObjSize}}  bytes</td>
+							<td>{{stats.size}} bytes</td>
+							<td>{{stats.nindexes}}</td>
 					</tr>
 					{{/each}}
 	</table>

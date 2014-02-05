@@ -5,7 +5,7 @@
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
   	{{input valueBinding="content.newDbName" size="30"}}</div>
-  {{#if content.isLoaded}}
+  {{#if isLoaded}}
 	<table class="mainpage-table">
 					<tr class="mainpage-table-row">
 							<th>Database Name</th>
@@ -14,10 +14,11 @@
 							<th>Indexes</th>
 					</tr>
 					{{#each content}}
-					<tr class="mainpage-table-row"><td><a href = '#/collections/{{unbound this.name}}' class="table-links">{{this.name}}</a>
-							<td>{{this.collection_count}}</td>
-							<td>{{this.size}}</td>
-							<td>{{this.indexes}}</td>
+					<tr class="mainpage-table-row">
+            <td>{{#linkTo 'collections' this.name class="table-links"}}{{this.name}}{{/linkTo}}</td>
+						<td>{{this.collection_count}}</td>
+						<td>{{this.size}}</td>
+						<td>{{this.indexes}}</td>
 					</tr>
 					{{/each}}
 	</table>

@@ -52,5 +52,7 @@ gem 'genghisapp'
 
 gem 'bson_ext'
 
+gem 'multi_json', '1.7.8'
+
 gem 'jquery-ui-rails'
 

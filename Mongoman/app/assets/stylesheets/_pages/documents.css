@@ -121,6 +121,8 @@
   border-radius: 3px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 0 #fff;
+  font: 16px arial,sans-serif;
+  color: #222;
 }
 
 .documents-search-box:focus {
@@ -128,6 +130,8 @@
   z-index: 40;
   position: relative;
   min-width: 35%;
+  font: 16px arial,sans-serif;
+  color: #222;
 }
 
 /*Styles for pagination to display correctly*/
