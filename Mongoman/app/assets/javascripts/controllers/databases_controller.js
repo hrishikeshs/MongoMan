@@ -1,4 +1,4 @@
-Mongoman.StartController = Ember.ArrayController.extend({
+Mongoman.DatabasesController = Ember.ArrayController.extend({
   content: null,
   isLoaded: Ember.computed.alias('content.length'),
 
@@ -14,21 +14,17 @@ Mongoman.StartController = Ember.ArrayController.extend({
         modal: true,
         buttons: {
           Create: function() {
-            var newDbName = self.get('content.newDbName')
-            var url = '/databases?'
-            Mongoman.PostRequest.post(url, {dbname: newDbName}, 'POST')
-            $(this).dialog("close")
+            var newDbName = self.get('content.newDbName');
+            var url = '/databases?';
+            Mongoman.PostRequest.post(url, {dbname: newDbName}, 'POST');
+            $(this).dialog("close");
           },
           Cancel: function() {
-            $(this).dialog("close")
+            $(this).dialog("close");
           }
         }
       });
     }
   }
-
-
-
-
 
 })

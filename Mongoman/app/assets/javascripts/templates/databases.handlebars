@@ -1,27 +1,27 @@
 <div class="main-body">
   <div class="list-heading">
-  	<a href="#/">Databases</a>
-  	<button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
+    <a href="#/">Databases</a>
+    <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
-  	{{input valueBinding="content.newDbName" size="30"}}</div>
+    {{input valueBinding="content.newDbName" size="30"}}</div>
   {{#if isLoaded}}
-	<table class="mainpage-table">
-					<tr class="mainpage-table-row">
-							<th>Database Name</th>
-							<th>Collections</th>
-							<th>Size (in GB)</th>
-							<th>Indexes</th>
-					</tr>
-					{{#each content}}
-					<tr class="mainpage-table-row">
+  <table class="mainpage-table">
+          <tr class="mainpage-table-row">
+              <th>Database Name</th>
+              <th>Collections</th>
+              <th>Size (in GB)</th>
+              <th>Indexes</th>
+          </tr>
+          {{#each content}}
+          <tr class="mainpage-table-row">
             <td>{{#linkTo 'collections' this.name class="table-links"}}{{this.name}}{{/linkTo}}</td>
-						<td>{{this.collection_count}}</td>
-						<td>{{this.size}}</td>
-						<td>{{this.indexes}}</td>
-					</tr>
-					{{/each}}
-	</table>
+            <td>{{this.collection_count}}</td>
+            <td>{{this.size}}</td>
+            <td>{{this.indexes}}</td>
+          </tr>
+          {{/each}}
+  </table>
 {{else}}
   <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
   <p style="margin-left:460px;">Hang on ... </p>
