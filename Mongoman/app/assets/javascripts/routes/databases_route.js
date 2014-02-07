@@ -1,4 +1,4 @@
-Mongoman.StartRoute = Ember.Route.extend({
+Mongoman.DatabasesRoute = Ember.Route.extend({
   init: function() {
       this._super();
       window.history.pushState("", "",'/#/');
@@ -8,9 +8,10 @@ Mongoman.StartRoute = Ember.Route.extend({
     return Mongoman.Request.find("/databases?")
   },
 
-  renderTemplate: function() {
+ /* renderTemplate: function() {
       this.render('databases');
   },
+*/
 
   setupController: function(controller,model) {
      controller.set('content', model.databases)
