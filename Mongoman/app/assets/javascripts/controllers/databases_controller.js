@@ -16,7 +16,7 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
           Create: function() {
             var newDbName = self.get('content.newDbName');
             var url = '/databases?';
-            Mongoman.PostRequest.post(url, {dbname: newDbName}, 'POST');
+            Mongoman.PostRequest.post(url, {database_name: newDbName}, 'POST');
             $(this).dialog("close");
           },
           Cancel: function() {
@@ -27,4 +27,4 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
     }
   }
 
-})
+});
