@@ -5,17 +5,12 @@ Mongoman.DatabasesRoute = Ember.Route.extend({
   },
 
   model: function() {
-    return Mongoman.Request.find("/databases?")
+    return Mongoman.Request.find("/databases?");
   },
-
- /* renderTemplate: function() {
-      this.render('databases');
-  },
-*/
 
   setupController: function(controller,model) {
-     controller.set('content', model.databases)
-     controller.set('content.count', model.count)
+    controller.set('content', model.databases);
+    controller.set('content.count', model.count);
   }
 
 });
