@@ -50,7 +50,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
           Create: function() {
             var newCollection = self.get('content.newCollection')
             var url = '/collections?'
-            Mongoman.PostRequest.post(url, {collectionName: newCollection, db: self.get('database_name')}, 'POST')
+            Mongoman.PostRequest.post(url, {collection_name: newCollection, database_name: self.get('database_name')}, 'POST')
             $(this).dialog("close")
           },
           Cancel: function() {
