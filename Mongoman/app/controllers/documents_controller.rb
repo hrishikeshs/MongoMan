@@ -37,8 +37,8 @@ class DocumentsController < ApplicationController
       query = {}
       field.gsub! /\*/, "."
       query[field] = value
-      count = collection.find(query).count()
-      data[:documents] = collection.find(query).limit(300).map do |e|
+      count = @collection.find(query).count()
+      data[:documents] = @collection.find(query).limit(300).map do |e|
         e = self.BsonFieldsToString(e)
       end
     end

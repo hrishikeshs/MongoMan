@@ -44,8 +44,8 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
     search: function() {
       var searchPhrase = encodeURIComponent(this.get('searchtext').replace(/\./g,"*"));
-      var api = "/documents/search/" + searchPhrase +'?'+ "database=" +
-      encodeURIComponent(this.get('database_name'))+ "&collection=" + encodeURIComponent(this.get('collection_name'));
+      var api = "/documents/search/" + searchPhrase +'?'+ "database_name=" +
+      encodeURIComponent(this.get('database_name'))+ "&collection_name=" + encodeURIComponent(this.get('collection_name'));
 
       var getSearchresult = Mongoman.Request.find(api);
       getSearchresult.then(function loadedSearchContent(response) {
