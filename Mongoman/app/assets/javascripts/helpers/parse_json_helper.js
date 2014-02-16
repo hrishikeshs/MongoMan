@@ -6,12 +6,12 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
 
     switch(type) {
 
-      case 'string' : return '"' + Handlebars.Utils.escapeExpression(json) + '"'
+      case 'string' : return '"' + Handlebars.Utils.escapeExpression(json) + '"';
       case 'number' :
       case 'undefined' :
       case 'boolean' :
-            return json;
-      break;
+
+        return json;
 
       default:
         if (Array.isArray(json)) {
@@ -21,8 +21,8 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
         else {
         //none of the above so it is the object
           if (json !== null) {
-            var keys = Object.keys(json)
-            var htmlArray = []
+            var keys = Object.keys(json);
+            var htmlArray = [];
             for(var i = 0, len = keys.length; i < len; i++) {
                 var k = keys[i];
                 var html = "<br /><div class='showhide'><strong>" + k + '</strong>' + ':  '  + "<span style='overflow:auto;'>" + prettyPrint(json[k]) + "</span></div>";
@@ -35,7 +35,7 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
     }
   }
 
-  var html = prettyPrint(json)
-  return new Handlebars.SafeString(html)
+  var html = prettyPrint(json);
+  return new Handlebars.SafeString(html);
 
 });

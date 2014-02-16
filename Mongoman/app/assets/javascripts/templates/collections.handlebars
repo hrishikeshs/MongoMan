@@ -23,7 +23,7 @@
               <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
 							<td>{{stats.count}}</td>
 							<td>{{truncate stats.avgObjSize}}  bytes</td>
-							<td>{{stats.size}} bytes</td>
+							<td>{{convertToGB stats.size}} GB</td>
 							<td>{{stats.nindexes}}</td>
 					</tr>
 					{{/each}}
