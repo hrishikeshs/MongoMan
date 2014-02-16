@@ -22,13 +22,19 @@ font-family: helvetica;
 	border-radius: 3px;
 	border-collapse:separate;
   margin-left: 38px;
+  border: 1px solid #eee;
 
 }
 
 .mainpage-table-row {
 	text-align: justify;
-  background-color: #fafafa;
+  text-indent: 5px;
+  background-color: #fff;
   font-family: helvetica;
+}
+
+.mainpage-table-row:hover {
+  background: #f5f9fc;
 }
 
 .table-links {
