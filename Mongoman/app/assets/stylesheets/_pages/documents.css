@@ -3,28 +3,35 @@
 }
 
 .document {
-	overflow: auto;
-	width: 90%;
-	border-radius: 3px;
-	margin-top: 10px;
-	background-color: #f9f9f9;
-	font: -webkit-control;
+  overflow: auto;
+  width: 90%;
+  border-radius: 3px;
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  font: -webkit-control;
   font-family: helvetica;
-	font-size: 14px;
-	line-height: 20px;
-	text-align: justify;
-	float: left;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+  float: left;
   margin-top: 38px;
   margin-left: 0px;
 }
 
 .document:hover{
-	background-color: #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .js-editing-document {
   background-color: white;
   border: 2px solid rgba(65,131,196,0.4);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.498039) 0px 0px 5px 0px;
+  border: 1px solid rgb(116, 124, 237);
+  -webkit-appearance: none;
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+  -webkit-writing-mode: horizontal-tb;
+  box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.498039) 0px 0px 5px 0px;
 }
 
 .js-editing-document:hover {
@@ -34,7 +41,7 @@
 
 .edit-save-button {
 
-	background-color: #f9f9f9;
+  background-color: #f9f9f9;
   -moz-border-radius: 3px;
   margin-right: 10px;
   margin-top: 5px;
@@ -52,9 +59,9 @@
 
 .delete-btn {
 
-	background-color:#f9f9f9;
-	margin-right: 20px;
-	margin-top: 5px;
+  background-color:#f9f9f9;
+  margin-right: 20px;
+  margin-top: 5px;
   -moz-border-radius: 3px;
   font: Helvetica,Arial;
   -webkit-box-shadow: rgba(0, 0, 0, 0.0470588);
@@ -68,22 +75,22 @@
 }
 
 .edit-save-button:hover {
-	color: black;
-	border: 1px solid #60b044;
-	border-radius: 2px;
-	background: -webkit-gradient(linear, left top, left bottom,
-  	color-stop(0%,rgba(143,200,0,1)),
-  	 color-stop(73%,rgba(96,176,68,1)));
+  color: black;
+  border: 1px solid #60b044;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%,rgba(143,200,0,1)),
+     color-stop(73%,rgba(96,176,68,1)));
 
 }
 
 .delete-btn:hover {
-	color:black;
-	border-radius: 2px;
-	border: 1px solid #60b044;
-	background: -webkit-gradient(linear, left top, left bottom,
-  	color-stop(8%,rgba(255,48,25,1)),
-  	 color-stop(96%,rgba(207,4,4,1)));
+  color:black;
+  border-radius: 2px;
+  border: 1px solid #60b044;
+  background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(8%,rgba(255,48,25,1)),
+     color-stop(96%,rgba(207,4,4,1)));
 
 }
 
