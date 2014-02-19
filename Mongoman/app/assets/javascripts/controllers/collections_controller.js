@@ -7,14 +7,14 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
 
   update: function() {
     if (this.get('content') ) {
-      var database_name = this.get('content')[0]['stats']['ns'].split('.')[0]
-      this.set('stats',this.get('content'))
-      this.set('isLoaded', true)
+      var database_name = this.get('content')[0]['stats']['ns'].split('.')[0];
+      this.set('stats',this.get('content'));
+      this.set('isLoaded', true);
     }
     else {
       this.set('stats', null);
     }
-    this.set('database_name',database_name)
+    this.set('database_name',database_name);
   }.observes('content'),
 
   actions: {
@@ -27,13 +27,13 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
         modal: true,
         buttons: {
           Delete: function() {
-            var url = '/databases/' + self.get('database_name')
-            Mongoman.PostRequest.post(url , {} , 'DELETE')
-            $(this).dialog("close")
-            self.transitionTo('start')
+            var url = '/databases/' + self.get('database_name');
+            Mongoman.PostRequest.post(url , {} , 'DELETE');
+            $(this).dialog("close");
+            self.transitionTo('databases');
           },
           Cancel: function() {
-            $(this).dialog("close")
+            $(this).dialog("close");
           }
         }
       });
@@ -51,6 +51,13 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
             var newCollection = self.get('content.newCollection')
             var url = '/collections?'
             Mongoman.PostRequest.post(url, {collection_name: newCollection, database_name: self.get('database_name')}, 'POST')
+            .then(
+              function success() {
+
+              },
+              function failure() {
+                //boo!
+              });
             $(this).dialog("close")
           },
           Cancel: function() {

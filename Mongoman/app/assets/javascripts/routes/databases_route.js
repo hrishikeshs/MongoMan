@@ -1,7 +1,7 @@
 Mongoman.DatabasesRoute = Ember.Route.extend({
   init: function() {
-      this._super();
-      window.history.pushState("", "",'/#/');
+    this._super();
+    window.history.pushState("", "",'/#/');
   },
 
   model: function() {

@@ -5,7 +5,6 @@
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
     {{input valueBinding="content.newDbName" size="30"}}</div>
-  {{#if isLoaded}}
   <table class="mainpage-table">
           <tr class="mainpage-table-row">
               <th>Database Name</th>
@@ -15,17 +14,16 @@
           </tr>
           {{#each content}}
           <tr class="mainpage-table-row">
-            <td>{{#linkTo 'collections' this.name class="table-links"}}{{this.name}}{{/linkTo}}</td>
-            <td>{{this.collection_count}}</td>
-            <td>{{this.size}}</td>
-            <td>{{this.indexes}}</td>
+            <td>{{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}</td>
+            <td>{{collection_count}}</td>
+            <td>{{size}}</td>
+            <td>{{indexes}}</td>
           </tr>
           {{/each}}
   </table>
-{{else}}
+  {{else}}
   <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
   <p style="margin-left:460px;">Hang on ... </p>
-{{/if}}
 </div>
 <div class="footer">
 </div>

@@ -85,7 +85,14 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
           var json = self.isValidDocument(self.newDocument);
           if (json && (self.newDocument !== "")) {
             var url = '/documents/?';
-            Mongoman.PostRequest.post(url , {database_name : self.get('database_name'), collection_name: self.get('collection_name')}, 'POST', self.jsonifyText(self.newDocument.trim()));
+            Mongoman.PostRequest.post(url ,
+              {
+                database_name : self.get('database_name'),
+                collection_name: self.get('collection_name')
+              }, 'POST', self.jsonifyText(self.newDocument.trim()))
+             .then(function() {
+              //  self.reload();
+              });
             $( this ).dialog( "close" );
           }
           else {

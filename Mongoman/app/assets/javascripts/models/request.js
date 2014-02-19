@@ -20,7 +20,7 @@ Mongoman.Request.reopenClass({
           }
         });
       });
-    return promise
+    return promise;
   }
 
 });
@@ -33,24 +33,26 @@ Mongoman.PostRequest = Ember.Object.extend({
 Mongoman.PostRequest.reopenClass({
 
   post: function(api , params, type, data) {
-    var api = api + jQuery.param(params);
-    $.ajax({
-      url: api,
-      dataType: 'json',
-      contentType: 'application/json; charset=utf-8',
-      type: type,
-      data: data,
-      async: true,
-      cache: false,
-      success: function(data, status, xhr) {
-        $.flash(data.notice);
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        console.log(xhr,textStatus);
-        $.flash("Invalid operation");
-        return null;
-      }
-    });
-    return null;
+
+    var promise = new Ember.RSVP.Promise(function(resolve, reject) {
+        Ember.$.ajax({
+          dataType: "json",
+          url:  api + jQuery.param(params),
+          data: data,
+          contentType: 'application/json; charset=utf-8',
+          type: type,
+          success: function(response, status, xhr) {
+            $.flash(response.notice);
+            resolve();
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            console.log(xhr,textStatus);
+            $.flash("Invalid operation");
+            reject();
+          }
+        });
+      });
+    return promise;
   }
+
 });

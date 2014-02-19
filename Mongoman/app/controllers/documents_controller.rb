@@ -80,7 +80,7 @@ class DocumentsController < ApplicationController
 		new_document = construct_document(json_object)
 		begin
 			id = @collection.insert(new_document)
-			notice = "Document added to collection " + collection_name + " has id = " + id.to_s
+			notice = "Document added to collection " + params[:collection_name] + " has id = " + id.to_s
 		rescue
 			notice =  @database.command({:getLastError => 1})['err']
 		end
