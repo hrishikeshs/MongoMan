@@ -3,7 +3,7 @@
 	<div class="list-heading"><a href="#/">Databases </a>
   <button class="new-button" {{action 'addDocument'}}>+ New Document</button>
   <div class="arrow-right"></div>
-  <a href="#/collections/{{unbound database_name}}">{{database_name}}</a><div class="arrow-right"></div>{{collection_name}}</div>
+  {{#linkTo 'collections' database_name}}{{database_name}}{{/linkTo}}<div class="arrow-right"></div>{{collection_name}}</div>
   {{#if isLoaded}}
     <ul>
       <li class="inline-search-box">
