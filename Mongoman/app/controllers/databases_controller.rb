@@ -33,6 +33,19 @@ class DatabasesController < ApplicationController
   end
 
 
+  def copy
+    begin
+      @connection.copy_database(params[:database_name], params[:name])
+      notice = "Successfully copied"
+    rescue
+      notice = @database.command({:getLastError => 1})['err']
+    end
+    respond_to do |format|
+        format.json {render json: {:notice => "Successfully copied" } }
+      end
+  end
+
+
   def destroy
     database = params[:id]
     @connection.drop_database(database)

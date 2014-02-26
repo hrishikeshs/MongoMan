@@ -5,22 +5,32 @@
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
     {{input valueBinding="content.newDbName" size="30"}}</div>
-  <table class="mainpage-table">
-          <tr class="mainpage-table-row">
-              <th>Database Name</th>
-              <th>Collections</th>
-              <th>Size (in GB)</th>
-              <th>Indexes</th>
-          </tr>
-          {{#each content}}
-          <tr class="mainpage-table-row">
-            <td>{{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}</td>
-            <td>{{collection_count}}</td>
-            <td>{{size}}</td>
-            <td>{{indexes}}</td>
-          </tr>
-          {{/each}}
-  </table>
+  <div style="display:none;" id="db-copy-dialog">Copy as:<br /><br />
+    {{input valueBinding="controller.copieddbName" size="30"}}</div>
+  <div class="table-and-widgets-container" style="display:flex;">
+    <table class="mainpage-table">
+            <tr class="mainpage-table-row">
+                <th>Database Name</th>
+                <th>Collections</th>
+                <th>Size (in GB)</th>
+                <th>Indexes</th>
+            </tr>
+            {{#each controller}}
+            <tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
+              <td>
+                {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
+                {{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}
+              </td>
+              <td>{{collection_count}}</td>
+              <td>{{size}}</td>
+              <td>{{indexes}}</td>
+            </tr>
+            {{/each}}
+    </table>
+    <div>
+      {{partial 'widgets'}}
+    </div>
+  </div>
   {{else}}
   <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
   <p style="margin-left:460px;">Hang on ... </p>
