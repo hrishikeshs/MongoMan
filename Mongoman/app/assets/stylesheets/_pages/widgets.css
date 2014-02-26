@@ -1,0 +1,18 @@
+.widget-list-option {
+  border-right: 4px;
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+  font-family: helvetica;
+  margin-top: 10px;
+  background: #eef;
+  cursor: pointer;
+}
+
+.widget-list-option:hover {
+  background: #abf;
+}
+
+.widget-list-option:active {
+  background: #acf;
+}

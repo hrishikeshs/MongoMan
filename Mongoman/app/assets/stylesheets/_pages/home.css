@@ -48,6 +48,16 @@
 	overflow-x:visible;
 }
 
+
+.database-selector-checkbox {
+	opacity: 0;
+}
+
+.database-selector-checkbox:hover, .selected-row {
+	opacity: 1;
+	background: whitesmoke !important;
+}
+
 .header-link {
 	display: inline;
 	text-decoration: none;

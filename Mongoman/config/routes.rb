@@ -12,6 +12,8 @@ Mongoman::Application.routes.draw do
 
   get '/documents/search/:id', :to => 'documents#search'
 
+  put '/databases/copy/:name', :to => 'databases#copy'
+
 
   mount Genghis::Server.new, :at=>'/genghis'
   # The priority is based upon order of creation: first created -> highest priority.

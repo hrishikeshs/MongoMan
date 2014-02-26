@@ -1,0 +1,16 @@
+{{#if selectedItem}}
+  <ul style="margin-top:80px;">
+    <li class="widget-list-option" title="copy this database." {{action 'copy'}}>
+      Copy
+    </li>
+    <li class="widget-list-option" title="rename this database." {{action 'Rename'}}>
+      Rename
+    </li>
+    <li class="widget-list-option" title="get the stats on this database as of now." {{action 'showStats'}}>
+      Status
+    </li>
+    <li class="widget-list-option" title="drop this database." {{action 'drop'}}>
+      Delete
+    </li>
+  </ul>
+{{/if}}
