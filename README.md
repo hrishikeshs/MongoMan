@@ -33,6 +33,8 @@ Pull Requests welcome!
 
 License
 ========
+Copyright (c) 2014 Hrishikesh S
+
 MongoMan is licensed under the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
 
 
