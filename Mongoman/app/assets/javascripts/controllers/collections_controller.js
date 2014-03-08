@@ -30,7 +30,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
             var url = '/databases/' + self.get('database_name');
             Mongoman.PostRequest.post(url , {} , 'DELETE');
             $(this).dialog("close");
-            self.transitionTo('appplication');
+            self.transitionTo('databases');
           },
           Cancel: function() {
             $(this).dialog("close");
@@ -53,7 +53,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend({
             Mongoman.PostRequest.post(url, {collection_name: newCollection, database_name: self.get('database_name')}, 'POST')
             .then(
               function success() {
-                self.transitionTo('appplication');
+                self.transitionTo('databases');
               },
               function failure() {
                 //boo!
