@@ -7,6 +7,10 @@
     {{input valueBinding="content.newDbName" size="30"}}</div>
   <div style="display:none;" id="db-copy-dialog">Copy as:<br /><br />
     {{input valueBinding="controller.copieddbName" size="30"}}</div>
+  <div style="display:none;" id="db-rename-dialog">Enter new name<br /><br />
+    {{input valueBinding="controller.newName" size="30"}}</div>
+  <div id="placeholder-confirm-drop-db" style="display:none;"> Honestly ? </div>
+  {{#if controller.isLoaded}}
   <div class="table-and-widgets-container" style="display:flex;">
     <table class="mainpage-table">
             <tr class="mainpage-table-row">
@@ -33,7 +37,8 @@
   </div>
   {{else}}
   <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
-  <p style="margin-left:460px;">Hang on ... </p>
+  <p style="margin-left:460px;">{{controller.statusText}}</p>
+  {{/if}}
 </div>
 <div class="footer">
 </div>

@@ -2,7 +2,10 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
   content: null,
   selectedItem: null,
   copieddbName: null,
+  newName: null,
   itemController: 'database',
+  isLoaded: Em.computed.alias('content'),
+  statusText: "Hang on...",
 
   actions: {
 
@@ -17,9 +20,11 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
           Create: function() {
             var newDbName = self.get('content.newDbName');
             var url = '/databases?';
+            self.set('statusText', 'Creating database... just for you');
+            self.set('isLoaded',false);
             Mongoman.PostRequest.post(url, {database_name: newDbName}, 'POST').then(
               function success() {
-                window.location.href="/";
+                window.location.href= '/';
               },
               function failure() {
                 //boo!
@@ -75,9 +80,11 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
           Create: function() {
             var db = self.get('selectedItem').get('name');
             var url = '/databases/copy/' + self.get('copieddbName') + '?';
+            self.set('statusText', 'Copying database... just hang on...');
+            self.set('isLoaded',false);
             Mongoman.PostRequest.post(url, {database_name: db}, 'PUT').then(
               function success() {
-                window.location.href="/";
+                window.location.href= '/';
               },
               function failure() {
                 //boo!
@@ -94,6 +101,33 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
     },
 
     Rename: function() {
+      var self = this;
+      $("#db-rename-dialog" ).dialog({
+        resizable: false,
+        height:250,
+        width: 450,
+        modal: true,
+        buttons: {
+          Rename: function() {
+            var db = self.get('selectedItem').get('name');
+            var url = '/databases/rename/' + db + '?';
+            self.set('statusText', 'Renaming database...');
+            self.set('isLoaded',false);
+            Mongoman.PostRequest.post(url, {new_name: self.get('newName')}, 'PUT').then(
+              function success() {
+                window.location.href= '/';
+              },
+              function failure() {
+                //boo!
+              });
+
+            $(this).dialog("close");
+          },
+          Cancel: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
 
     },
 
@@ -101,10 +135,32 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
 
     },
 
-    drop: function() {
-
+    drop : function() {
+      var self = this;
+      $("#placeholder-confirm-drop-db" ).dialog({
+        resizable: false,
+        height:250,
+        width: 450,
+        modal: true,
+        buttons: {
+          "Drop Database": function() {
+            var url = '/databases/' + self.get('selectedItem').get('name');
+            self.set('isLoaded',false);
+            Mongoman.PostRequest.post(url , {} , 'DELETE').then(
+              function success() {
+                window.location.href= '/';
+              },
+              function failure() {
+                //boo!
+              });
+            $(this).dialog("close");
+          },
+          Cancel: function() {
+            $(this).dialog("close");
+          }
+        }
+      });
     }
-
 
 
 

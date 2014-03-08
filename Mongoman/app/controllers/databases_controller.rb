@@ -45,6 +45,19 @@ class DatabasesController < ApplicationController
       end
   end
 
+  def rename
+    begin
+      @connection.copy_database(params[:id], params[:new_name])
+      notice = "Successfully Renamed"
+      @connection.drop_database(params[:id])
+    rescue
+      notice = @database.command({:getLastError => 1})['err']
+    end
+    respond_to do |format|
+        format.json {render json: {:notice => "Successfully copied" } }
+      end
+  end
+
 
   def destroy
     database = params[:id]

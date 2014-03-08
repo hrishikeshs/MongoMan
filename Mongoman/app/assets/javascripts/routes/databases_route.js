@@ -11,6 +11,7 @@ Mongoman.DatabasesRoute = Ember.Route.extend({
   setupController: function(controller,model) {
     controller.set('content', model.databases);
     controller.set('content.count', model.count);
+    controller.set('selectedItem', null);
   }
 
 });
