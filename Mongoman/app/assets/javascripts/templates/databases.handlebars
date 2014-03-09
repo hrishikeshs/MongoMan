@@ -4,7 +4,7 @@
     <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
-    {{input valueBinding="content.newDbName" size="30"}}</div>
+    {{input valueBinding="content.newDbName" size="30" class="dialog-input-box"}}</div>
   <div style="display:none;" id="db-copy-dialog">Copy as:<br /><br />
     {{input valueBinding="controller.copieddbName" size="30"}}</div>
   <div style="display:none;" id="db-rename-dialog">Enter new name<br /><br />
@@ -36,9 +36,11 @@
     </div>
   </div>
   {{else}}
-  <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
-  <p style="margin-left:460px;">{{controller.statusText}}</p>
+  <div style="margin-left: inherit;margin-right: inherit;padding-top: 150px;padding-left: 370px;">
+    <label>{{controller.statusText}}</label>
+    <br>
+    <img src="/spinner.gif" alt="spinner" style="padding:50px;" width="30" height="30"></img>
+  </div>
   {{/if}}
-</div>
 <div class="footer">
 </div>

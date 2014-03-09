@@ -13,6 +13,7 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
       var self = this;
       $("#newdb-create" ).dialog({
         resizable: false,
+        draggable: false,
         height:250,
         width: 450,
         modal: true,
@@ -21,15 +22,19 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
             var newDbName = self.get('content.newDbName');
             var url = '/databases?';
             self.set('statusText', 'Creating database... just for you');
-            self.set('isLoaded',false);
-            Mongoman.PostRequest.post(url, {database_name: newDbName}, 'POST').then(
-              function success() {
-                window.location.href= '/';
-              },
-              function failure() {
-                //boo!
-              });
-
+            if (newDbName !== null && newDbName !== "") {
+              self.set('isLoaded',false);
+              Mongoman.PostRequest.post(url, {database_name: newDbName}, 'POST').then(
+                function success() {
+                  window.location.href= '/';
+                },
+                function failure() {
+                  //boo!
+                });
+            }
+            else {
+              $.flash("Please enter a valid database name.");
+            }
             $(this).dialog("close");
           },
           Cancel: function() {
@@ -73,22 +78,29 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
       var self = this;
       $("#db-copy-dialog" ).dialog({
         resizable: false,
+        draggable: false,
         height:250,
         width: 450,
         modal: true,
         buttons: {
-          Create: function() {
+          Copy: function() {
             var db = self.get('selectedItem').get('name');
-            var url = '/databases/copy/' + self.get('copieddbName') + '?';
+            var newName = self.get('copieddbName');
+            var url = '/databases/copy/' + newName + '?';
             self.set('statusText', 'Copying database... just hang on...');
-            self.set('isLoaded',false);
-            Mongoman.PostRequest.post(url, {database_name: db}, 'PUT').then(
-              function success() {
-                window.location.href= '/';
-              },
-              function failure() {
-                //boo!
-              });
+            if (newName !== null && newName !== "") {
+              self.set('isLoaded',false);
+              Mongoman.PostRequest.post(url, {database_name: db}, 'PUT').then(
+                function success() {
+                  window.location.href= '/';
+                },
+                function failure() {
+                  //boo!
+                });
+            }
+            else {
+              $.flash("Please enter a valid name.");
+            }
 
             $(this).dialog("close");
           },
@@ -104,22 +116,29 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
       var self = this;
       $("#db-rename-dialog" ).dialog({
         resizable: false,
+        draggable: false,
         height:250,
         width: 450,
         modal: true,
         buttons: {
           Rename: function() {
             var db = self.get('selectedItem').get('name');
+            var newName = self.get('newName');
             var url = '/databases/rename/' + db + '?';
             self.set('statusText', 'Renaming database...');
-            self.set('isLoaded',false);
-            Mongoman.PostRequest.post(url, {new_name: self.get('newName')}, 'PUT').then(
-              function success() {
-                window.location.href= '/';
-              },
-              function failure() {
-                //boo!
-              });
+            if (newName !== null && newName !== "") {
+              self.set('isLoaded',false);
+              Mongoman.PostRequest.post(url, {new_name: newName}, 'PUT').then(
+                function success() {
+                  window.location.href= '/';
+                },
+                function failure() {
+                  //boo!
+                });
+            }
+            else {
+              $.flash("Please enter a valid name.");
+            }
 
             $(this).dialog("close");
           },
@@ -131,14 +150,11 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
 
     },
 
-    showStats: function() {
-
-    },
-
     drop : function() {
       var self = this;
       $("#placeholder-confirm-drop-db" ).dialog({
         resizable: false,
+        draggable: false,
         height:250,
         width: 450,
         modal: true,
@@ -161,11 +177,6 @@ Mongoman.DatabasesController = Ember.ArrayController.extend({
         }
       });
     }
-
-
-
-
-
   }
 
 });

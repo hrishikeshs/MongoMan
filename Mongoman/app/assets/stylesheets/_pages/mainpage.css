@@ -15,19 +15,24 @@ font-family: helvetica;
 }
 
 .mainpage-table {
-	width: 87%;
-	background-color: #fafafa;
+  width: 87%;
+  background-color: #fafafa;
   border-collapse: collapse !important;
-	margin-top: 5px;
-	border-radius: 3px;
-	border-collapse:separate;
+  margin-top: 5px;
+  border-radius: 3px;
+  border-collapse:separate;
   margin-left: 38px;
   border: 1px solid #eee;
 
 }
 
+.dialog-input-box{
+  border-radius: 3px;
+  border: 0.1em solid gray;
+}
+
 .mainpage-table-row {
-	text-align: justify;
+  text-align: justify;
   text-indent: 5px;
   background-color: #fff;
   font-family: helvetica;
@@ -38,7 +43,7 @@ font-family: helvetica;
 }
 
 .table-links {
-	color: #4183c4 !important;
+  color: #4183c4 !important;
 }
 
 td, th {

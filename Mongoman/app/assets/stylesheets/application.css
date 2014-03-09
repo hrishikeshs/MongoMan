@@ -11,23 +11,22 @@
  *= require_self
  *= require_tree .
  *
- *= require jquery.ui.dialog.css
 */
 a:link {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 a:active {
-	color: #4183c4;
-	text-decoration: none;
+  color: #4183c4;
+  text-decoration: none;
 }
 a:visited {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 a:hover {
-	color: #4183c4;
-	text-decoration: none;
+  color: #4183c4;
+  text-decoration: none;
 }
 
 ul, li{
@@ -38,3 +37,9 @@ ul, li{
 @import "_pages/database";
 @import "_pages/jquery.flash.css";
 @import "_pages/buttons.css";
+@import "_jqueryCustom/jquery.ui.button.css";
+@import "_jqueryCustom/jquery.ui.core.css";
+@import "_jqueryCustom/jquery.ui.dialog.css";
+@import "_jqueryCustom/jquery.ui.resizable.css";
+@import "_jqueryCustom/jquery.ui.button.css";
+@import "_jqueryCustom/jquery.ui.theme.css";
