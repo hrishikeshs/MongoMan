@@ -23,6 +23,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     else {
       str = '{}';
     }
+    str = str.replace(/\n/g,'');
     return str;
   },
 
@@ -98,6 +99,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
           else {
             $.flash("Your JSON is invalid!! Please enter valid JSON.");
           }
+          self.set('newDocument', null)
         },
         Cancel: function() {
           $( this ).dialog( "close" );
