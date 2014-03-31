@@ -54,7 +54,7 @@ class DatabasesController < ApplicationController
       notice = @database.command({:getLastError => 1})['err']
     end
     respond_to do |format|
-        format.json {render json: {:notice => "Successfully copied" } }
+        format.json {render json: {:notice => "Successfully Renamed" } }
       end
   end
 

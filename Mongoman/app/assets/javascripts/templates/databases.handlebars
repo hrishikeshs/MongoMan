@@ -4,7 +4,7 @@
     <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
   </div>
   <div style="display:none;" id="newdb-create">Enter the Database name:<br /><br />
-    {{input valueBinding="content.newDbName" size="30" class="dialog-input-box"}}</div>
+    {{input valueBinding="controller.newDbName" size="30" class="dialog-input-box"}}</div>
   <div style="display:none;" id="db-copy-dialog">Copy as:<br /><br />
     {{input valueBinding="controller.copieddbName" size="30"}}</div>
   <div style="display:none;" id="db-rename-dialog">Enter new name<br /><br />
