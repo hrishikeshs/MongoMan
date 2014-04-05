@@ -6,6 +6,10 @@ Mongoman::Application.routes.draw do
 
   resources :databases
 
+  put '/collections/rename/', :to => 'collections#rename'
+
+  post '/collections/copy', :to => 'collections#copy'
+
   resources :collections
 
   resources :documents
@@ -15,6 +19,8 @@ Mongoman::Application.routes.draw do
   put '/databases/copy/:name', :to => 'databases#copy'
 
   put '/databases/rename/:id', :to => 'databases#rename'
+
+
 
 
   mount Genghis::Server.new, :at=>'/genghis'

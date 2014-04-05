@@ -1,11 +1,18 @@
-Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin,{
+Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin,  Mongoman.SelectedItemMixin, {
   content: null,
-  selectedItem: null,
   copieddbName: null,
   newName: null,
-  itemController: 'database',
+  itemController: 'selectedItem',
   isLoaded: Em.computed.alias('content'),
   statusText: "Hang on...",
+
+  // an extremely ugly hack. @todo fix this up asap.
+  removeAdminDatabase: function() {
+    var admindb = this.get('content.firstObject');
+    if((admindb.size === 0) && (admindb.name === 'admin') && (admindb.collection_count === 0)) {
+      this.get('content').shiftObject();
+    }
+  }.observes('content.firstObject'),
 
   actions: {
 
@@ -59,7 +66,7 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
       @todo figure out how to do this better because the controller seems to be getting a little fat.
     */
 
-    Rename: function() {
+    rename: function() {
       var self = this;
       var buttons = {
         Rename: function() {
@@ -87,41 +94,14 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
             'statusText': 'Dropping database',
             'isLoaded': false
           });
-
           Mongoman.Database.drop(self.get('selectedItem.name')).then(function() {
             window.location.href = '/';
           });
-
           $(this).dialog("close");
         },
-
         Cancel: function() { $(this).dialog("close");}
       };
       this.displayDialog('#placeholder-confirm-drop-db', buttons);
-    },
-
-    /**
-    * Let only one db to be in selected state
-    * at any given time.
-    */
-    selected: function(item) {
-      if (!this.get('selectedItem')) {
-        this.set('selectedItem', item);
-      }
-      else {
-        this.get('selectedItem').send('toggleSelection');
-        this.set('selectedItem', item);
-      }
-
-    },
-
-    /**
-    * When the checkbox is unchecked
-    */
-    deselect: function(item) {
-      if (this.get('selectedItem') === item) {
-        this.set('selectedItem', null);
-      }
     }
   }
 

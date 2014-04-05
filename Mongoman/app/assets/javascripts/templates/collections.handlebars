@@ -6,28 +6,39 @@
   	<div class="arrow-right"></div>
   	{{#linkTo 'collections' database.name}}{{database_name}}{{/linkTo}}
 	</div>
+  <div style="display:none;" id='collection-copy-dialog'>Copy as:<br /><br />
+    {{input valueBinding="controller.copyas" size="30"}}</div>
 	<div style="display:none;" id="newcollection-create">Enter the Collection name:<br /><br />
-  	{{input valueBinding="content.newCollection" size="30"}}</div>
+  	{{input valueBinding="controller.newCollection" size="30"}}</div>
+  <div style="display:none;" id="collection-rename-dialog">Enter new name<br /><br />
+    {{input valueBinding="controller.newName" size="30"}}</div>
+  <div id="placeholder-confirm-drop-collection" style="display:none;"> Honestly ? </div>
   {{#if isLoaded}}
-	<table class="mainpage-table">
-					<tr class="mainpage-table-row">
-              <th>Collection Name</th>
-							<th>Documents</th>
-							<th>Avg Document Size</th>
-							<th>Size</th>
-							<th>Indexes</th>
-					</tr>
-					{{#each stats}}
-					<tr class="mainpage-table-row">
-            <td>
-              <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
-							<td>{{stats.count}}</td>
-							<td>{{truncate stats.avgObjSize}}  bytes</td>
-							<td>{{convertToGB stats.size}} GB</td>
-							<td>{{stats.nindexes}}</td>
-					</tr>
-					{{/each}}
-	</table>
+  <div class="table-and-widgets-container" style="display:flex;">
+  	<table class="mainpage-table">
+  					<tr class="mainpage-table-row">
+                <th>Collection Name</th>
+  							<th>Documents</th>
+  							<th>Avg Document Size</th>
+  							<th>Size</th>
+  							<th>Indexes</th>
+  					</tr>
+  					{{#each controller}}
+  					<tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
+              <td>
+                {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
+                <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
+  							<td>{{stats.count}}</td>
+  							<td>{{truncate stats.avgObjSize}}  bytes</td>
+  							<td>{{convertToGB stats.size}} GB</td>
+  							<td>{{stats.nindexes}}</td>
+  					</tr>
+  					{{/each}}
+  	</table>
+    <div>
+      {{partial 'widgets'}}
+    </div>
+  </div>
   {{else}}
     <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
     <p style="margin-left:460px;">Just a sec ... </p>

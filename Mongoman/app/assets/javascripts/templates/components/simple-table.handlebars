@@ -1,0 +1,27 @@
+<table class="mainpage-table">
+  <tr class="mainpage-table-row">
+    {{#each headers}}
+      <th>{{this}}</th>
+    {{/each}}
+  </tr>
+   {{!-- {{#each content}}
+    <tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
+      <td>
+        {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
+        {{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}
+      </td>
+      <td>{{collection_count}}</td>
+      <td>{{size}}</td>
+      <td>{{indexes}}</td>
+    </tr>
+  {{/each}} --}}
+  {{#each augmentedContent}}
+    <tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
+    {{#each this}}
+      {{log this}}
+    <td></td>
+    {{/each}}
+    </tr>
+  {{/each}}
+</table>
+

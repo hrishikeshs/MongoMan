@@ -1,4 +1,4 @@
-Mongoman.DatabaseController = Ember.ObjectController.extend({
+Mongoman.SelectedItemController = Ember.ObjectController.extend({
   selected: null,
 
   selecteddidChange: function() {
