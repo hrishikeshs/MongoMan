@@ -8,9 +8,11 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
 
   // an extremely ugly hack. @todo fix this up asap.
   removeAdminDatabase: function() {
-    var admindb = this.get('content.firstObject');
-    if((admindb.size === 0) && (admindb.name === 'admin') && (admindb.collection_count === 0)) {
-      this.get('content').shiftObject();
+    if(this.get('content')) {
+      var admindb = this.get('content.firstObject');
+      if((admindb.size === 0) && (admindb.name === 'admin') && (admindb.collection_count === 0)) {
+        this.get('content').shiftObject();
+      }
     }
   }.observes('content.firstObject'),
 
