@@ -16,7 +16,7 @@
             <tr class="mainpage-table-row">
                 <th><div style="display:inline;border:none;margin-left:20px;"></div><span>Database Name</span></th>
                 <th>Collections</th>
-                <th>Size (in GB)</th>
+                <th>Size</th>
                 <th>Indexes</th>
             </tr>
             {{#each controller}}
@@ -26,7 +26,7 @@
                 {{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}
               </td>
               <td>{{collection_count}}</td>
-              <td>{{size}}</td>
+              <td>{{size}} Gb</td>
               <td>{{indexes}}</td>
             </tr>
             {{/each}}
