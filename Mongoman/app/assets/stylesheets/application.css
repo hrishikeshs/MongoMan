@@ -39,7 +39,8 @@ ul, li{
     list-style-type:none;
 }
 @import "_pgages/common_classes.css";
-@import "_pages/home";
+@import "_pages/header";
+@import "_pages/page_layout";
 @import "_pages/database";
 @import "_pages/jquery.flash.css";
 @import "_pages/buttons.css";

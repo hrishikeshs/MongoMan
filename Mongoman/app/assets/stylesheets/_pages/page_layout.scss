@@ -1,0 +1,25 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  .container {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 6%;
+  }
+
+  .database-selector-checkbox {
+    opacity: 0;
+  }
+
+  .database-selector-checkbox:hover, .selected-row {
+    opacity: 1;
+    background: whitesmoke !important;
+  }
+}
+
+
+
+
