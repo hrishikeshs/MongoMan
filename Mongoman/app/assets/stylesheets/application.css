@@ -12,6 +12,11 @@
  *= require_tree .
  *
 */
+body {
+  padding: 0;
+  margin: 0;
+}
+
 a:link {
   color: black;
   text-decoration: none;
@@ -33,6 +38,7 @@ ul, li{
     list-style:none;
     list-style-type:none;
 }
+@import "_pgages/common_classes.css";
 @import "_pages/home";
 @import "_pages/database";
 @import "_pages/jquery.flash.css";

@@ -1,0 +1,22 @@
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.footer {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+
