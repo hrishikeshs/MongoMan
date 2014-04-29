@@ -8,10 +8,10 @@ MongoMan provides a graphical front end to your mongoDB installation. You can vi
 Configuration
 =============
 
-1. clone the repository by running : git clone https://github.com/Hrish2006/MongoMan/.
-2. cd to the directory MongoMan/MongoMan.
-3. bundle install
-4. rails s -p 3000 #Start the application on its own port.
+1. clone the repository by running : `git clone https://github.com/hrishikeshs/MongoMan/`
+2. `cd` to the directory MongoMan/MongoMan.
+3. `bundle install`
+4. `rails s -p 3000 #Start the application on its own port.`
 
 navigate to http://localhost:3000 to start using the application.
 
