@@ -17,40 +17,41 @@
       {{input valueBinding="controller.newName" size="30"}}
     </div>
 
-    <div id="placeholder-confirm-drop-db" style="display:none;"> Honestly ? </div>
+    <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
 
-    {{#if controller.isLoaded}}
-    <div class="table-and-widgets-container" style="display:flex;">
-      <table class="mainpage-table">
-              <tr class="mainpage-table-row">
-                  <th><div style="display:inline;border:none;margin-left:20px;"></div><span>Database Name</span></th>
-                  <th>Collections</th>
-                  <th>Size</th>
-                  <th>Indexes</th>
-              </tr>
-              {{#each controller}}
-              <tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
-                <td>
-                  {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-                  {{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}
-                </td>
-                <td>{{collection_count}}</td>
-                <td>{{size}} Gb</td>
-                <td>{{indexes}}</td>
-              </tr>
-              {{/each}}
-      </table>
-      <div>
-        {{partial 'widgets'}}
+    {{#if isLoaded}}
+      <div class="table-and-widgets-container flex">
+        <table class="mainpage-table">
+                <tr class="mainpage-table-row">
+                    <th>Database Name</th>
+                    <th>Collections</th>
+                    <th>Size</th>
+                    <th>Indexes</th>
+                </tr>
+                {{#each controller}}
+                <tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
+                  <td>
+                    {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
+                    {{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}
+                  </td>
+                  <td>{{collection_count}}</td>
+                  <td>{{size}} Gb</td>
+                  <td>{{indexes}}</td>
+                </tr>
+                {{/each}}
+        </table>
+        <div>
+          {{partial 'widgets'}}
+        </div>
       </div>
-    </div>
     {{else}}
-    <div style="margin-left: inherit;margin-right: inherit;padding-top: 150px;padding-left: 370px;">
-      <label>{{controller.statusText}}</label>
-      <br>
-      <img src="/spinner.gif" alt="spinner" style="padding:50px;" width="30" height="30"></img>
-    </div>
+      <div style="margin-left: inherit;margin-right: inherit;padding-top: 150px;padding-left: 370px;">
+        <label>{{controller.statusText}}</label>
+        <br>
+        <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;" style="margin-left:480px;margin-top:180px;"></img>
+      </div>
     {{/if}}
+
   </div>
 </div>
 <div class="footer">

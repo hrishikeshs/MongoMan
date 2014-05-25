@@ -38,7 +38,7 @@ ul, li{
     list-style:none;
     list-style-type:none;
 }
-@import "_pgages/common_classes.css";
+@import "_pages/common_classes";
 @import "_pages/header";
 @import "_pages/page_layout";
 @import "_pages/database";
