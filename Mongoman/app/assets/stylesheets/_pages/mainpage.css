@@ -14,69 +14,10 @@ font-family: helvetica;
   padding-bottom: 20px;
 }
 
-.mainpage-table {
-  width: 87%;
-  background-color: #fafafa;
-  border-collapse: collapse !important;
-  margin-top: 5px;
-  border-radius: 3px;
-  border-collapse:separate;
-  margin-left: 38px;
-  border: 1px solid #eee;
-
-}
 
 .dialog-input-box{
   border-radius: 3px;
   border: 0.1em solid gray;
-}
-
-.mainpage-table-row {
-  text-align: justify;
-  text-indent: 5px;
-  background-color: #fff;
-  font-family: helvetica;
-}
-
-.mainpage-table-row:hover {
-  background: #f5f9fc;
-}
-
-.table-links {
-  color: #4183c4 !important;
-}
-
-td, th {
-  padding: 7px 3px;
-  border-top: 1px solid #eee;
-}
-
-.list-heading{
-  width: 87%;
-  border-radius: 3px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  font-family: "Open Sans", arial, sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  overflow-y: hidden;
-  color: black;
-  line-height: 1.375;
-  text-decoration: none;
-  text-indent: 3px;
-  font-weight: 3em;
-  margin-left: 38px;
-  height: 30px;
-  background: rgba(212,228,239,1);
-  background: -moz-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-  background: -webkit-gradient(left top, left bottom, color-stop(11%, rgba(212,228,239,1)), color-stop(69%, rgba(227,239,245,1)), color-stop(81%, rgba(230,241,246,1)), color-stop(90%, rgba(230,241,246,1)));
-  background: -webkit-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-  background: -o-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-  background: -ms-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-  background: linear-gradient(to bottom, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#e6f1f6', GradientType=0 );
-
 }
 
 .arrow-right {
