@@ -1,4 +1,4 @@
-<div class="main-body">
+
   <div class="container">
     <div class="list-heading">
         <a href="#/">Databases</a>
@@ -22,8 +22,8 @@
   <div id="placeholder-confirm-drop-collection" class="invisible"> Honestly ? </div>
   {{#if isLoaded}}
   <div class="table-and-widgets-container flex">
-    <table class="mainpage-table">
-            <tr class="mainpage-table-row">
+    <table class="table-default">
+            <tr class="table-row">
                 <th>Collection Name</th>
                 <th>Documents</th>
                 <th>Avg Document Size</th>
@@ -31,7 +31,7 @@
                 <th>Indexes</th>
             </tr>
             {{#each controller}}
-            <tr class="mainpage-table-row" {{bind-attr class="selected:selected-row"}}>
+            <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
               <td>
                 {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
                 <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
@@ -55,6 +55,4 @@
       </div>
   {{/if}}
 <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
-</div>
-<div class="footer">
 </div>
