@@ -14,7 +14,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
 
   jsonifyText: function(str) {
-    var keys = str.match(/[a-zA-Z0-9_\"\s\']+:\s+/g);
+    var keys = str.match(/['"]?[a-zA-Z0-9_\"\s\']+['"]?:\s+/g);
     if (keys) {
       for (var i = 0, j = keys.length; i < j; i++) {
         str = str.replace(keys[i],'"' + keys[i].split(':')[0].trim() + '":' );
@@ -24,7 +24,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       str = '{}';
     }
     str = str.replace(/\n/g,'');
-    return str;
+    return str.replace(/\"\"/g, '"');
   },
 
   isValidDocument: function(payload) {
@@ -36,6 +36,23 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     catch(e) {
       return false;
     }
+  },
+
+  substituteFields: function(text) {
+    
+    var lines = text.split('\n');
+    var substitution = "";
+    lines.forEach(function(line) {
+      line = line.match(/ObjectId\(['"]?[0-9a-fA-F]{24}['"]?\)/) || 
+            line.match(/ISODate\(['"]?(\d{4}\-\d\d\-\d\d([tT][\d:\.]*)?)([zZ]|([+\-])(\d\d):?(\d\d))?['"]?\)/);
+      if(line) {
+        singleQuotedline = line[0].replace(/\"/g,"'");
+        substitution = '"' + singleQuotedline + '"';
+        text = text.split(line[0]).join(substitution);
+      }
+    });
+    
+    return text;
   },
 
 
@@ -83,14 +100,20 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       modal: true,
       buttons: {
         "Add Document" : function() {
-          var json = self.isValidDocument(self.newDocument);
-          if (json && (self.newDocument !== "")) {
+
+          var valid = self.isValidDocument(self.newDocument);
+
+          if (valid && self.newDocument) {
+            
             var url = '/documents/?';
+            var json = self.substituteFields(self.newDocument.trim());
+            json = json.split('\n').map(function(token) { return token.trim(); }).join('');
+
             Mongoman.PostRequest.post(url ,
               {
                 database_name : self.get('database_name'),
                 collection_name: self.get('collection_name')
-              }, 'POST', self.jsonifyText(self.newDocument.trim()))
+              }, 'POST', self.jsonifyText(json))
              .then(function() {
               //  self.reload();
               });

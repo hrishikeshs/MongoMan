@@ -75,7 +75,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    json_string = request.body().to_a.join()
+    json_string = request.body().to_a[0]
     json_object =  JSON json_string
     new_document = construct_document(json_object)
     begin
@@ -122,7 +122,7 @@ Hence this circus
        object_id = value.match /[0-9a-fA-F]{24}/
         substitution =  BSON::ObjectId(object_id.to_s)
       elsif value.match 'ISODate'
-        substitution =  Time.parse value.match(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/)[0]
+        substitution =  Time.parse value.match(/(\d{4}\-\d\d\-\d\d([tT][\d:\.]*)?)([zZ]|([+\-])(\d\d):?(\d\d))?/)[0]
       end
     end
     substitution

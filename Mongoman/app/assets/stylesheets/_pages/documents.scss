@@ -16,6 +16,7 @@
   float: left;
   margin-top: 38px;
   margin-left: 0px;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .document:hover{
@@ -38,6 +39,19 @@
   background-color: white;
 }
 
+
+.object-id {
+  color: #dd1144;
+}
+.iso-date {
+  color: rgb(176, 96, 214);
+}
+.character-string {
+  color: rgb(11, 168, 36);
+}
+.field-name {
+  color: rgb(51, 15, 241);
+}
 
 .edit-save-button {
 
