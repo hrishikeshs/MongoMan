@@ -17,7 +17,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     var keys = str.match(/[a-zA-Z0-9_\"\s\']+:\s+/g);
     if (keys) {
       for (var i = 0, j = keys.length; i < j; i++) {
-        str = str.replace(keys[i],'"' + keys[i].split(':')[0] + '":' );
+        str = str.replace(keys[i],'"' + keys[i].split(':')[0].trim() + '":' );
       }
     }
     else {

@@ -15,7 +15,7 @@ Mongoman.DocumentView = Ember.View.extend({
       }
       else {
         this.$('.document-content')[0].contentEditable = false
-        var updated_document = this.$('.document-content').text()
+        var updated_document = this.$('.document-content').text();
         var jsonified = this.get('controller.jsonifyText')(updated_document.trim())
         var url = '/documents/id?'
         Mongoman.PostRequest.post(url , {database_name : this.get('controller.database_name'), collection_name: this.get('controller.collection_name')}, 'PUT', jsonified)
