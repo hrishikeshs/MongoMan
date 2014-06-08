@@ -17,14 +17,14 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     var keys = str.match(/['"]?[a-zA-Z0-9_\"\s\']+['"]?:\s+/g);
     if (keys) {
       for (var i = 0, j = keys.length; i < j; i++) {
-        str = str.replace(keys[i],'"' + keys[i].split(':')[0].trim() + '":' );
+        var newKey = '"' + keys[i].split(':')[0].trim() + '":'; 
+        str = str.replace(keys[i], newKey.replace(/\"\"/g, '"'));
       }
     }
     else {
       str = '{}';
     }
-    str = str.replace(/\n/g,'');
-    return str.replace(/\"\"/g, '"');
+    return str;
   },
 
   isValidDocument: function(payload) {
@@ -52,7 +52,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       }
     });
     
-    return text;
+    return text.replace(/\"\"\"/g, '"');
   },
 
 
@@ -101,12 +101,12 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       buttons: {
         "Add Document" : function() {
 
-          var valid = self.isValidDocument(self.newDocument);
+          var json = self.substituteFields(self.newDocument.trim());
+          var valid = self.isValidDocument(json);
 
-          if (valid && self.newDocument) {
+          if (valid && json) {
             
             var url = '/documents/?';
-            var json = self.substituteFields(self.newDocument.trim());
             json = json.split('\n').map(function(token) { return token.trim(); }).join('');
 
             Mongoman.PostRequest.post(url ,
