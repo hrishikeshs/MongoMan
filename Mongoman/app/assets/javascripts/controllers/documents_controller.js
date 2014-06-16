@@ -113,7 +113,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
               {
                 database_name : self.get('database_name'),
                 collection_name: self.get('collection_name')
-              }, 'POST', self.jsonifyText(json))
+              }, 'POST', self.jsonifyText(json).replace(/\"\"/g, '"'))
              .then(function() {
               //  self.reload();
               });
