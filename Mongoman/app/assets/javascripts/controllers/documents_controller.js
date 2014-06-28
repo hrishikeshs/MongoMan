@@ -12,53 +12,8 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
   searchCount : null,
   count: Ember.computed.alias('documentCount'),
 
-
-  jsonifyText: function(str) {
-    var keys = str.match(/['"]?[a-zA-Z0-9_\"\s\']+['"]?:\s+/g);
-    if (keys) {
-      for (var i = 0, j = keys.length; i < j; i++) {
-        var newKey = '"' + keys[i].split(':')[0].trim() + '":'; 
-        str = str.replace(keys[i], newKey.replace(/\"\"/g, '"'));
-      }
-    }
-    else {
-      str = '{}';
-    }
-    return str;
-  },
-
-  isValidDocument: function(payload) {
-    var result = "";
-    try {
-      result = JSON.stringify(payload);
-      return result;
-    }
-    catch(e) {
-      return false;
-    }
-  },
-
-  substituteFields: function(text) {
-    
-    var lines = text.split('\n');
-    var substitution = "";
-    lines.forEach(function(line) {
-      line = line.match(/ObjectId\(['"]?[0-9a-fA-F]{24}['"]?\)/) || 
-            line.match(/ISODate\(['"]?(\d{4}\-\d\d\-\d\d([tT][\d:\.]*)?)([zZ]|([+\-])(\d\d):?(\d\d))?['"]?\)/);
-      if(line) {
-        singleQuotedline = line[0].replace(/\"/g,"'");
-        substitution = '"' + singleQuotedline + '"';
-        text = text.split(line[0]).join(substitution);
-      }
-    });
-    
-    return text.replace(/\"\"\"/g, '"');
-  },
-
-
-
+ 
   actions: {
-
 
     search: function() {
       var searchPhrase = encodeURIComponent(this.get('searchtext').replace(/\./g,"*"));
@@ -100,29 +55,11 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       modal: true,
       buttons: {
         "Add Document" : function() {
-
-          var json = self.substituteFields(self.newDocument.trim());
-          var valid = self.isValidDocument(json);
-
-          if (valid && json) {
-            
-            var url = '/documents/?';
-            json = json.split('\n').map(function(token) { return token.trim(); }).join('');
-
-            Mongoman.PostRequest.post(url ,
-              {
-                database_name : self.get('database_name'),
-                collection_name: self.get('collection_name')
-              }, 'POST', self.jsonifyText(json).replace(/\"\"/g, '"'))
-             .then(function() {
-              //  self.reload();
-              });
-            $( this ).dialog( "close" );
-          }
-          else {
-            $.flash("Your JSON is invalid!! Please enter valid JSON.");
-          }
-          self.set('newDocument', null)
+          var url = '/documents/?';
+          var json = Mongoman.Utils.sanitizeInput(self.newDocument.replace(/\n/g,'').replace(/\t+/g,''));
+          var promise = Mongoman.PostRequest.post(url , { database_name : self.get('database_name'), collection_name: self.get('collection_name') }, 'POST', json);
+          promise.then(function() { });
+          $( this ).dialog( "close" );  
         },
         Cancel: function() {
           $( this ).dialog( "close" );

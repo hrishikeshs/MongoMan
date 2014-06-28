@@ -4,23 +4,29 @@ Mongoman.DocumentView = Ember.View.extend({
   tagName: 'div',
   editing: false,
   templateName: 'document',
+  
+  buttonText: function() {
+    return this.get('editing') ? 'Save' : 'Edit';
+  }.property('editing'),
 
   actions: {
+    
     editOrSaveDocument: function() {
-
-      if (this.get('editing') === false) {
-        this.set('editing', true)
-        this.$('.edit-save-button')[0].innerHTML = 'Save'
-        this.$('.document-content')[0].contentEditable = true
-      }
-      else {
-        this.$('.document-content')[0].contentEditable = false
-        var updated_document = this.$('.document-content').text();
-        var jsonified = this.get('controller.jsonifyText')(updated_document.trim())
-        var url = '/documents/id?'
-        Mongoman.PostRequest.post(url , {database_name : this.get('controller.database_name'), collection_name: this.get('controller.collection_name')}, 'PUT', jsonified)
-        this.set('editing', false)
-        this.$('.edit-save-button')[0].innerHTML = 'Edit'
+      this.toggleProperty('editing');
+      if(!this.get('editing')) {
+        var updated_document = this.$().text().match(/\{.+\}/)[0];
+        updated_document = Mongoman.Utils.sanitizeInput(updated_document);
+        var url = '/documents/id?';
+        var promise = Mongoman.PostRequest.post(url , {database_name : this.get('controller.database_name'), collection_name: this.get('controller.collection_name')}, 'PUT', updated_document);
+        promise.then(
+          function(response) {
+            this.get('parentView').removeObject(this.get('content'));
+            this.get('parentView').addObject(response.document);
+            this.rerender();
+          }.bind(this), 
+          function failure() {
+            this.rerender();
+          }.bind(this));
       }
     },
 

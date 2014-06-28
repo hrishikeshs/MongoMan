@@ -151,10 +151,13 @@ Hence this circus
     begin
       @collection.update({"_id" => mongo_document["_id"]}, mongo_document)
       notice = "Document with id  " + mongo_document['_id'].to_s + " successfully updated."
+      document = @collection.find({"_id" => mongo_document["_id"]}).map  do |e|
+        e = self.BsonFieldsToString(e)
+      end
     rescue
       notice = db.command({:getLastError => 1})['err']
     end
-    @data = {"notice" => notice}
+    @data = {"notice" => notice, "document" => document[0]}
     respond_to do |format|
         format.json {render json: @data }
         format.all {render json: @data }

@@ -2,7 +2,7 @@
   Delete
 </button>
 <button class='edit-save-button' {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value-in-double-quotes'>
-Edit</button>
-<div contenteditable='false' class='document-content' spellcheck="false">
+{{view.buttonText}}</button>
+<div spellcheck="false" {{bind-attr contenteditable="view.editing" class="view.editing:document-editing"}}>
   {{parseJSONString view.content}}
 </div>
