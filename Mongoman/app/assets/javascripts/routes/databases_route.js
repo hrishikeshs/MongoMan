@@ -1,4 +1,5 @@
 Mongoman.DatabasesRoute = Ember.Route.extend({
+ 
   init: function() {
     this._super();
     window.history.pushState("", "",'/#/');
@@ -9,9 +10,16 @@ Mongoman.DatabasesRoute = Ember.Route.extend({
   },
 
   setupController: function(controller,model) {
-    controller.set('content', model.databases);
-    controller.set('content.count', model.count);
-    controller.set('selectedItem', null);
+    
+    controller.setProperties({
+      content: model.databases,
+     'content.count': model.count,
+      selectedItem: null
+    });
+  },
+
+  deactivate: function() {
+    this.controllerFor('databases').set('selectedItem', null);
   }
 
 });

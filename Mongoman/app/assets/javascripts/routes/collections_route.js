@@ -8,13 +8,18 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
   },
 
   setupController: function(controller,model) {
-    controller.set('content', model.collections || []);
-    controller.set('content.count', model.count || 0);
+    controller.setProperties({
+      content: model.collections || [],
+      'content.count': model.count || 0
+    });
   },
 
   deactivate:function() {
     var controller = this.controllerFor('collections');
-    controller.set('content', null);
+    controller.setProperties({
+      content: null,
+      selectedItem: null
+    });
   }
 
 });
