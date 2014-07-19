@@ -50,7 +50,12 @@
 
 
             case '{':     if(string.charAt(j + 1) !== '}') {
-                            buffer += '{"';
+                            if(string.charAt(j+1) !== '"') {
+                              buffer += '{"';
+                            }
+                            else {
+                              buffer += '{';
+                            }
                           }
                           else {
                             buffer += '{';
