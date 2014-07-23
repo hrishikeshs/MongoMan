@@ -35,6 +35,7 @@
               <td>
                 {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
                 <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
+                {{#link-to 'documents' stats.ns }}{{sanitize undefined this.stats.ns}}{{/link-to}}
                 <td>{{stats.count}}</td>
                 <td>{{truncate stats.avgObjSize}}  bytes</td>
                 <td>{{humanize stats.size}}</td>

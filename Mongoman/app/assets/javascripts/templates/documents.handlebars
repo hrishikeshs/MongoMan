@@ -10,7 +10,7 @@
     <ul>
       <li class="inline-search-box">
         <form {{action search on="submit"}} class="inline-form-search-box" title="syntax is: field : value, separate nested fields by a dot. For ObjectIds, just copy paste the id and hit return.">
-          {{input valueBinding="searchtext" class="documents-search-box" placeholder="Type to search..." }}
+          {{input valueBinding="searchtext" class="documents-search-box" placeholder="name : value" }}
         </form>
       </li>
       {{#unless searching}}

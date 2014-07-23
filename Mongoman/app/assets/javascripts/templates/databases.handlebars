@@ -35,7 +35,7 @@
                     <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
                       <td>
                         {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-                        {{#linkTo 'collections' name class="table-links"}}{{name}}{{/linkTo}}
+                        {{#link-to 'collections' name class="table-links"}}{{name}}{{/link-to}}
                       </td>
                       <td>{{collection_count}}</td>
                       <td>{{size}} Gb</td>

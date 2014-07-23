@@ -12,18 +12,23 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
   update: function() {
     var database_name = "";
     if (this.get('content') && this.get('content')[0]) {
-      database_name = this.get('content')[0]['stats']['ns'].split('.')[0];
-      this.set('stats',this.get('content'));
-      this.set('isLoaded', true);
+      database_name = this.get('content')[0].stats.ns.split('.')[0];
+      this.setProperties({
+        stats: this.get('content'),
+        isLoaded: true
+      });
     }
     else {
-      this.set('stats', null);
-      this.set('isLoaded', true);
+      this.setProperties({
+        stats: null,
+        isLoaded: true
+      });
     }
     this.set('database_name',database_name);
   }.observes('content'),
 
   actions: {
+
     dropDatabase : function() {
       var self = this;
       var buttons = {
@@ -45,7 +50,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
           var newCollection = self.get('newCollection');
           var database_name = self.get('database_name');
           Mongoman.Collection.createCollection(newCollection, database_name).then(function() {
-            self.transitionToRoute('databases');
+            self.transitionToRoute('collections', newCollection);
           });
           $(this).dialog("close");
         },
