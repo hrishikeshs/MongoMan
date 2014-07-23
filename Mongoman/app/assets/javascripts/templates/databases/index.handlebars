@@ -19,7 +19,6 @@
 
     <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
 
-        {{#if isLoaded}}      
           <div class="table-and-widgets-container flex">
               <table class="table-default">
                   <thead>
@@ -46,12 +45,4 @@
                 </table>
                 {{partial 'widgets'}}
           </div>
-      {{else}}
-          <div style="margin-left: inherit;margin-right: inherit;padding-top: 150px;padding-left: 370px;">
-            {{controller.statusText}}
-            <div style="margin-left:50px;margin-top:20px;">
-                <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;"></img>
-            </div>
-          </div>
-      {{/if}}
   </div>

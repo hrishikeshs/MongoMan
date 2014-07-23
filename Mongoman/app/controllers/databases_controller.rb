@@ -9,6 +9,21 @@ class DatabasesController < ApplicationController
     end
   end
 
+  def show
+    database_name = params[:id]
+    database =  @connection.db(database_name)
+    @collections = database.collection_names.sort().map  do |e| {
+      name: e,
+      stats: database[e].stats()
+    }
+    end
+    respond_to do |format|
+          format.json {render json: @collections }
+          format.all {render json: @data }
+    end
+  end
+
+
   def db_info
     dbs = @connection.database_info
     db_names = dbs.keys.sort()

@@ -1,18 +1,5 @@
 class CollectionsController < ApplicationController
 
-  def show
-    database_name = params[:id]
-    database =  @connection.db(database_name)
-    @collections = database.collection_names.sort().map  do |e| {
-      stats: database[e].stats()
-    }
-    end
-    respond_to do |format|
-          format.json {render json: @collections }
-          format.all {render json: @data }
-    end
-  end
-
   def create
     new_collection_name = params[:collection_name]
     @database[new_collection_name].insert({})

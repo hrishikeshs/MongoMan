@@ -1,17 +1,11 @@
 Mongoman.CollectionsRoute = Ember.Route.extend({
 
   model: function(params) {
-    var collection_name = params.name;
-    var api= "/database/" + collection_name;
-    this.controllerFor('collections').set('collection_name', collection_name);
-    return Mongoman.Request.find(api);
+    return Mongoman.Database.collections(params.database);
   },
 
-  setupController: function(controller,model) {
-    controller.setProperties({
-      content: model.collections || [],
-      'content.count': model.count || 0
-    });
+  setupController: function(controller, model) {
+    controller.set('content', model.databases);
   },
 
   deactivate:function() {

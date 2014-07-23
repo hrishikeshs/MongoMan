@@ -24,7 +24,6 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
         isLoaded: true
       });
     }
-    this.set('database_name',database_name);
   }.observes('content'),
 
   actions: {

@@ -22,5 +22,13 @@ Mongoman.Database.reopenClass({
   drop: function(dbName) {
     var url = '/databases/' + dbName;
     return Mongoman.PostRequest.post(url , {} , 'DELETE');
+  },
+
+  collections: function(name) {
+    var url = "/databases/" + name;
+    return Mongoman.Request.find(url).then(function(response) {
+      return Em.A(response);
+    });
   }
+
 });

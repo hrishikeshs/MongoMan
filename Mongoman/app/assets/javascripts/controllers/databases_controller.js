@@ -1,20 +1,19 @@
-Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin,  Mongoman.SelectedItemMixin, {
+Mongoman.DatabasesIndexController = Ember.ArrayController.extend(Mongoman.DialogMixin,  Mongoman.SelectedItemMixin, {
   content: null,
   copieddbName: null,
   newName: null,
   itemController: 'selectedItem',
-  isLoaded: Em.computed.alias('content'),
   statusText: "Hang on...",
 
-  // an extremely ugly hack. @todo fix this up asap.
-  removeAdminDatabase: function() {
-    if(this.get('content')) {
-      var admindb = this.get('content.firstObject');
-      if((admindb.size === 0) && (admindb.name === 'admin') && (admindb.collection_count === 0)) {
-        this.get('content').shiftObject();
-      }
-    }
-  }.observes('content.firstObject'),
+  // // an extremely ugly hack. @todo fix this up asap.
+  // removeAdminDatabase: function() {
+  //   if(this.get('content')) {
+  //     var admindb = this.get('content.firstObject');
+  //     if((admindb.size === 0) && (admindb.name === 'admin') && (admindb.collection_count === 0)) {
+  //       this.get('content').shiftObject();
+  //     }
+  //   }
+  // }.observes('content.firstObject'),
 
   actions: {
 
