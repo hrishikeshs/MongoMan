@@ -4,7 +4,7 @@
       <a href="#/">Databases</a>
       <button class="new-button" {{action 'addDocument'}}>+ New Document</button>
       <div class="arrow-right"></div>
-    {{#linkTo 'collections' database_name}}{{database_name}}{{/linkTo}}<div class="arrow-right"></div>{{collection_name}}</div>
+    {{#link-to 'collections' database}}{{database}}{{/link-to}}<div class="arrow-right"></div>{{collection}}</div>
   
   {{#if isLoaded}}
     <ul>

@@ -7,25 +7,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
   copyas: null,
   newName: null,
   itemController: 'selectedItem',
-
-
-  update: function() {
-    var database_name = "";
-    if (this.get('content') && this.get('content')[0]) {
-      database_name = this.get('content')[0].stats.ns.split('.')[0];
-      this.setProperties({
-        stats: this.get('content'),
-        isLoaded: true
-      });
-    }
-    else {
-      this.setProperties({
-        stats: null,
-        isLoaded: true
-      });
-    }
-  }.observes('content'),
-
+  
   actions: {
 
     dropDatabase : function() {

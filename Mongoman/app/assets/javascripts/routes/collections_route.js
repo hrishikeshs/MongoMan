@@ -5,7 +5,10 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
-    controller.set('content', model.databases);
+    controller.setProperties({
+      model: model.databases,
+      database: model.databases[0].stats.ns.split('.')[0]
+    });
   },
 
   deactivate:function() {

@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.ui.dialog
+//= require jquery-ui/dialog
 //= require jquery.flash
 //= require turbolinks
 //= require handlebars

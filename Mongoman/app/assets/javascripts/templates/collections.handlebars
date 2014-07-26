@@ -3,7 +3,7 @@
         <a href="#/">Databases</a>
         <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
       <div class="arrow-right"></div>
-      {{#linkTo 'collections' database.name}}{{database_name}}{{/linkTo}}
+      {{#linkTo 'collections' controller.database}}{{controller.database}}{{/linkTo}}
     </div>
 
   <div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />
@@ -32,8 +32,7 @@
             <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
               <td>
                 {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-                <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
-                {{#link-to 'documents' stats.ns }}{{sanitize undefined this.stats.ns}}{{/link-to}}
+                <a href="#/documents/{{unbound parentController.database}}/{{unbound name}}" class="table-links">{{name}}</a>
                 <td>{{stats.count}}</td>
                 <td>{{truncate stats.avgObjSize}}  bytes</td>
                 <td>{{humanize stats.size}}</td>
