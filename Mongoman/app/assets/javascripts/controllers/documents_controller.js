@@ -1,9 +1,9 @@
-Mongoman.CollectionsDocumentsController = Ember.ArrayController.extend({
+Mongoman.DocumentsController = Ember.ArrayController.extend({
   isVisible: true,
   fields: null,
   data: null,
-  collection_name: null,
-  database_name: null,
+  collection: null,
+  database: null,
   totalPages: null,
   visibleContent: null,
   totalContent: null,
