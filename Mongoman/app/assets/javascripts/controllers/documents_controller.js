@@ -98,7 +98,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
       this.set('visibleEndIndex', visibleEndIndex);
 
-      var api = "/documents/" + this.get('collection') + '/?'+ "database=" + encodeURIComponent(this.get('database')) + "&collection_name=" + this.get('collection') + "&from=" + paginated_content_index;
+      var api = "/documents/" + this.get('collection') + '/?'+ "database_name=" + encodeURIComponent(this.get('database')) + "&collection_name=" + this.get('collection') + "&from=" + paginated_content_index;
 
       var getMoreContent = Mongoman.Request.find(api);
       getMoreContent.then(function loadedMoreContent(response) {
