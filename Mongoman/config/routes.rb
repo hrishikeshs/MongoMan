@@ -1,4 +1,3 @@
-require'genghis'
 Mongoman::Application.routes.draw do
 
 
@@ -20,10 +19,6 @@ Mongoman::Application.routes.draw do
 
   put '/databases/rename/:id', :to => 'databases#rename'
 
-
-
-
-  mount Genghis::Server.new, :at=>'/genghis'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
