@@ -1,10 +1,11 @@
 <div class="main-body">
   <div class="container">
 	  <div class="list-heading">
-      <a href="#/">Databases</a>
+      {{#link-to 'databases'}}Databases{{/link-to}}
       <button class="new-button" {{action 'addDocument'}}>+ New Document</button>
       <div class="arrow-right"></div>
-    {{#link-to 'collections' database}}{{database}}{{/link-to}}<div class="arrow-right"></div>{{collection}}</div>
+    {{#link-to 'collections' controller.database}}{{controller.database}}{{/link-to}}
+    <div class="arrow-right"></div>{{controller.collection}}</div>
   
   {{#if isLoaded}}
     <ul>

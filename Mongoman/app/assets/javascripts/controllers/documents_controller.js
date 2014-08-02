@@ -18,7 +18,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     search: function() {
       var searchPhrase = encodeURIComponent(this.get('searchtext').replace(/\./g,"*"));
       var api = "/documents/search/" + searchPhrase +'?'+ "database_name=" +
-      encodeURIComponent(this.get('database_name'))+ "&collection_name=" + encodeURIComponent(this.get('collection_name'));
+      encodeURIComponent(this.get('database'))+ "&collection_name=" + encodeURIComponent(this.get('collection'));
 
       var getSearchresult = Mongoman.Request.find(api);
       getSearchresult.then(function loadedSearchContent(response) {
@@ -48,7 +48,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
     addDocument: function() {
       var self = this;
-      $( "#dialog-form" ).dialog({
+      $("#dialog-form").dialog({
       resizable: true,
       height:450,
       width: 600,
@@ -57,12 +57,12 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
         "Add Document" : function() {
           var url = '/documents/?';
           var json = Mongoman.Utils.sanitizeInput(self.newDocument.replace(/\n/g,'').replace(/\t+/g,''));
-          var promise = Mongoman.PostRequest.post(url , { database_name : self.get('database_name'), collection_name: self.get('collection_name') }, 'POST', json);
+          var promise = Mongoman.PostRequest.post(url , { database_name : self.get('database'), collection_name: self.get('collection') }, 'POST', json);
           promise.then(function() { });
-          $( this ).dialog( "close" );  
+          $(this).dialog("close");
         },
         Cancel: function() {
-          $( this ).dialog( "close" );
+          $(this).dialog( "close" );
         }
       }
     });
@@ -79,8 +79,8 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
         modal: true,
         buttons: {
           Drop: function() {
-            var url = '/collections/' + self.get('collection_name') + '?';
-            Mongoman.PostRequest.post(url , {database_name: self.get('database_name') } , 'DELETE');
+            var url = '/collections/' + self.get('collection') + '?';
+            Mongoman.PostRequest.post(url , {database_name: self.get('database') } , 'DELETE');
             $(this).dialog("close");
           },
           Cancel: function() {
@@ -98,7 +98,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
 
       this.set('visibleEndIndex', visibleEndIndex);
 
-      var api = "/documents/" + this.get('collection_name') + '/?'+ "database_name=" + encodeURIComponent(this.get('database_name')) + "&collection_name=" + this.get('collection_name') + "&from=" + paginated_content_index;
+      var api = "/documents/" + this.get('collection') + '/?'+ "database=" + encodeURIComponent(this.get('database')) + "&collection_name=" + this.get('collection') + "&from=" + paginated_content_index;
 
       var getMoreContent = Mongoman.Request.find(api);
       getMoreContent.then(function loadedMoreContent(response) {

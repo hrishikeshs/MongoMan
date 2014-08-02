@@ -1,8 +1,8 @@
 Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMixin, Mongoman.SelectedItemMixin,{
   stats: null,
   isVisible: true,
-  database_name:null,
-  collection_name: null,
+  database:null,
+  collection: null,
   newCollection: null,
   copyas: null,
   newName: null,
@@ -14,7 +14,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
       var self = this;
       var buttons = {
           Delete: function() {
-            Mongoman.Database.drop(self.get('database_name')).then(function() {
+            Mongoman.Database.drop(self.get('database')).then(function() {
               self.transitionToRoute('databases');
             });
             $(this).dialog("close");
@@ -29,7 +29,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
       var buttons = {
         Create: function() {
           var newCollection = self.get('newCollection');
-          var database_name = self.get('database_name');
+          var database_name = self.get('database');
           Mongoman.Collection.createCollection(newCollection, database_name).then(function() {
             self.transitionToRoute('collections', newCollection);
           });
@@ -51,7 +51,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
           var ns = self.get('selectedItem.content.stats.ns');
           var splits = ns.split('.'); splits.shift();
           var collectionName = splits.join('.');
-          Mongoman.Collection.copy(collectionName, self.get('copyas'), self.get('database_name')).
+          Mongoman.Collection.copy(collectionName, self.get('copyas'), self.get('database')).
             then(function() {
               window.location.href = '/';
           });
@@ -68,7 +68,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
       var buttons = {
         Rename: function() {
           var newName = self.get('newName');
-          var databaseName = self.get('database_name');
+          var databaseName = self.get('database');
           var ns = self.get('selectedItem.content.stats.ns');
           var splits = ns.split('.'); splits.shift();
           var collectionName = splits.join('.');
@@ -90,7 +90,7 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
             'statusText': 'Dropping collection',
             'isLoaded': false
           });
-          var databaseName = self.get('database_name');
+          var databaseName = self.get('database');
           var ns = self.get('selectedItem.content.stats.ns');
           var splits = ns.split('.'); splits.shift();
           var collectionName = splits.join('.');

@@ -1,9 +1,9 @@
   <div class="container">
     <div class="list-heading">
-        <a href="#/">Databases</a>
-        <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
+      {{#link-to 'databases'}}Databases{{/link-to}}
+      <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
       <div class="arrow-right"></div>
-      {{#linkTo 'collections' controller.database}}{{controller.collection}}{{/linkTo}}
+      {{#link-to 'collections' controller.database}}{{controller.database}}{{/link-to}}
     </div>
 
   <div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />
