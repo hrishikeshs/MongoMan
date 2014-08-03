@@ -1,48 +1,47 @@
+<div class="container">
+  <div class="list-heading">
+    {{#link-to 'databases'}}Databases{{/link-to}}
+    <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
+  </div>
 
-  <div class="container">
-    <div class="list-heading">
-      {{#link-to 'databases'}}Databases{{/link-to}}
-      <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
-    </div>
+  <div class="invisible" id="newdb-create">Enter the Database name:<br /><br />
+    {{input valueBinding="controller.newDbName" size="30" class="dialog-input-box"}}
+  </div>
 
-    <div class="invisible" id="newdb-create">Enter the Database name:<br /><br />
-      {{input valueBinding="controller.newDbName" size="30" class="dialog-input-box"}}
-    </div>
+  <div class="invisible" id="db-copy-dialog">Copy as:<br /><br />
+    {{input valueBinding="controller.copieddbName" size="30"}}
+  </div>
 
-    <div class="invisible" id="db-copy-dialog">Copy as:<br /><br />
-      {{input valueBinding="controller.copieddbName" size="30"}}
-    </div>
+  <div class="invisible" id="db-rename-dialog">Enter new name<br /><br />
+    {{input valueBinding="controller.newName" size="30"}}
+  </div>
 
-    <div class="invisible" id="db-rename-dialog">Enter new name<br /><br />
-      {{input valueBinding="controller.newName" size="30"}}
-    </div>
-
-    <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
-    
-    <div class="table-and-widgets-container flex">
-        <table class="table-default">
-            <thead>
-              <tr class="table-row">
-                    <th>Database Name</th>
-                    <th>Collections</th>
-                    <th>Size</th>
-                    <th>Indexes</th>
-              </tr>
-            </thead>
-            <tbody> 
-              {{#each controller}}
-              <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
-                <td>
-                  {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-                  {{#link-to 'collections' name class="table-links"}}{{name}}{{/link-to}}
-                </td>
-                <td>{{collection_count}}</td>
-                <td>{{size}} Gb</td>
-                <td>{{indexes}}</td>
-              </tr>
-              {{/each}}
-            </tbody>
-        </table>
-        {{partial 'widgets'}}
-    </div>
+  <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
+  
+  <div class="table-and-widgets-container flex">
+      <table class="table-default">
+          <thead>
+            <tr class="table-row">
+                  <th>Database Name</th>
+                  <th>Collections</th>
+                  <th>Size</th>
+                  <th>Indexes</th>
+            </tr>
+          </thead>
+          <tbody> 
+            {{#each controller}}
+            <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
+              <td>
+                {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
+                {{#link-to 'collections' name class="table-links"}}{{name}}{{/link-to}}
+              </td>
+              <td>{{collection_count}}</td>
+              <td>{{size}} Gb</td>
+              <td>{{indexes}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+      </table>
+      {{partial 'widgets'}}
+  </div>
 </div>
