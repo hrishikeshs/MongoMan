@@ -5,10 +5,15 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
   collection: null,
   database: null,
   totalPages: null,
-  visibleContent: null,
-  totalContent: null,
-  visibleStartIndex: null,
-  visibleEndIndex: null,
+  visibleStartIndex: 1,
+  
+  visibleEndIndex: function() {
+    var visibleStartIndex = this.get('visibleStartIndex');
+    var contentLength = this.get('content.length');
+    var pageSize = 14;
+    return visibleStartIndex + (contentLength < 15 ? contentLength - 1 : pageSize);
+  }.property('content', 'visibleStartIndex'),
+
   searchCount : null,
   count: Ember.computed.alias('documentCount'),
 
@@ -35,16 +40,6 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       this.set('searching', searchPhrase.length > 0);
 
     },
-
-
-    initVisibleContent: function() {
-      if (this.get('content')) {
-        this.set('visibleStartIndex', 1);
-        this.set('visibleEndIndex', this.get('content.length'));
-        this.set('isLoaded', true);
-      }
-    },
-
 
     addDocument: function() {
       var self = this;
@@ -93,13 +88,7 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     pageChanged: function(new_page) {
       var paginated_content_index = (new_page - 1 ) * 15;
       this.set('visibleStartIndex', paginated_content_index + 1);
-      var difference = this.get('count') - this.get('visibleStartIndex');
-      var visibleEndIndex = (difference > 15) ? (paginated_content_index + 15) : (this.get('count'));
-
-      this.set('visibleEndIndex', visibleEndIndex);
-
       var api = "/documents/" + this.get('collection') + '/?'+ "database_name=" + encodeURIComponent(this.get('database')) + "&collection_name=" + this.get('collection') + "&from=" + paginated_content_index;
-
       var getMoreContent = Mongoman.Request.find(api);
       getMoreContent.then(function loadedMoreContent(response) {
         this.set('content', response.documents);

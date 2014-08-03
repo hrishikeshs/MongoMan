@@ -1,5 +1,8 @@
 Mongoman.DatabasesRoute = Ember.Route.extend({
- 
+
+  /*
+  * Needed to handle the <back> and <forward> navigations on the landing page. A usability enhancement.
+  */
   init: function() {
     this._super();
     window.history.pushState("", "",'/#/');
@@ -10,7 +13,6 @@ Mongoman.DatabasesRoute = Ember.Route.extend({
   },
 
   setupController: function(controller,model) {
-    
     controller.setProperties({
       content: model.databases,
       selectedItem: null

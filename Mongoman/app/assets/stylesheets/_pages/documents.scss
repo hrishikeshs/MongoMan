@@ -139,22 +139,22 @@
 }
 
 .documents-search-box {
-  min-height: 20px;
-  min-width: 25%;
+  outline: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;;
   border-radius: 3px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 0 #fff;
+  min-width: 25%;
+  padding: 4px;
+  text-indent: 4px;
   font: 16px arial,sans-serif;
-  color: #222;
+  margin-bottom: 5px;
 }
-
 .documents-search-box:focus {
   overflow: hidden;
-  z-index: 40;
   position: relative;
-  min-width: 35%;
-  font: 16px arial,sans-serif;
-  color: #222;
+  border-color: #51a7e8;
+  min-width: 30%;
+  margin-bottom: 5px;
 }
 
 /*Styles for pagination to display correctly*/

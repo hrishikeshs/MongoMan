@@ -14,10 +14,9 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
 
   setupController: function(controller, model) {
     controller.setProperties({
-      content: model.documents,
+      model: model.documents,
       documentCount: model.count
     });
-    controller.send('initVisibleContent', true);
   },
 
   deactivate: function() {
@@ -25,7 +24,8 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
     controller.setProperties({
       content: [],
       documentCount: 0,
-      searching: false
+      searching: false,
+      visibleStartIndex: 1
     });
   }
 
