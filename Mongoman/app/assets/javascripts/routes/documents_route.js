@@ -6,18 +6,17 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
     var api= "/documents/" + collection + '/?'+"database_name=" + encodeURIComponent(database_name) + "&collection_name=" + collection;
     var controller = this.controllerFor('documents');
     controller.setProperties({
-      collection_name: collection,
-      database_name: database_name
+      collection: collection,
+      database: database_name
     });
     return Mongoman.Request.find(api);
   },
 
   setupController: function(controller, model) {
     controller.setProperties({
-      content: model.documents,
+      model: model.documents,
       documentCount: model.count
     });
-    controller.send('initVisibleContent', true);
   },
 
   deactivate: function() {
@@ -25,8 +24,8 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
     controller.setProperties({
       content: [],
       documentCount: 0,
-      searching: false
+      searching: false,
+      visibleStartIndex: 1
     });
   }
-
 });

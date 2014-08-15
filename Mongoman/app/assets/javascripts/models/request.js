@@ -1,5 +1,4 @@
 Mongoman.Request = Ember.Object.extend({
-
 });
 
 Mongoman.Request.reopenClass({
@@ -22,18 +21,15 @@ Mongoman.Request.reopenClass({
       });
     return promise;
   }
-
 });
 
 
 Mongoman.PostRequest = Ember.Object.extend({
-
 });
 
 Mongoman.PostRequest.reopenClass({
 
   post: function(api , params, type, data) {
-
     var promise = new Ember.RSVP.Promise(function(resolve, reject) {
         Ember.$.ajax({
           dataType: "json",

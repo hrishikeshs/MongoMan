@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.ui.dialog
+//= require jquery-ui/dialog
 //= require jquery.flash
 //= require turbolinks
 //= require handlebars
@@ -33,7 +33,7 @@
 
 
 Mongoman = Ember.Application.create({
-	LOG_TRANSITIONS: true,
-	LOG_VIEW_LOOKUPS: true,
-	LOG_ACTIVE_GENERATION: true
+  LOG_TRANSITIONS: true,
+  LOG_VIEW_LOOKUPS: true,
+  LOG_ACTIVE_GENERATION: true
 });

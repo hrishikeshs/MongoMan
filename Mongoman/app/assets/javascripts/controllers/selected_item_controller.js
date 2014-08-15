@@ -6,13 +6,9 @@ Mongoman.SelectedItemController = Ember.ObjectController.extend({
   }.observes('selected'),
 
   actions : {
-
     toggleSelection: function() {
       this.toggleProperty('selected');
     }
-
   }
-
-
 });
 

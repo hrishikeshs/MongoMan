@@ -1,58 +1,46 @@
-
-  <div class="container">
-    <div class="list-heading">
-        <a href="#/">Databases</a>
-        <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
-      <div class="arrow-right"></div>
-      {{#linkTo 'collections' database.name}}{{database_name}}{{/linkTo}}
-    </div>
-
-  <div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />
-    {{input valueBinding="controller.copyas" size="30"}}
-  </div>
-  
-  <div class="invisible" id="newcollection-create">Enter the Collection name:<br /><br />
-    {{input valueBinding="controller.newCollection" size="30"}}
-  </div>
-  
-  <div class="invisible" id="collection-rename-dialog">Enter new name<br /><br />
-    {{input valueBinding="controller.newName" size="30"}}
+<div class="container">
+  <div class="list-heading">
+    {{#link-to 'databases'}}Databases{{/link-to}}
+    <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
+    <div class="arrow-right"></div>
+    {{#link-to 'collections' controller.database}}{{controller.database}}{{/link-to}}
   </div>
 
-  <div id="placeholder-confirm-drop-collection" class="invisible"> Honestly ? </div>
-  {{#if isLoaded}}
-  <div class="table-and-widgets-container flex">
-    <table class="table-default">
-            <tr class="table-row">
-                <th>Collection Name</th>
-                <th>Documents</th>
-                <th>Avg Document Size</th>
-                <th>Size</th>
-                <th>Indexes</th>
-            </tr>
-            {{#each controller}}
-            <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
-              <td>
-                {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-                <a href="#/documents/{{unbound getdbName this.stats.ns}}/{{unbound sanitize undefined stats.ns}}" class="table-links">{{sanitize undefined this.stats.ns}}</a>
-                <td>{{stats.count}}</td>
-                <td>{{truncate stats.avgObjSize}}  bytes</td>
-                <td>{{humanize stats.size}}</td>
-                <td>{{stats.nindexes}}</td>
-            </tr>
-            {{/each}}
-    </table>
-    <div>
-      {{partial 'widgets'}}
-    </div>
-  </div>
-  {{else}}
-    <div style="margin-left: inherit;margin-right: inherit;padding-top: 150px;padding-left: 370px;">
-        Just a second...
-        <div style="margin-left:50px;margin-top:20px;">
-            <img src="/spinner.gif" alt="spinner" width="25px;" height="25px;"></img>
-        </div>
-      </div>
-  {{/if}}
+<div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />
+  {{input valueBinding="controller.copyas" size="30"}}
+</div>
+
+<div class="invisible" id="newcollection-create">Enter the Collection name:<br /><br />
+  {{input valueBinding="controller.newCollection" size="30"}}
+</div>
+
+<div class="invisible" id="collection-rename-dialog">Enter new name<br /><br />
+  {{input valueBinding="controller.newName" size="30"}}
+</div>
+
+<div id="placeholder-confirm-drop-collection" class="invisible"> Honestly ? </div>
+<div class="table-and-widgets-container flex">
+  <table class="table-default">
+          <tr class="table-row">
+              <th>Collection Name</th>
+              <th>Documents</th>
+              <th>Avg Document Size</th>
+              <th>Size</th>
+              <th>Indexes</th>
+          </tr>
+          {{#each controller}}
+          <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
+            <td>
+              {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
+              <a href="#/documents/{{unbound parentController.database}}/{{unbound name}}" class="table-links">{{name}}</a>
+              <td>{{stats.count}}</td>
+              <td>{{truncate stats.avgObjSize}}  bytes</td>
+              <td>{{humanize stats.size}}</td>
+              <td>{{stats.nindexes}}</td>
+          </tr>
+          {{/each}}
+  </table>
+  {{partial 'widgets'}}
+</div>
 <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
 </div>

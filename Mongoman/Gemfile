@@ -21,6 +21,8 @@ gem 'jquery-rails'
 
 gem 'ember-rails'
 
+gem 'ember-source', '1.6.1'
+
 gem 'haml'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -48,7 +50,6 @@ gem 'mongo'
 
 gem 'pry'
 
-gem 'genghisapp'
 
 gem 'bson_ext'
 
