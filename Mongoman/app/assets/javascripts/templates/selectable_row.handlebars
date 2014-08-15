@@ -1,0 +1,9 @@
+{{#with view.content}}
+    <td>
+      {{view Ember.Checkbox checkedBinding="view.selected" class="database-selector-checkbox"}}
+      {{#link-to 'collections' name class="table-links"}}{{name}}{{/link-to}}
+    </td>
+    <td>{{collection_count}}</td>
+    <td>{{size}} Gb</td>
+    <td>{{indexes}}</td>
+{{/with}}

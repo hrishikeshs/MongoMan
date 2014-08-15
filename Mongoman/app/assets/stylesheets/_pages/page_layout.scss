@@ -67,6 +67,11 @@
     opacity: 1;
     background: whitesmoke !important;
   }
+  .selected-row {
+    .database-selector-checkbox {
+      opacity: 1;
+      }
+  }
 }
 
 
