@@ -1,7 +1,7 @@
 Mongoman.PaginationView = Ember.View.extend({
   tagName: 'div',
   pagination: null,
-  defaultTemplate: Em.Handlebars.compile('<div style="clear:both"></div><div class="page-selection" style="margin-left:480px;"></div>'),
+  defaultTemplate: Em.Handlebars.compile('<div style="clear:both"></div><div class="page-selection" style="margin-left:450px;"></div>'),
 
   didInsertElement: function() {
     var controller = this.get('controller');
@@ -13,7 +13,7 @@ Mongoman.PaginationView = Ember.View.extend({
       controller.set('totalPages', totalPages);
       $('.page-selection').bootpag({
           total: totalPages || 0,
-          maxVisible: 8,
+          maxVisible: 8
         }).
         on("page", function(event, num){
           controller.send('pageChanged',num);

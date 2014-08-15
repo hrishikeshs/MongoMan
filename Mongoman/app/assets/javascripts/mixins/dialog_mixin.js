@@ -19,5 +19,4 @@ Mongoman.DialogMixin = Ember.Mixin.create({
       buttons:   actions
     });
   }
-
 });

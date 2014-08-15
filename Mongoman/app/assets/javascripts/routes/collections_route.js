@@ -18,5 +18,4 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
       selectedItem: null
     });
   }
-
 });

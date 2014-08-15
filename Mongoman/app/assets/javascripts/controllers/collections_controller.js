@@ -62,7 +62,6 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
       this.displayDialog('#collection-copy-dialog', buttons);
     },
 
-
     rename: function() {
       var self = this;
       var buttons = {
@@ -97,10 +96,8 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
           Mongoman.Collection.drop(databaseName, collectionName).then(function() {
             window.location.href = '/';
           });
-
           $(this).dialog("close");
         },
-
         Cancel: function() { $(this).dialog("close");}
       };
       this.displayDialog('#placeholder-confirm-drop-collection', buttons);

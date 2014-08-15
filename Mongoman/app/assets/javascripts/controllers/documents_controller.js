@@ -13,18 +13,15 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
     var pageSize = 14;
     return visibleStartIndex + (contentLength < 15 ? contentLength - 1 : pageSize);
   }.property('content', 'visibleStartIndex'),
-
   searchCount : null,
   count: Ember.computed.alias('documentCount'),
 
- 
   actions: {
 
     search: function() {
       var searchPhrase = encodeURIComponent(this.get('searchtext').replace(/\./g,"*"));
       var api = "/documents/search/" + searchPhrase +'?'+ "database_name=" +
       encodeURIComponent(this.get('database'))+ "&collection_name=" + encodeURIComponent(this.get('collection'));
-
       var getSearchresult = Mongoman.Request.find(api);
       getSearchresult.then(function loadedSearchContent(response) {
         this.set('content', response.documents);
@@ -36,34 +33,30 @@ Mongoman.DocumentsController = Ember.ArrayController.extend({
       function failedToLoadContent(error) {
         self.set('content', error);
       }.bind(this));
-
       this.set('searching', searchPhrase.length > 0);
-
     },
 
     addDocument: function() {
       var self = this;
       $("#dialog-form").dialog({
-      resizable: true,
-      height:450,
-      width: 600,
-      modal: true,
-      buttons: {
-        "Add Document" : function() {
-          var url = '/documents/?';
-          var json = Mongoman.Utils.sanitizeInput(self.newDocument.replace(/\n/g,'').replace(/\t+/g,''));
-          var promise = Mongoman.PostRequest.post(url , { database_name : self.get('database'), collection_name: self.get('collection') }, 'POST', json);
-          promise.then(function() { });
-          $(this).dialog("close");
-        },
-        Cancel: function() {
-          $(this).dialog( "close" );
+        resizable: true,
+        height:450,
+        width: 600,
+        modal: true,
+        buttons: {
+          "Add Document" : function() {
+            var url = '/documents/?';
+            var json = Mongoman.Utils.sanitizeInput(self.newDocument.replace(/\n/g,'').replace(/\t+/g,''));
+            var promise = Mongoman.PostRequest.post(url , { database_name : self.get('database'), collection_name: self.get('collection') }, 'POST', json);
+            promise.then(function() { });
+            $(this).dialog("close");
+          },
+          Cancel: function() {
+            $(this).dialog( "close" );
+          }
         }
-      }
-    });
-
+      });
     },
-
 
     dropCollection: function() {
       var self = this;

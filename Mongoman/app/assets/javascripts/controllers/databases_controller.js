@@ -26,7 +26,6 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
               'statusText': 'Creating database... just for you',
               'isLoaded' : false
             });
-
             Mongoman.Database.createDatabase(self.get('newDbName')).then(function() {
               window.location.href = '/';
             });
@@ -35,9 +34,7 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
             $.flash("Please enter a valid database name.");
           }
           $(this).dialog("close");
-
         },
-
         Cancel: function() { $(this).dialog("close"); }
       };
       this.displayDialog('#newdb-create', buttons);
@@ -80,9 +77,7 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
           });
           $(this).dialog("close");
         },
-
         Cancel: function() { $(this).dialog("close");}
-
       };
       this.displayDialog('#db-rename-dialog', buttons);
     },
@@ -105,5 +100,4 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
       this.displayDialog('#placeholder-confirm-drop-db', buttons);
     }
   }
-
 });

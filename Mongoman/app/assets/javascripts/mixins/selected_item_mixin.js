@@ -14,7 +14,6 @@ Mongoman.SelectedItemMixin = Ember.Mixin.create({
         this.get('selectedItem').send('toggleSelection');
         this.set('selectedItem', item);
       }
-
     },
 
     /**

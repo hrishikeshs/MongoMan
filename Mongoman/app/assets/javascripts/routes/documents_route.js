@@ -28,5 +28,4 @@ Mongoman.DocumentsRoute = Ember.Route.extend({
       visibleStartIndex: 1
     });
   }
-
 });

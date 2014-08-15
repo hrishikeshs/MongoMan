@@ -42,57 +42,54 @@
           switch(nextChar) {
 
             case '"':
-            case "'":
-                          temp = getStringBetweenQuotes(string.slice(j));
-                          j += temp.length;
-                          buffer += temp;
+            case "'":              temp = getStringBetweenQuotes(string.slice(j));
+                                   j += temp.length;
+                                   buffer += temp;
             break;
 
 
-            case '{':     if(string.charAt(j + 1) !== '}') {
-                            if(string.charAt(j+1) !== '"') {
-                              buffer += '{"';
-                            }
-                            else {
-                              buffer += '{';
-                            }
-                          }
-                          else {
-                            buffer += '{';
-                          }
-                          j++;
+            case '{':              if(string.charAt(j + 1) !== '}') {
+                                       if(string.charAt(j+1) !== '"') {
+                                          buffer += '{"';
+                                       }
+                                       else {
+                                          buffer += '{';
+                                       }
+                                    }
+                                    else {
+                                     buffer += '{';
+                                    }
+                                   j++;
             break;
 
 
-            case ':':   if((string.charAt(j - 1) !== '"') && (string.charAt(j - 1) !== "'")) {
-                          buffer += '":';
-                        }
-                        else {
-                          buffer += ':';
-                        }
-                        j++;
+            case ':':              if((string.charAt(j - 1) !== '"') && (string.charAt(j - 1) !== "'")) {
+                                     buffer += '":';
+                                    }
+                                   else {
+                                     buffer += ':';
+                                   }
+                                   j++;
             break;
 
-            case ',':   buffer +=  ',';
-                        if((string.charAt(j + 1)  !== '{') && (string.charAt(j+1) !== '[') && ((string.charAt(j+1) !== '"') && (string.charAt(j+1) !== "'")) ){
-                          buffer += '"';
-                        }
-                        j++;
+            case ',':              buffer +=  ',';
+                                   if((string.charAt(j + 1)  !== '{') && (string.charAt(j+1) !== '[') && ((string.charAt(j+1) !== '"') 
+                                                                                                          && (string.charAt(j+1) !== "'")) ){
+                                     buffer += '"';
+                                    }
+                                   j++;
             break;
 
             case '\"':
-            case "\'":
-                          buffer += '"';
-                          j += 1;
+            case "\'":             buffer += '"';
+                                   j += 1;
 
             break;
-            default:     buffer += nextChar;
-                         j++;
+            default:               buffer += nextChar;
+                                   j++;
             break;
           }
-
           nextChar = string.charAt(j);
-
         }
         return buffer ;
       }
@@ -110,7 +107,6 @@
       }
       return result;
     }
-
     return parse(jsonString);
   };
 }(Mongoman.Utils = Mongoman.Utils || {}));

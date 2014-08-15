@@ -53,10 +53,6 @@ Mongoman.DocumentView = Ember.View.extend({
           }
         }
       });
-    },
-
-  },
-
-
- });
-
+    }
+  }
+});
