@@ -2,7 +2,6 @@ Mongoman.SelectableRowView = Em.View.extend(Ember.TargetActionSupport, {
   tagName: 'tr',
   classNames: ["table-row"],
   classNameBindings: ["selected:selected-row"],
-  templateName: 'selectableRow',
   selected: false,
 
   selectedDidChange: function() {
