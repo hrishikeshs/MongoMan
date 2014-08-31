@@ -4,12 +4,9 @@ Mongoman.FilterableContentMixin = Em.Mixin.create({
   originalContent: "",
   filterPhrase: "",
 
-  initializeOriginalContent: function() {
-    //use compact to create a copy ;-)
-    if(!this.get('originalContent')) {
-      this.set('originalContent', this.get('content').compact());
-    }
-  }.observes('content'),
+  initializeOriginalContent: function(content) {
+    this.set('originalContent', Array.prototype.slice.call(content, 0, content.length));
+  },
 
   
   filterContent: function() {

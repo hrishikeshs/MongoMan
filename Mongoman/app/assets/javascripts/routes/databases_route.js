@@ -17,13 +17,13 @@ Mongoman.DatabasesRoute = Ember.Route.extend({
       content: model.databases,
       selectedItem: null
     });
+    controller.initializeOriginalContent(model.databases);
   },
 
   deactivate: function() {
     var controller = this.controllerFor('databases');
     controller.set('selectedItem', null);
     controller.get('content').clear();
-    controller.set('filterPhrase', "");
   }
 
 });
