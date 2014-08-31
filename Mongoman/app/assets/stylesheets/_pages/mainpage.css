@@ -21,14 +21,14 @@ font-family: helvetica;
 }
 
 .arrow-right {
-    border-color:  rgba(212,228,239,1) blue rgba(223, 235, 243, 1) gray;
-    border-style: solid;
-    border-width: 6px 0px 6px 6px;
-    height: 0px;
-    width: 0px;
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+  border-color: rgba(245, 243, 231, 1) blue rgba(245, 243, 231, 1) rgb(15, 14, 4);
+  border-style: solid;
+  border-width: 6px 0px 6px 6px;
+  height: 0px;
+  width: 0px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .plaintext, .listing {

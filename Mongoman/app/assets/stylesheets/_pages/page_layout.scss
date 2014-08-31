@@ -20,17 +20,10 @@
       text-indent: 3px;
       font-weight: 3em;
       margin-left: 38px;
-      background: rgba(212,228,239,1);
-      background: -moz-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-      background: -webkit-gradient(left top, left bottom, color-stop(11%, rgba(212,228,239,1)), color-stop(69%, rgba(227,239,245,1)), color-stop(81%, rgba(230,241,246,1)), color-stop(90%, rgba(230,241,246,1)));
-      background: -webkit-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-      background: -o-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-      background: -ms-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-      background: linear-gradient(to bottom, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#e6f1f6', GradientType=0 );
-      
+      background: blanchedalmond;
       a {
         vertical-align: middle;
+        color: firebrick;
       }
     }
 

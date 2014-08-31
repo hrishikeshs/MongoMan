@@ -13,9 +13,7 @@ Mongoman.CollectionsRoute = Ember.Route.extend({
 
   deactivate:function() {
     var controller = this.controllerFor('collections');
-    controller.setProperties({
-      content: null,
-      selectedItem: null
-    });
+    controller.get('content').clear();
+    controller.set('filterPhrase', "");
   }
 });
