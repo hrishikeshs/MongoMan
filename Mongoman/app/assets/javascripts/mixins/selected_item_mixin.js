@@ -1,5 +1,9 @@
 Mongoman.SelectedItemMixin = Ember.Mixin.create({
   selectedItem: null,
+  
+  updateSelectedItem: function() {
+    this.set('selectedItem', null);
+  }.observes('content'),
 
  /**
   * Let only one item to be in selected state
