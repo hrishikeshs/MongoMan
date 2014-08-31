@@ -4,6 +4,7 @@
     <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
     <div class="arrow-right"></div>
     {{#link-to 'collections' controller.database}}{{controller.database}}{{/link-to}}
+    {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
   </div>
 
 <div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />

@@ -28,6 +28,10 @@
       background: -ms-linear-gradient(top, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
       background: linear-gradient(to bottom, rgba(212,228,239,1) 11%, rgba(227,239,245,1) 69%, rgba(230,241,246,1) 81%, rgba(230,241,246,1) 90%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#e6f1f6', GradientType=0 );
+      
+      a {
+        vertical-align: middle;
+      }
     }
 
     .table-default {

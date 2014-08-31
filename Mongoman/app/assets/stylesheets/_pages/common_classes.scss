@@ -27,3 +27,18 @@
   display: flex;
   align-items: center;
 }
+
+.search-box {
+  margin: 4px;
+  border-radius: 4px;
+  outline: 0;
+  padding: 4px;
+  min-width: 25%;
+  font: 16px arial, sans-serif;
+  text-indent: 4px;
+}
+
+.search-box:focus {
+  border-color: #51a7e8;
+  min-width: 30%;
+}

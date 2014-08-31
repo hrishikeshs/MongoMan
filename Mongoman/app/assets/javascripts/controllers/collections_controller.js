@@ -1,4 +1,4 @@
-Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMixin, Mongoman.SelectedItemMixin,{
+Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMixin, Mongoman.SelectedItemMixin, Mongoman.FilterableContentMixin, {
   stats: null,
   isVisible: true,
   database:null,
