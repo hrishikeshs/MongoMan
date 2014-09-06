@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  respond_to :json, :html
 
   def show
     start_index = params[:from].to_i || 0
@@ -11,15 +12,12 @@ class DocumentsController < ApplicationController
 
     data[:documents] = data[:documents].map  do |e|
         e = self.BsonFieldsToString(e)
-      end
-
+    end
+    
     data[:count] = @collection.find().count()
-    respond_to do |format|
-        format.json {render json: data }
-        format.all {render json: data }
-      end
+    render json: data
   end
-
+  
   def search
     searchphrase =  params[:id]
     parsed_list = searchphrase.split(':')
@@ -45,11 +43,7 @@ class DocumentsController < ApplicationController
 
     data[:count]  = count
     data[:notice] = count > 300 ? "Your regular expression matches over 300 documents. Consider refining it." : nil
-
-    respond_to do |format|
-        format.json {render json: data }
-        format.all {render json: data }
-    end
+    render json: data
   end
 
   def BsonFieldsToString(x)
@@ -84,9 +78,7 @@ class DocumentsController < ApplicationController
     rescue
       notice =  @database.command({:getLastError => 1})['err']
     end
-    respond_to do |format|
-        format.json {render json: {:notice => notice}}
-      end
+    render json: {:notice => notice}
   end
 
 
@@ -110,9 +102,7 @@ Hence this circus
     else
       notice = "Unable to delete the document."
     end
-    respond_to do |format|
-         format.json {render json: {:notice => notice, :removed_document => deleting_document}}
-      end
+    render json: {:notice => notice, :removed_document => deleting_document}
   end
 
   def substitutions(value)
@@ -158,12 +148,6 @@ Hence this circus
       notice = db.command({:getLastError => 1})['err']
     end
     @data = {"notice" => notice, "document" => document[0]}
-    respond_to do |format|
-        format.json {render json: @data }
-        format.all {render json: @data }
-    end
+    render json: @data
   end
-
-
-
 end
