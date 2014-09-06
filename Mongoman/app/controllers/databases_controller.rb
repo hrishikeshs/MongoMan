@@ -17,10 +17,7 @@ class DatabasesController < ApplicationController
       stats: database[e].stats()
     }
     end
-    respond_to do |format|
-          format.json {render json: @collections }
-          format.all {render json: @data }
-    end
+    render json: @collections
   end
 
 
@@ -42,9 +39,7 @@ class DatabasesController < ApplicationController
     collection = @database['new_collection']
     collection.drop()
     notice = "New Database " + params[:database_name] + " Successfully Created"
-    respond_to do |format|
-        format.json {render json: {:notice => notice } }
-      end
+    render json: {:notice => notice } 
   end
 
 
@@ -55,9 +50,7 @@ class DatabasesController < ApplicationController
     rescue
       notice = @database.command({:getLastError => 1})['err']
     end
-    respond_to do |format|
-        format.json {render json: {:notice => "Successfully copied" } }
-      end
+    render json: {:notice => "Successfully copied" } 
   end
 
   def rename
@@ -68,9 +61,7 @@ class DatabasesController < ApplicationController
     rescue
       notice = @database.command({:getLastError => 1})['err']
     end
-    respond_to do |format|
-        format.json {render json: {:notice => "Successfully Renamed" } }
-      end
+    render json: {:notice => "Successfully Renamed" } 
   end
 
 
@@ -78,10 +69,6 @@ class DatabasesController < ApplicationController
     database = params[:id]
     @connection.drop_database(database)
     notice = "Dropped Database " + database
-    respond_to do |format|
-        format.json {render json: {:notice => notice } }
-      end
+    render json: {:notice => notice }
   end
-
-
 end
