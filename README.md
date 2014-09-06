@@ -30,15 +30,6 @@ Screenshots
 ![screenshot](https://raw.githubusercontent.com/Hrish2006/MongoMan/master/Mongoman/public/screenshots/screenshot-4.png)
 
 
-![screenshot](https://raw.githubusercontent.com/Hrish2006/MongoMan/master/Mongoman/public/screenshots/screenshot-5.png)
-
-
-![screenshot](https://raw.githubusercontent.com/Hrish2006/MongoMan/master/Mongoman/public/screenshots/screenshot-6.png)
-
-
-![screenshot](https://raw.githubusercontent.com/Hrish2006/MongoMan/master/Mongoman/public/screenshots/screenshot-7.png)
-
-
 Bugs
 ==========
 Raise an issue on github for any of the bugs you find while using the application. Please include the following in
