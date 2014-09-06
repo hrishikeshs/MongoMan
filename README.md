@@ -1,5 +1,7 @@
-MongoMan (MongoManager)
+MongoMan (MongoManager) 
 ========
+[![Code Climate](https://codeclimate.com/github/hrishikeshs/MongoMan/badges/gpa.svg)](https://codeclimate.com/github/hrishikeshs/MongoMan)
+
 
 A GUI for MongoDB
 
