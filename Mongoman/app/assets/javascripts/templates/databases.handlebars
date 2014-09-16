@@ -1,7 +1,6 @@
 <div class="container">
   <div class="list-heading">
     {{#link-to 'databases'}}Databases{{/link-to}}
-    {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
     <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
   </div>
 
@@ -18,6 +17,9 @@
   </div>
 
   <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
+
+  {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
+
   <div class="table-and-widgets-container flex">
     <table class="table-default">
       <thead>
