@@ -141,13 +141,15 @@
 .documents-search-box {
   outline: 0;
   background-color: #fff;
-  border: 1px solid #ccc;;
+  border: 1px solid #ccc;
   border-radius: 3px;
   min-width: 25%;
-  padding: 4px;
   text-indent: 4px;
   font: 16px arial,sans-serif;
   margin-bottom: 5px;
+  margin-left: 37px;
+  margin-top: 10px;
+  padding: 5px;
 }
 .documents-search-box:focus {
   overflow: hidden;
@@ -155,6 +157,10 @@
   border-color: #51a7e8;
   min-width: 30%;
   margin-bottom: 5px;
+}
+.inline-form-search-box .documents-search-box {
+  margin-left: 0;
+  margin-top: 0;
 }
 
 /*Styles for pagination to display correctly*/
