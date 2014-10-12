@@ -20,6 +20,7 @@
   </div>
 
   <div id="placeholder-confirm-drop-collection" class="invisible"> Honestly ? </div>
+  {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
   {{view Mongoman.SimpleTableView rowView="SelectableCollectionRow" headers="controller.headers" rows="controller.content"}}
   {{partial 'widgets'}}
 </div>

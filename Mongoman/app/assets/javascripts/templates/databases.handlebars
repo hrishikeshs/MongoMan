@@ -1,7 +1,6 @@
 <div class="container">
   <div class="list-heading">
-    {{#link-to 'databases'}}Databases{{/link-to}}
-    {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
+    {{#link-to 'databases'}}Databases{{/link-to}}    
     <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
   </div>
 
@@ -16,6 +15,8 @@
   <div class="invisible" id="db-rename-dialog">Enter new name<br /><br />
     {{input valueBinding="controller.newName" size="30"}}
   </div>
+
+  {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
 
   <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
   {{view Mongoman.SimpleTableView rowView="SelectableDatabaseRow" headers="controller.headers" rows="controller.content"}}
