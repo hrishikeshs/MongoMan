@@ -19,6 +19,8 @@
   {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
 
   <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
+  <div class="table-and-widgets-container flex">
   {{view Mongoman.SimpleTableView rowView="SelectableDatabaseRow" headers="controller.headers" rows="controller.content"}}
   {{partial 'widgets'}}
+  </div>
 </div>
