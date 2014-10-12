@@ -1,6 +1,6 @@
 <div class="container">
   <div class="list-heading">
-    {{#link-to 'databases'}}Databases{{/link-to}}
+    {{#link-to 'databases'}}Databases{{/link-to}}    
     <button class="new-button" {{action 'addDatabase'}}>+ New Database</button>
   </div>
 
@@ -16,34 +16,9 @@
     {{input valueBinding="controller.newName" size="30"}}
   </div>
 
-  <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
-
   {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
 
-  <div class="table-and-widgets-container flex">
-    <table class="table-default">
-      <thead>
-        <tr class="table-row">
-          <th>Database Name</th>
-          <th>Collections</th>
-          <th>Size</th>
-          <th>Indexes</th>
-        </tr>
-      </thead>
-      <tbody> 
-        {{#each controller}}
-          <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
-            <td>
-              {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-              {{#link-to 'collections' name class="table-links"}}{{name}}{{/link-to}}
-            </td>
-            <td>{{collection_count}}</td>
-            <td>{{size}} Gb</td>
-            <td>{{indexes}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-    {{partial 'widgets'}}
-  </div>
+  <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
+  {{view Mongoman.SimpleTableView rowView="SelectableDatabaseRow" headers="controller.headers" rows="controller.content"}}
+  {{partial 'widgets'}}
 </div>

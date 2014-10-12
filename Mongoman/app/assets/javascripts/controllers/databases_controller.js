@@ -2,8 +2,8 @@ Mongoman.DatabasesController = Ember.ArrayController.extend(Mongoman.DialogMixin
   content: null,
   copieddbName: null,
   newName: null,
-  itemController: 'selectedItem',
   statusText: "Hang on...",
+  headers: ["Database Name", "Collections", "Size", "Indexes"],
 
   actions: {
     addDatabase: function() {

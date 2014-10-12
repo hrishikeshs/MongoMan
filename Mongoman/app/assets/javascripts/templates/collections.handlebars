@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="list-heading">
     {{#link-to 'databases'}}Databases{{/link-to}}
     <button class="new-button" {{action 'addCollection'}}>+ New Collection</button>
@@ -6,43 +7,23 @@
     {{#link-to 'collections' controller.database}}{{controller.database}}{{/link-to}}
   </div>
 
-<div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />
+  <div class="invisible" id='collection-copy-dialog'>Copy as:<br /><br />
   {{input valueBinding="controller.copyas" size="30"}}
-</div>
+  </div>
 
-<div class="invisible" id="newcollection-create">Enter the Collection name:<br /><br />
+  <div class="invisible" id="newcollection-create">Enter the Collection name:<br /><br />
   {{input valueBinding="controller.newCollection" size="30"}}
-</div>
+  </div>
 
-<div class="invisible" id="collection-rename-dialog">Enter new name<br /><br />
+  <div class="invisible" id="collection-rename-dialog">Enter new name<br /><br />
   {{input valueBinding="controller.newName" size="30"}}
-</div>
+  </div>
 
-{{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
-
-<div id="placeholder-confirm-drop-collection" class="invisible"> Honestly ? </div>
-<div class="table-and-widgets-container flex">
-  <table class="table-default">
-          <tr class="table-row">
-              <th>Collection Name</th>
-              <th>Documents</th>
-              <th>Avg Document Size</th>
-              <th>Size</th>
-              <th>Indexes</th>
-          </tr>
-          {{#each controller}}
-          <tr class="table-row" {{bind-attr class="selected:selected-row"}}>
-            <td>
-              {{view Ember.Checkbox checkedBinding="selected" class="database-selector-checkbox"  classNameBindings="selected:selected-row"}}
-              <a href="#/documents/{{unbound parentController.database}}/{{unbound name}}" class="table-links">{{name}}</a>
-              <td>{{stats.count}}</td>
-              <td>{{truncate stats.avgObjSize}}  bytes</td>
-              <td>{{humanize stats.size}}</td>
-              <td>{{stats.nindexes}}</td>
-          </tr>
-          {{/each}}
-  </table>
+  <div id="placeholder-confirm-drop-collection" class="invisible"> Honestly ? </div>
+  {{input valueBinding="filterPhrase" class="documents-search-box" placeholder="type to filter... " }}
+  {{view Mongoman.SimpleTableView rowView="SelectableCollectionRow" headers="controller.headers" rows="controller.content"}}
   {{partial 'widgets'}}
 </div>
+
 <div id="placeholder-confirm-drop-db" class="invisible"> Honestly ? </div>
 </div>

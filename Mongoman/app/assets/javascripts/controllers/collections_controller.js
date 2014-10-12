@@ -6,8 +6,8 @@ Mongoman.CollectionsController = Ember.ArrayController.extend(Mongoman.DialogMix
   newCollection: null,
   copyas: null,
   newName: null,
-  itemController: 'selectedItem',
-  
+  headers: [ "Collection Name", "Documents", "Avg Document Size", "Size", "Indexes"],
+
   actions: {
 
     dropDatabase : function() {
