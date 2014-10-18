@@ -10,8 +10,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    active_model_serializers (0.8.1)
-      activemodel (>= 3.0)
+    active_model_serializers (0.9.0)
+      activemodel (>= 3.2)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -32,9 +32,9 @@ GEM
       ember-source
       execjs
       handlebars-source
-    bson (1.10.2)
-    bson_ext (1.10.2)
-      bson (~> 1.10.2)
+    bson (1.11.1)
+    bson_ext (1.11.1)
+      bson (~> 1.11.1)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -43,8 +43,8 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.1)
-    ember-data-source (1.0.0.beta.8)
+    coffee-script-source (1.8.0)
+    ember-data-source (1.0.0.beta.10)
       ember-source
     ember-rails (0.15.0)
       active_model_serializers
@@ -55,7 +55,7 @@ GEM
       handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.6.1)
+    ember-source (1.7.0)
       handlebars-source (~> 1.0)
     erubis (2.7.0)
     execjs (2.2.1)
@@ -67,10 +67,10 @@ GEM
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (3.1.1)
+    jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (5.0.0)
+    jquery-ui-rails (5.0.1)
       railties (>= 3.2.16)
     json (1.8.1)
     mail (2.5.4)
@@ -79,11 +79,11 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
-    mongo (1.10.2)
-      bson (= 1.10.2)
+    mongo (1.11.1)
+      bson (= 1.11.1)
     multi_json (1.10.1)
     polyglot (0.3.5)
-    pry (0.10.0)
+    pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -104,7 +104,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
-    rdoc (4.1.1)
+    rdoc (4.1.2)
       json (~> 1.4)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -112,9 +112,9 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
-    sdoc (0.4.0)
-      json (~> 1.8)
-      rdoc (~> 4.0, < 5.0)
+    sdoc (0.4.1)
+      json (~> 1.7, >= 1.7.7)
+      rdoc (~> 4.0)
     slop (3.6.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -131,9 +131,9 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.2)
+    turbolinks (2.4.0)
       coffee-rails
-    tzinfo (0.3.40)
+    tzinfo (0.3.41)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -144,8 +144,8 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   coffee-rails (~> 4.0.0)
-  ember-rails
-  ember-source (= 1.6.1)
+  ember-rails (~> 0.15.0)
+  ember-source (~> 1.7.0)
   haml
   jbuilder (~> 1.2)
   jquery-rails

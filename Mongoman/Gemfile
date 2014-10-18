@@ -19,9 +19,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-gem 'ember-rails'
+gem 'ember-rails', '~> 0.15.0'
 
-gem 'ember-source', '1.6.1'
+gem 'ember-source', '~> 1.7.0'
 
 gem 'haml'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

@@ -14,15 +14,15 @@ Mongoman.DocumentView = Ember.View.extend({
     editOrSaveDocument: function() {
       this.toggleProperty('editing');
       if(!this.get('editing')) {
-        var updated_document = this.$().text().match(/\{.+\}/)[0];
-        updated_document = Mongoman.Utils.sanitizeInput(updated_document);
+        var updatedDocument = this.$().text().match(/\{.+\}/)[0];
+        updatedDocument = Mongoman.Utils.sanitizeInput(updatedDocument);
         var url = '/documents/id?';
-        var promise = Mongoman.PostRequest.post(url , {database_name : this.get('controller.database'), collection_name: this.get('controller.collection')}, 'PUT', updated_document);
+        var promise = Mongoman.PostRequest.post(url , {database_name : this.get('controller.database'), collection_name: this.get('controller.collection')}, 'PUT', updatedDocument);
         promise.then(
           function(response) {
-            this.get('parentView').removeObject(this.get('content'));
-            this.get('parentView').addObject(response.document);
-            this.rerender();
+            var position = this.get('controller.content').indexOf(this.get('content'));
+            this.get('controller.content').insertAt(position, response.document);
+            this.get('controller.content').removeObject(this.get('content'));
           }.bind(this),
           function failure() {
             this.rerender();

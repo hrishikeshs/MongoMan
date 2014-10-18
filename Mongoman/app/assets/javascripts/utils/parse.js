@@ -99,6 +99,7 @@
       jsonString = jsonString.replace(/\"\)/g, "')");
       jsonString = jsonString.replace(/\)/g, ')"');
       var result = parseStringBetweenBraces(jsonString);
+      result = result.replace(/\" \"/g, '"');
       if(result.charAt(0) !== '"') {
         result = '{"' + result;
       }

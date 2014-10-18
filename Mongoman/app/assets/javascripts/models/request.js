@@ -39,12 +39,12 @@ Mongoman.PostRequest.reopenClass({
           type: type,
           success: function(response, status, xhr) {
             $.flash(response.notice);
-            resolve();
+            resolve(response);
           },
           error: function(xhr, textStatus, errorThrown) {
             console.log(xhr,textStatus);
             $.flash("Invalid operation");
-            reject();
+            reject(errorThrown);
           }
         });
       });
