@@ -24,7 +24,7 @@ Ember.Handlebars.registerBoundHelper('parseJSONString', function (json) {
       case 'undefined' :
       case 'boolean' :
         
-        return '<span>%@</span'.fmt(json);
+        return '<span>%@</span>'.fmt(json);
 
       default:
         if (Array.isArray(json)) {

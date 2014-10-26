@@ -1,8 +1,7 @@
-<button class='delete-btn'{{action 'deleteDocument' target='view'}}>
-  Delete
-</button>
-<button class='edit-save-button' {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value-in-double-quotes'>
-{{view.buttonText}}</button>
-<div spellcheck="false" {{bind-attr contenteditable="view.editing" class="view.editing:document-editing"}}>
-  {{parseJSONString view.content}}
+<div class="pull-right">
+  <button class="delete-btn" {{action 'deleteDocument' target='view'}}> Delete </button>
+  <button class="edit-save-button" {{action 'editOrSaveDocument' target='view'}} title='syntax is key:[space]value-in-double-quotes'>{{view.buttonText}}</button>
+</div>  
+<div spellcheck="false" {{bind-attr contenteditable="view.editing" class=":pull-left :mongodb-document view.editing:document-editing"}}>
+{{parseJSONString view.content}}
 </div>

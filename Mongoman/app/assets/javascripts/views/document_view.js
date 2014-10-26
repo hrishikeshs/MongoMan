@@ -1,4 +1,5 @@
 Mongoman.DocumentView = Ember.View.extend({
+  tagName: 'div',
   classNames:['document'],
   classNameBindings: ['editing:js-editing-document'],
   tagName: 'div',
